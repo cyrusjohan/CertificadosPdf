@@ -1,0 +1,903 @@
+<?xml version="1.0" standalone="yes"?>
+<SampleData xmlns="http://tempuri.org/SampleData.xsd">
+  <Burns>
+    <Date>7/23/2014</Date>
+    <Time>7/23/2014 3:01:24 PM</Time>
+    <CH01L1 xml:space="preserve"> </CH01L1>
+    <CH02L1>0.000</CH02L1>
+    <CH03L1>0.000</CH03L1>
+    <CH04L1>0.000</CH04L1>
+    <CH05L1>0.000</CH05L1>
+    <CH06L1>0.013</CH06L1>
+    <CH07L1>0.006</CH07L1>
+    <CH08L1 xml:space="preserve"> </CH08L1>
+    <CH09L1 xml:space="preserve"> </CH09L1>
+    <CH10L1>0.010</CH10L1>
+    <CH11L1>0.662</CH11L1>
+    <CH12L1>99.196</CH12L1>
+    <CH13L1>0.000</CH13L1>
+    <CH14L1>0.003</CH14L1>
+    <CH15L1>0.000</CH15L1>
+    <CH16L1>0.000</CH16L1>
+    <CH17L1>0.086</CH17L1>
+    <CH18L1>0.022</CH18L1>
+    <CH19L1 xml:space="preserve"> </CH19L1>
+    <CH20L1 xml:space="preserve"> </CH20L1>
+    <CH21L1 xml:space="preserve"> </CH21L1>
+    <CH22L1 xml:space="preserve"> </CH22L1>
+    <CH23L1 xml:space="preserve"> </CH23L1>
+    <CH24L1 xml:space="preserve"> </CH24L1>
+    <CH25L1 xml:space="preserve"> </CH25L1>
+    <CH26L1 xml:space="preserve"> </CH26L1>
+    <CH27L1 xml:space="preserve"> </CH27L1>
+    <CH28L1 xml:space="preserve"> </CH28L1>
+    <CH29L1 xml:space="preserve"> </CH29L1>
+    <CH30L1 xml:space="preserve"> </CH30L1>
+    <CH31L1 xml:space="preserve"> </CH31L1>
+    <CH32L1 xml:space="preserve"> </CH32L1>
+    <CH33L1 xml:space="preserve"> </CH33L1>
+    <CH34L1 xml:space="preserve"> </CH34L1>
+    <CH35L1 xml:space="preserve"> </CH35L1>
+    <CH36L1 xml:space="preserve"> </CH36L1>
+    <CH37L1 xml:space="preserve"> </CH37L1>
+    <CH38L1 xml:space="preserve"> </CH38L1>
+    <CH39L1 xml:space="preserve"> </CH39L1>
+    <CH40L1 xml:space="preserve"> </CH40L1>
+    <CH41L1 xml:space="preserve"> </CH41L1>
+    <CH42L1 xml:space="preserve"> </CH42L1>
+    <CH43L1 xml:space="preserve"> </CH43L1>
+    <CH44L1 xml:space="preserve"> </CH44L1>
+    <CH45L1 xml:space="preserve"> </CH45L1>
+    <CH46L1 xml:space="preserve"> </CH46L1>
+    <CH47L1 xml:space="preserve"> </CH47L1>
+    <CH48L1 xml:space="preserve"> </CH48L1>
+    <CH01L11 xml:space="preserve"> </CH01L11>
+    <CH02L11>4566.000</CH02L11>
+    <CH03L11>5732.000</CH03L11>
+    <CH04L11>412.000</CH04L11>
+    <CH05L11>244.000</CH05L11>
+    <CH06L11>767.000</CH06L11>
+    <CH07L11>377.000</CH07L11>
+    <CH08L11 xml:space="preserve"> </CH08L11>
+    <CH09L11 xml:space="preserve"> </CH09L11>
+    <CH10L11>1327.000</CH10L11>
+    <CH11L11>7178.000</CH11L11>
+    <CH12L11>18148.000</CH12L11>
+    <CH13L11>169.000</CH13L11>
+    <CH14L11>585.000</CH14L11>
+    <CH15L11>1443.000</CH15L11>
+    <CH16L11>6970.000</CH16L11>
+    <CH17L11>16879.000</CH17L11>
+    <CH18L11>12642.000</CH18L11>
+    <CH19L11 xml:space="preserve"> </CH19L11>
+    <CH20L11 xml:space="preserve"> </CH20L11>
+    <CH21L11 xml:space="preserve"> </CH21L11>
+    <CH22L11 xml:space="preserve"> </CH22L11>
+    <CH23L11 xml:space="preserve"> </CH23L11>
+    <CH24L11 xml:space="preserve"> </CH24L11>
+    <CH25L11 xml:space="preserve"> </CH25L11>
+    <CH26L11 xml:space="preserve"> </CH26L11>
+    <CH27L11 xml:space="preserve"> </CH27L11>
+    <CH28L11 xml:space="preserve"> </CH28L11>
+    <CH29L11 xml:space="preserve"> </CH29L11>
+    <CH30L11 xml:space="preserve"> </CH30L11>
+    <CH31L11 xml:space="preserve"> </CH31L11>
+    <CH32L11 xml:space="preserve"> </CH32L11>
+    <CH33L11 xml:space="preserve"> </CH33L11>
+    <CH34L11 xml:space="preserve"> </CH34L11>
+    <CH35L11 xml:space="preserve"> </CH35L11>
+    <CH36L11 xml:space="preserve"> </CH36L11>
+    <CH37L11 xml:space="preserve"> </CH37L11>
+    <CH38L11 xml:space="preserve"> </CH38L11>
+    <CH39L11 xml:space="preserve"> </CH39L11>
+    <CH40L11 xml:space="preserve"> </CH40L11>
+    <CH41L11 xml:space="preserve"> </CH41L11>
+    <CH42L11 xml:space="preserve"> </CH42L11>
+    <CH43L11 xml:space="preserve"> </CH43L11>
+    <CH44L11 xml:space="preserve"> </CH44L11>
+    <CH45L11 xml:space="preserve"> </CH45L11>
+    <CH46L11 xml:space="preserve"> </CH46L11>
+    <CH47L11 xml:space="preserve"> </CH47L11>
+    <CH48L11 xml:space="preserve"> </CH48L11>
+    <HeaderName>Cal Room</HeaderName>
+    <Description>For calibration room use only</Description>
+    <Label_Name>ID</Label_Name>
+    <Label_Value />
+    <Label_Name1>Comentario</Label_Name1>
+    <Label_Value1>15:00</Label_Value1>
+    <Label_Name2>OP</Label_Name2>
+    <Label_Value2 />
+    <Label_Name3>label4</Label_Name3>
+    <Label_Value3 />
+    <Label_Name4>label5</Label_Name4>
+    <Label_Value4 />
+    <Label_Name11>1</Label_Name11>
+    <CH01L12 xml:space="preserve"> </CH01L12>
+    <CH02L12>0.000</CH02L12>
+    <CH03L12>0.000</CH03L12>
+    <CH04L12>0.000</CH04L12>
+    <CH05L12>0.000</CH05L12>
+    <CH06L12>0.013</CH06L12>
+    <CH07L12>0.006</CH07L12>
+    <CH08L12 xml:space="preserve"> </CH08L12>
+    <CH09L12 xml:space="preserve"> </CH09L12>
+    <CH10L12>0.010</CH10L12>
+    <CH11L12>0.662</CH11L12>
+    <CH12L12>99.196</CH12L12>
+    <CH13L12>0.000</CH13L12>
+    <CH14L12>0.003</CH14L12>
+    <CH15L12>0.000</CH15L12>
+    <CH16L12>0.000</CH16L12>
+    <CH17L12>0.086</CH17L12>
+    <CH18L12>0.022</CH18L12>
+    <CH19L12 xml:space="preserve"> </CH19L12>
+    <CH20L12 xml:space="preserve"> </CH20L12>
+    <CH21L12 xml:space="preserve"> </CH21L12>
+    <CH22L12 xml:space="preserve"> </CH22L12>
+    <CH23L12 xml:space="preserve"> </CH23L12>
+    <CH24L12 xml:space="preserve"> </CH24L12>
+    <CH25L12 xml:space="preserve"> </CH25L12>
+    <CH26L12 xml:space="preserve"> </CH26L12>
+    <CH27L12 xml:space="preserve"> </CH27L12>
+    <CH28L12 xml:space="preserve"> </CH28L12>
+    <CH29L12 xml:space="preserve"> </CH29L12>
+    <CH30L12 xml:space="preserve"> </CH30L12>
+    <CH31L12 xml:space="preserve"> </CH31L12>
+    <CH32L12 xml:space="preserve"> </CH32L12>
+    <CH33L12 xml:space="preserve"> </CH33L12>
+    <CH34L12 xml:space="preserve"> </CH34L12>
+    <CH35L12 xml:space="preserve"> </CH35L12>
+    <CH36L12 xml:space="preserve"> </CH36L12>
+    <CH37L12 xml:space="preserve"> </CH37L12>
+    <CH38L12 xml:space="preserve"> </CH38L12>
+    <CH39L12 xml:space="preserve"> </CH39L12>
+    <CH40L12 xml:space="preserve"> </CH40L12>
+    <CH41L12 xml:space="preserve"> </CH41L12>
+    <CH42L12 xml:space="preserve"> </CH42L12>
+    <CH43L12 xml:space="preserve"> </CH43L12>
+    <CH44L12 xml:space="preserve"> </CH44L12>
+    <CH45L12 xml:space="preserve"> </CH45L12>
+    <CH46L12 xml:space="preserve"> </CH46L12>
+    <CH47L12 xml:space="preserve"> </CH47L12>
+    <CH48L12 xml:space="preserve"> </CH48L12>
+    <CH01L13 xml:space="preserve"> </CH01L13>
+    <CH02L13>2515.980</CH02L13>
+    <CH03L13>3158.475</CH03L13>
+    <CH04L13>227.022</CH04L13>
+    <CH05L13>134.450</CH05L13>
+    <CH06L13>422.636</CH06L13>
+    <CH07L13>207.736</CH07L13>
+    <CH08L13 xml:space="preserve"> </CH08L13>
+    <CH09L13 xml:space="preserve"> </CH09L13>
+    <CH10L13>731.210</CH10L13>
+    <CH11L13>3955.257</CH11L13>
+    <CH12L13>18148.000</CH12L13>
+    <CH13L13>93.123</CH13L13>
+    <CH14L13>322.350</CH14L13>
+    <CH15L13>795.129</CH15L13>
+    <CH16L13>3840.644</CH16L13>
+    <CH17L13>9300.749</CH17L13>
+    <CH18L13>6966.057</CH18L13>
+    <CH19L13 xml:space="preserve"> </CH19L13>
+    <CH20L13 xml:space="preserve"> </CH20L13>
+    <CH21L13 xml:space="preserve"> </CH21L13>
+    <CH22L13 xml:space="preserve"> </CH22L13>
+    <CH23L13 xml:space="preserve"> </CH23L13>
+    <CH24L13 xml:space="preserve"> </CH24L13>
+    <CH25L13 xml:space="preserve"> </CH25L13>
+    <CH26L13 xml:space="preserve"> </CH26L13>
+    <CH27L13 xml:space="preserve"> </CH27L13>
+    <CH28L13 xml:space="preserve"> </CH28L13>
+    <CH29L13 xml:space="preserve"> </CH29L13>
+    <CH30L13 xml:space="preserve"> </CH30L13>
+    <CH31L13 xml:space="preserve"> </CH31L13>
+    <CH32L13 xml:space="preserve"> </CH32L13>
+    <CH33L13 xml:space="preserve"> </CH33L13>
+    <CH34L13 xml:space="preserve"> </CH34L13>
+    <CH35L13 xml:space="preserve"> </CH35L13>
+    <CH36L13 xml:space="preserve"> </CH36L13>
+    <CH37L13 xml:space="preserve"> </CH37L13>
+    <CH38L13 xml:space="preserve"> </CH38L13>
+    <CH39L13 xml:space="preserve"> </CH39L13>
+    <CH40L13 xml:space="preserve"> </CH40L13>
+    <CH41L13 xml:space="preserve"> </CH41L13>
+    <CH42L13 xml:space="preserve"> </CH42L13>
+    <CH43L13 xml:space="preserve"> </CH43L13>
+    <CH44L13 xml:space="preserve"> </CH44L13>
+    <CH45L13 xml:space="preserve"> </CH45L13>
+    <CH46L13 xml:space="preserve"> </CH46L13>
+    <CH47L13 xml:space="preserve"> </CH47L13>
+    <CH48L13 xml:space="preserve"> </CH48L13>
+    <MatrixFile>C:\Angstrom Readout\Low Alloy Pb.cmtx</MatrixFile>
+    <IsAvg>False</IsAvg>
+    <LabelCount>5</LabelCount>
+    <RowLabel>Run no. 1</RowLabel>
+  </Burns>
+  <Burns>
+    <Date>7/23/2014</Date>
+    <Time>7/23/2014 3:03:59 PM</Time>
+    <CH01L1 xml:space="preserve"> </CH01L1>
+    <CH02L1>0.000</CH02L1>
+    <CH03L1>0.000</CH03L1>
+    <CH04L1>0.000</CH04L1>
+    <CH05L1>0.000</CH05L1>
+    <CH06L1>0.006</CH06L1>
+    <CH07L1>0.003</CH07L1>
+    <CH08L1 xml:space="preserve"> </CH08L1>
+    <CH09L1 xml:space="preserve"> </CH09L1>
+    <CH10L1>0.010</CH10L1>
+    <CH11L1>0.666</CH11L1>
+    <CH12L1>99.202</CH12L1>
+    <CH13L1>0.000</CH13L1>
+    <CH14L1>0.003</CH14L1>
+    <CH15L1>0.000</CH15L1>
+    <CH16L1>0.002</CH16L1>
+    <CH17L1>0.084</CH17L1>
+    <CH18L1>0.024</CH18L1>
+    <CH19L1 xml:space="preserve"> </CH19L1>
+    <CH20L1 xml:space="preserve"> </CH20L1>
+    <CH21L1 xml:space="preserve"> </CH21L1>
+    <CH22L1 xml:space="preserve"> </CH22L1>
+    <CH23L1 xml:space="preserve"> </CH23L1>
+    <CH24L1 xml:space="preserve"> </CH24L1>
+    <CH25L1 xml:space="preserve"> </CH25L1>
+    <CH26L1 xml:space="preserve"> </CH26L1>
+    <CH27L1 xml:space="preserve"> </CH27L1>
+    <CH28L1 xml:space="preserve"> </CH28L1>
+    <CH29L1 xml:space="preserve"> </CH29L1>
+    <CH30L1 xml:space="preserve"> </CH30L1>
+    <CH31L1 xml:space="preserve"> </CH31L1>
+    <CH32L1 xml:space="preserve"> </CH32L1>
+    <CH33L1 xml:space="preserve"> </CH33L1>
+    <CH34L1 xml:space="preserve"> </CH34L1>
+    <CH35L1 xml:space="preserve"> </CH35L1>
+    <CH36L1 xml:space="preserve"> </CH36L1>
+    <CH37L1 xml:space="preserve"> </CH37L1>
+    <CH38L1 xml:space="preserve"> </CH38L1>
+    <CH39L1 xml:space="preserve"> </CH39L1>
+    <CH40L1 xml:space="preserve"> </CH40L1>
+    <CH41L1 xml:space="preserve"> </CH41L1>
+    <CH42L1 xml:space="preserve"> </CH42L1>
+    <CH43L1 xml:space="preserve"> </CH43L1>
+    <CH44L1 xml:space="preserve"> </CH44L1>
+    <CH45L1 xml:space="preserve"> </CH45L1>
+    <CH46L1 xml:space="preserve"> </CH46L1>
+    <CH47L1 xml:space="preserve"> </CH47L1>
+    <CH48L1 xml:space="preserve"> </CH48L1>
+    <CH01L11 xml:space="preserve"> </CH01L11>
+    <CH02L11>4096.000</CH02L11>
+    <CH03L11>6400.000</CH03L11>
+    <CH04L11>441.000</CH04L11>
+    <CH05L11>273.000</CH05L11>
+    <CH06L11>594.000</CH06L11>
+    <CH07L11>316.000</CH07L11>
+    <CH08L11 xml:space="preserve"> </CH08L11>
+    <CH09L11 xml:space="preserve"> </CH09L11>
+    <CH10L11>1401.000</CH10L11>
+    <CH11L11>7922.000</CH11L11>
+    <CH12L11>19954.000</CH12L11>
+    <CH13L11>146.000</CH13L11>
+    <CH14L11>620.000</CH14L11>
+    <CH15L11>1695.000</CH15L11>
+    <CH16L11>8336.000</CH16L11>
+    <CH17L11>18126.000</CH17L11>
+    <CH18L11>14791.000</CH18L11>
+    <CH19L11 xml:space="preserve"> </CH19L11>
+    <CH20L11 xml:space="preserve"> </CH20L11>
+    <CH21L11 xml:space="preserve"> </CH21L11>
+    <CH22L11 xml:space="preserve"> </CH22L11>
+    <CH23L11 xml:space="preserve"> </CH23L11>
+    <CH24L11 xml:space="preserve"> </CH24L11>
+    <CH25L11 xml:space="preserve"> </CH25L11>
+    <CH26L11 xml:space="preserve"> </CH26L11>
+    <CH27L11 xml:space="preserve"> </CH27L11>
+    <CH28L11 xml:space="preserve"> </CH28L11>
+    <CH29L11 xml:space="preserve"> </CH29L11>
+    <CH30L11 xml:space="preserve"> </CH30L11>
+    <CH31L11 xml:space="preserve"> </CH31L11>
+    <CH32L11 xml:space="preserve"> </CH32L11>
+    <CH33L11 xml:space="preserve"> </CH33L11>
+    <CH34L11 xml:space="preserve"> </CH34L11>
+    <CH35L11 xml:space="preserve"> </CH35L11>
+    <CH36L11 xml:space="preserve"> </CH36L11>
+    <CH37L11 xml:space="preserve"> </CH37L11>
+    <CH38L11 xml:space="preserve"> </CH38L11>
+    <CH39L11 xml:space="preserve"> </CH39L11>
+    <CH40L11 xml:space="preserve"> </CH40L11>
+    <CH41L11 xml:space="preserve"> </CH41L11>
+    <CH42L11 xml:space="preserve"> </CH42L11>
+    <CH43L11 xml:space="preserve"> </CH43L11>
+    <CH44L11 xml:space="preserve"> </CH44L11>
+    <CH45L11 xml:space="preserve"> </CH45L11>
+    <CH46L11 xml:space="preserve"> </CH46L11>
+    <CH47L11 xml:space="preserve"> </CH47L11>
+    <CH48L11 xml:space="preserve"> </CH48L11>
+    <HeaderName>Cal Room</HeaderName>
+    <Description>For calibration room use only</Description>
+    <Label_Name>ID</Label_Name>
+    <Label_Value />
+    <Label_Name1>Comentario</Label_Name1>
+    <Label_Value1>15:00</Label_Value1>
+    <Label_Name2>OP</Label_Name2>
+    <Label_Value2 />
+    <Label_Name3>label4</Label_Name3>
+    <Label_Value3 />
+    <Label_Name4>label5</Label_Name4>
+    <Label_Value4 />
+    <Label_Name11>2</Label_Name11>
+    <CH01L12 xml:space="preserve"> </CH01L12>
+    <CH02L12>0.000</CH02L12>
+    <CH03L12>0.000</CH03L12>
+    <CH04L12>0.000</CH04L12>
+    <CH05L12>0.000</CH05L12>
+    <CH06L12>0.006</CH06L12>
+    <CH07L12>0.003</CH07L12>
+    <CH08L12 xml:space="preserve"> </CH08L12>
+    <CH09L12 xml:space="preserve"> </CH09L12>
+    <CH10L12>0.010</CH10L12>
+    <CH11L12>0.666</CH11L12>
+    <CH12L12>99.202</CH12L12>
+    <CH13L12>0.000</CH13L12>
+    <CH14L12>0.003</CH14L12>
+    <CH15L12>0.000</CH15L12>
+    <CH16L12>0.002</CH16L12>
+    <CH17L12>0.084</CH17L12>
+    <CH18L12>0.024</CH18L12>
+    <CH19L12 xml:space="preserve"> </CH19L12>
+    <CH20L12 xml:space="preserve"> </CH20L12>
+    <CH21L12 xml:space="preserve"> </CH21L12>
+    <CH22L12 xml:space="preserve"> </CH22L12>
+    <CH23L12 xml:space="preserve"> </CH23L12>
+    <CH24L12 xml:space="preserve"> </CH24L12>
+    <CH25L12 xml:space="preserve"> </CH25L12>
+    <CH26L12 xml:space="preserve"> </CH26L12>
+    <CH27L12 xml:space="preserve"> </CH27L12>
+    <CH28L12 xml:space="preserve"> </CH28L12>
+    <CH29L12 xml:space="preserve"> </CH29L12>
+    <CH30L12 xml:space="preserve"> </CH30L12>
+    <CH31L12 xml:space="preserve"> </CH31L12>
+    <CH32L12 xml:space="preserve"> </CH32L12>
+    <CH33L12 xml:space="preserve"> </CH33L12>
+    <CH34L12 xml:space="preserve"> </CH34L12>
+    <CH35L12 xml:space="preserve"> </CH35L12>
+    <CH36L12 xml:space="preserve"> </CH36L12>
+    <CH37L12 xml:space="preserve"> </CH37L12>
+    <CH38L12 xml:space="preserve"> </CH38L12>
+    <CH39L12 xml:space="preserve"> </CH39L12>
+    <CH40L12 xml:space="preserve"> </CH40L12>
+    <CH41L12 xml:space="preserve"> </CH41L12>
+    <CH42L12 xml:space="preserve"> </CH42L12>
+    <CH43L12 xml:space="preserve"> </CH43L12>
+    <CH44L12 xml:space="preserve"> </CH44L12>
+    <CH45L12 xml:space="preserve"> </CH45L12>
+    <CH46L12 xml:space="preserve"> </CH46L12>
+    <CH47L12 xml:space="preserve"> </CH47L12>
+    <CH48L12 xml:space="preserve"> </CH48L12>
+    <CH01L13 xml:space="preserve"> </CH01L13>
+    <CH02L13>2052.721</CH02L13>
+    <CH03L13>3207.377</CH03L13>
+    <CH04L13>221.008</CH04L13>
+    <CH05L13>136.815</CH05L13>
+    <CH06L13>297.685</CH06L13>
+    <CH07L13>158.364</CH07L13>
+    <CH08L13 xml:space="preserve"> </CH08L13>
+    <CH09L13 xml:space="preserve"> </CH09L13>
+    <CH10L13>702.115</CH10L13>
+    <CH11L13>3970.131</CH11L13>
+    <CH12L13>19954.000</CH12L13>
+    <CH13L13>73.168</CH13L13>
+    <CH14L13>310.715</CH14L13>
+    <CH15L13>849.454</CH15L13>
+    <CH16L13>4177.608</CH16L13>
+    <CH17L13>9083.893</CH17L13>
+    <CH18L13>7412.549</CH18L13>
+    <CH19L13 xml:space="preserve"> </CH19L13>
+    <CH20L13 xml:space="preserve"> </CH20L13>
+    <CH21L13 xml:space="preserve"> </CH21L13>
+    <CH22L13 xml:space="preserve"> </CH22L13>
+    <CH23L13 xml:space="preserve"> </CH23L13>
+    <CH24L13 xml:space="preserve"> </CH24L13>
+    <CH25L13 xml:space="preserve"> </CH25L13>
+    <CH26L13 xml:space="preserve"> </CH26L13>
+    <CH27L13 xml:space="preserve"> </CH27L13>
+    <CH28L13 xml:space="preserve"> </CH28L13>
+    <CH29L13 xml:space="preserve"> </CH29L13>
+    <CH30L13 xml:space="preserve"> </CH30L13>
+    <CH31L13 xml:space="preserve"> </CH31L13>
+    <CH32L13 xml:space="preserve"> </CH32L13>
+    <CH33L13 xml:space="preserve"> </CH33L13>
+    <CH34L13 xml:space="preserve"> </CH34L13>
+    <CH35L13 xml:space="preserve"> </CH35L13>
+    <CH36L13 xml:space="preserve"> </CH36L13>
+    <CH37L13 xml:space="preserve"> </CH37L13>
+    <CH38L13 xml:space="preserve"> </CH38L13>
+    <CH39L13 xml:space="preserve"> </CH39L13>
+    <CH40L13 xml:space="preserve"> </CH40L13>
+    <CH41L13 xml:space="preserve"> </CH41L13>
+    <CH42L13 xml:space="preserve"> </CH42L13>
+    <CH43L13 xml:space="preserve"> </CH43L13>
+    <CH44L13 xml:space="preserve"> </CH44L13>
+    <CH45L13 xml:space="preserve"> </CH45L13>
+    <CH46L13 xml:space="preserve"> </CH46L13>
+    <CH47L13 xml:space="preserve"> </CH47L13>
+    <CH48L13 xml:space="preserve"> </CH48L13>
+    <MatrixFile>C:\Angstrom Readout\Low Alloy Pb.cmtx</MatrixFile>
+    <IsAvg>False</IsAvg>
+    <LabelCount>5</LabelCount>
+    <RowLabel>Run no. 2</RowLabel>
+  </Burns>
+  <Burns>
+    <Date>7/23/2014</Date>
+    <Time>7/23/2014 3:08:16 PM</Time>
+    <CH01L1 />
+    <CH02L1>0.000</CH02L1>
+    <CH03L1>0.000</CH03L1>
+    <CH04L1>0.000</CH04L1>
+    <CH05L1>0.000</CH05L1>
+    <CH06L1>0.010</CH06L1>
+    <CH07L1>0.005</CH07L1>
+    <CH08L1 />
+    <CH09L1 />
+    <CH10L1>0.010</CH10L1>
+    <CH11L1>0.664</CH11L1>
+    <CH12L1>99.199</CH12L1>
+    <CH13L1>0.000</CH13L1>
+    <CH14L1>0.003</CH14L1>
+    <CH15L1>0.000</CH15L1>
+    <CH16L1>0.001</CH16L1>
+    <CH17L1>0.085</CH17L1>
+    <CH18L1>0.023</CH18L1>
+    <CH19L1 />
+    <CH20L1 />
+    <CH21L1 />
+    <CH22L1 />
+    <CH23L1 />
+    <CH24L1 />
+    <CH25L1 />
+    <CH26L1 />
+    <CH27L1 />
+    <CH28L1 />
+    <CH29L1 />
+    <CH30L1 />
+    <CH31L1 />
+    <CH32L1 />
+    <CH33L1 />
+    <CH34L1 />
+    <CH35L1 />
+    <CH36L1 />
+    <CH37L1 />
+    <CH38L1 />
+    <CH39L1 />
+    <CH40L1 />
+    <CH41L1 />
+    <CH42L1 />
+    <CH43L1 />
+    <CH44L1 />
+    <CH45L1 />
+    <CH46L1 />
+    <CH47L1 />
+    <CH48L1 />
+    <CH01L11 />
+    <CH02L11>4331</CH02L11>
+    <CH03L11>6066</CH03L11>
+    <CH04L11>427</CH04L11>
+    <CH05L11>259</CH05L11>
+    <CH06L11>681</CH06L11>
+    <CH07L11>347</CH07L11>
+    <CH08L11 />
+    <CH09L11 />
+    <CH10L11>1364</CH10L11>
+    <CH11L11>7550</CH11L11>
+    <CH12L11>19051</CH12L11>
+    <CH13L11>158</CH13L11>
+    <CH14L11>603</CH14L11>
+    <CH15L11>1569</CH15L11>
+    <CH16L11>7653</CH16L11>
+    <CH17L11>17503</CH17L11>
+    <CH18L11>13717</CH18L11>
+    <CH19L11 />
+    <CH20L11 />
+    <CH21L11 />
+    <CH22L11 />
+    <CH23L11 />
+    <CH24L11 />
+    <CH25L11 />
+    <CH26L11 />
+    <CH27L11 />
+    <CH28L11 />
+    <CH29L11 />
+    <CH30L11 />
+    <CH31L11 />
+    <CH32L11 />
+    <CH33L11 />
+    <CH34L11 />
+    <CH35L11 />
+    <CH36L11 />
+    <CH37L11 />
+    <CH38L11 />
+    <CH39L11 />
+    <CH40L11 />
+    <CH41L11 />
+    <CH42L11 />
+    <CH43L11 />
+    <CH44L11 />
+    <CH45L11 />
+    <CH46L11 />
+    <CH47L11 />
+    <CH48L11 />
+    <HeaderName>Cal Room</HeaderName>
+    <Description>For calibration room use only</Description>
+    <Label_Name>ID</Label_Name>
+    <Label_Value />
+    <Label_Name1>Comentario</Label_Name1>
+    <Label_Value1>15:00</Label_Value1>
+    <Label_Name2>OP</Label_Name2>
+    <Label_Value2 />
+    <Label_Name3>label4</Label_Name3>
+    <Label_Value3 />
+    <Label_Name4>label5</Label_Name4>
+    <Label_Value4 />
+    <Label_Name11>99</Label_Name11>
+    <CH01L12 xml:space="preserve"> </CH01L12>
+    <CH02L12 xml:space="preserve"> </CH02L12>
+    <CH03L12>0.000</CH03L12>
+    <CH04L12>0.000</CH04L12>
+    <CH05L12>0.000</CH05L12>
+    <CH06L12>0.010</CH06L12>
+    <CH07L12>0.005</CH07L12>
+    <CH08L12 xml:space="preserve"> </CH08L12>
+    <CH09L12 xml:space="preserve"> </CH09L12>
+    <CH10L12>0.010</CH10L12>
+    <CH11L12>0.664</CH11L12>
+    <CH12L12>99.199</CH12L12>
+    <CH13L12>0.000</CH13L12>
+    <CH14L12>0.003</CH14L12>
+    <CH15L12>0.000</CH15L12>
+    <CH16L12>0.001</CH16L12>
+    <CH17L12>0.085</CH17L12>
+    <CH18L12>0.023</CH18L12>
+    <CH19L12 xml:space="preserve"> </CH19L12>
+    <CH20L12 xml:space="preserve"> </CH20L12>
+    <CH21L12 xml:space="preserve"> </CH21L12>
+    <CH22L12 xml:space="preserve"> </CH22L12>
+    <CH23L12 xml:space="preserve"> </CH23L12>
+    <CH24L12 xml:space="preserve"> </CH24L12>
+    <CH25L12 xml:space="preserve"> </CH25L12>
+    <CH26L12 xml:space="preserve"> </CH26L12>
+    <CH27L12 xml:space="preserve"> </CH27L12>
+    <CH28L12 xml:space="preserve"> </CH28L12>
+    <CH29L12 xml:space="preserve"> </CH29L12>
+    <CH30L12 xml:space="preserve"> </CH30L12>
+    <CH31L12 xml:space="preserve"> </CH31L12>
+    <CH32L12 xml:space="preserve"> </CH32L12>
+    <CH33L12 xml:space="preserve"> </CH33L12>
+    <CH34L12 xml:space="preserve"> </CH34L12>
+    <CH35L12 xml:space="preserve"> </CH35L12>
+    <CH36L12 xml:space="preserve"> </CH36L12>
+    <CH37L12 xml:space="preserve"> </CH37L12>
+    <CH38L12 xml:space="preserve"> </CH38L12>
+    <CH39L12 xml:space="preserve"> </CH39L12>
+    <CH40L12 xml:space="preserve"> </CH40L12>
+    <CH41L12 xml:space="preserve"> </CH41L12>
+    <CH42L12 xml:space="preserve"> </CH42L12>
+    <CH43L12 xml:space="preserve"> </CH43L12>
+    <CH44L12 xml:space="preserve"> </CH44L12>
+    <CH45L12 xml:space="preserve"> </CH45L12>
+    <CH46L12 xml:space="preserve"> </CH46L12>
+    <CH47L12 xml:space="preserve"> </CH47L12>
+    <CH48L12 xml:space="preserve"> </CH48L12>
+    <CH01L13 />
+    <CH02L13>2284</CH02L13>
+    <CH03L13>3183</CH03L13>
+    <CH04L13>224</CH04L13>
+    <CH05L13>136</CH05L13>
+    <CH06L13>360</CH06L13>
+    <CH07L13>183</CH07L13>
+    <CH08L13 />
+    <CH09L13 />
+    <CH10L13>717</CH10L13>
+    <CH11L13>3963</CH11L13>
+    <CH12L13>Infinity</CH12L13>
+    <CH13L13>83</CH13L13>
+    <CH14L13>317</CH14L13>
+    <CH15L13>822</CH15L13>
+    <CH16L13>4009</CH16L13>
+    <CH17L13>9192</CH17L13>
+    <CH18L13>7189</CH18L13>
+    <CH19L13 />
+    <CH20L13 />
+    <CH21L13 />
+    <CH22L13 />
+    <CH23L13 />
+    <CH24L13 />
+    <CH25L13 />
+    <CH26L13 />
+    <CH27L13 />
+    <CH28L13 />
+    <CH29L13 />
+    <CH30L13 />
+    <CH31L13 />
+    <CH32L13 />
+    <CH33L13 />
+    <CH34L13 />
+    <CH35L13 />
+    <CH36L13 />
+    <CH37L13 />
+    <CH38L13 />
+    <CH39L13 />
+    <CH40L13 />
+    <CH41L13 />
+    <CH42L13 />
+    <CH43L13 />
+    <CH44L13 />
+    <CH45L13 />
+    <CH46L13 />
+    <CH47L13 />
+    <CH48L13 />
+    <CH01L14 />
+    <CH02L14>S:1 ||I:0 ||O:0 ||F:1</CH02L14>
+    <CH03L14>S:1.1288 ||I:253.0392 ||O:0 ||F:1</CH03L14>
+    <CH04L14>S:1.0885 ||I:15.6444 ||O:0 ||F:1</CH04L14>
+    <CH05L14>S:1.0948 ||I:15.0701 ||O:0 ||F:1</CH05L14>
+    <CH06L14>S:0.7898 ||I:0 ||O:0 ||F:1</CH06L14>
+    <CH07L14>S:1.0992 ||I:11.2818 ||O:0 ||F:1</CH07L14>
+    <CH08L14 />
+    <CH09L14 />
+    <CH10L14>S:1.014 ||I:7.691 ||O:0 ||F:1</CH10L14>
+    <CH11L14>S:0.9464 ||I:3.7036 ||O:0 ||F:1</CH11L14>
+    <CH12L14>S:1 ||I:0 ||O:0 ||F:0</CH12L14>
+    <CH13L14>S:0.5264 ||I:-9.3764 ||O:0 ||F:1</CH13L14>
+    <CH14L14>S:1.0626 ||I:-8.3213 ||O:0 ||F:1</CH14L14>
+    <CH15L14>S:1.1638 ||I:137.9279 ||O:0 ||F:1</CH15L14>
+    <CH16L14>S:1.2881 ||I:333.5932 ||O:0 ||F:1</CH16L14>
+    <CH17L14>S:0.9816 ||I:174.7921 ||O:0 ||F:1</CH17L14>
+    <CH18L14>S:1.2704 ||I:-14.5208 ||O:0 ||F:1</CH18L14>
+    <CH19L14 />
+    <CH20L14 />
+    <CH21L14 />
+    <CH22L14 />
+    <CH23L14 />
+    <CH24L14 />
+    <CH25L14 />
+    <CH26L14 />
+    <CH27L14 />
+    <CH28L14 />
+    <CH29L14 />
+    <CH30L14 />
+    <CH31L14 />
+    <CH32L14 />
+    <CH33L14 />
+    <CH34L14 />
+    <CH35L14 />
+    <CH36L14 />
+    <CH37L14 />
+    <CH38L14 />
+    <CH39L14 />
+    <CH40L14 />
+    <CH41L14 />
+    <CH42L14 />
+    <CH43L14 />
+    <CH44L14 />
+    <CH45L14 />
+    <CH46L14 />
+    <CH47L14 />
+    <CH48L14 />
+    <MatrixFile>C:\Angstrom Readout\Low Alloy Pb.cmtx</MatrixFile>
+    <IsAvg>True</IsAvg>
+    <LabelCount>5</LabelCount>
+    <RowLabel>Average</RowLabel>
+  </Burns>
+  <Burns>
+    <Date>7/23/2014</Date>
+    <Time>7/23/2014 3:01:24 PM</Time>
+    <CH01L1 xml:space="preserve"> </CH01L1>
+    <CH02L1>0.000</CH02L1>
+    <CH03L1>0.000</CH03L1>
+    <CH04L1>0.000</CH04L1>
+    <CH05L1>0.000</CH05L1>
+    <CH06L1>0.013</CH06L1>
+    <CH07L1>0.006</CH07L1>
+    <CH08L1 xml:space="preserve"> </CH08L1>
+    <CH09L1 xml:space="preserve"> </CH09L1>
+    <CH10L1>0.010</CH10L1>
+    <CH11L1>0.662</CH11L1>
+    <CH12L1>99.196</CH12L1>
+    <CH13L1>0.000</CH13L1>
+    <CH14L1>0.003</CH14L1>
+    <CH15L1>0.000</CH15L1>
+    <CH16L1>0.000</CH16L1>
+    <CH17L1>0.086</CH17L1>
+    <CH18L1>0.022</CH18L1>
+    <CH19L1 xml:space="preserve"> </CH19L1>
+    <CH20L1 xml:space="preserve"> </CH20L1>
+    <CH21L1 xml:space="preserve"> </CH21L1>
+    <CH22L1 xml:space="preserve"> </CH22L1>
+    <CH23L1 xml:space="preserve"> </CH23L1>
+    <CH24L1 xml:space="preserve"> </CH24L1>
+    <CH25L1 xml:space="preserve"> </CH25L1>
+    <CH26L1 xml:space="preserve"> </CH26L1>
+    <CH27L1 xml:space="preserve"> </CH27L1>
+    <CH28L1 xml:space="preserve"> </CH28L1>
+    <CH29L1 xml:space="preserve"> </CH29L1>
+    <CH30L1 xml:space="preserve"> </CH30L1>
+    <CH31L1 xml:space="preserve"> </CH31L1>
+    <CH32L1 xml:space="preserve"> </CH32L1>
+    <CH33L1 xml:space="preserve"> </CH33L1>
+    <CH34L1 xml:space="preserve"> </CH34L1>
+    <CH35L1 xml:space="preserve"> </CH35L1>
+    <CH36L1 xml:space="preserve"> </CH36L1>
+    <CH37L1 xml:space="preserve"> </CH37L1>
+    <CH38L1 xml:space="preserve"> </CH38L1>
+    <CH39L1 xml:space="preserve"> </CH39L1>
+    <CH40L1 xml:space="preserve"> </CH40L1>
+    <CH41L1 xml:space="preserve"> </CH41L1>
+    <CH42L1 xml:space="preserve"> </CH42L1>
+    <CH43L1 xml:space="preserve"> </CH43L1>
+    <CH44L1 xml:space="preserve"> </CH44L1>
+    <CH45L1 xml:space="preserve"> </CH45L1>
+    <CH46L1 xml:space="preserve"> </CH46L1>
+    <CH47L1 xml:space="preserve"> </CH47L1>
+    <CH48L1 xml:space="preserve"> </CH48L1>
+    <CH01L11 xml:space="preserve"> </CH01L11>
+    <CH02L11>4566.000</CH02L11>
+    <CH03L11>5732.000</CH03L11>
+    <CH04L11>412.000</CH04L11>
+    <CH05L11>244.000</CH05L11>
+    <CH06L11>767.000</CH06L11>
+    <CH07L11>377.000</CH07L11>
+    <CH08L11 xml:space="preserve"> </CH08L11>
+    <CH09L11 xml:space="preserve"> </CH09L11>
+    <CH10L11>1327.000</CH10L11>
+    <CH11L11>7178.000</CH11L11>
+    <CH12L11>18148.000</CH12L11>
+    <CH13L11>169.000</CH13L11>
+    <CH14L11>585.000</CH14L11>
+    <CH15L11>1443.000</CH15L11>
+    <CH16L11>6970.000</CH16L11>
+    <CH17L11>16879.000</CH17L11>
+    <CH18L11>12642.000</CH18L11>
+    <CH19L11 xml:space="preserve"> </CH19L11>
+    <CH20L11 xml:space="preserve"> </CH20L11>
+    <CH21L11 xml:space="preserve"> </CH21L11>
+    <CH22L11 xml:space="preserve"> </CH22L11>
+    <CH23L11 xml:space="preserve"> </CH23L11>
+    <CH24L11 xml:space="preserve"> </CH24L11>
+    <CH25L11 xml:space="preserve"> </CH25L11>
+    <CH26L11 xml:space="preserve"> </CH26L11>
+    <CH27L11 xml:space="preserve"> </CH27L11>
+    <CH28L11 xml:space="preserve"> </CH28L11>
+    <CH29L11 xml:space="preserve"> </CH29L11>
+    <CH30L11 xml:space="preserve"> </CH30L11>
+    <CH31L11 xml:space="preserve"> </CH31L11>
+    <CH32L11 xml:space="preserve"> </CH32L11>
+    <CH33L11 xml:space="preserve"> </CH33L11>
+    <CH34L11 xml:space="preserve"> </CH34L11>
+    <CH35L11 xml:space="preserve"> </CH35L11>
+    <CH36L11 xml:space="preserve"> </CH36L11>
+    <CH37L11 xml:space="preserve"> </CH37L11>
+    <CH38L11 xml:space="preserve"> </CH38L11>
+    <CH39L11 xml:space="preserve"> </CH39L11>
+    <CH40L11 xml:space="preserve"> </CH40L11>
+    <CH41L11 xml:space="preserve"> </CH41L11>
+    <CH42L11 xml:space="preserve"> </CH42L11>
+    <CH43L11 xml:space="preserve"> </CH43L11>
+    <CH44L11 xml:space="preserve"> </CH44L11>
+    <CH45L11 xml:space="preserve"> </CH45L11>
+    <CH46L11 xml:space="preserve"> </CH46L11>
+    <CH47L11 xml:space="preserve"> </CH47L11>
+    <CH48L11 xml:space="preserve"> </CH48L11>
+    <HeaderName>AyG Ingenieria S.A.S.</HeaderName>
+    <Description />
+    <Label_Name>Lote</Label_Name>
+    <Label_Value>Fz CaAl</Label_Value>
+    <Label_Name1>Cliente</Label_Name1>
+    <Label_Value1>Fz</Label_Value1>
+    <Label_Name2>Aleacion </Label_Name2>
+    <Label_Value2>CaAg</Label_Value2>
+    <Label_Name3>label4</Label_Name3>
+    <Label_Value3 />
+    <Label_Name4>label5</Label_Name4>
+    <Label_Value4 />
+    <Label_Name11>1</Label_Name11>
+    <CH01L12 xml:space="preserve"> </CH01L12>
+    <CH02L12>0.000</CH02L12>
+    <CH03L12>0.000</CH03L12>
+    <CH04L12>0.000</CH04L12>
+    <CH05L12>0.000</CH05L12>
+    <CH06L12>0.013</CH06L12>
+    <CH07L12>0.006</CH07L12>
+    <CH08L12 xml:space="preserve"> </CH08L12>
+    <CH09L12 xml:space="preserve"> </CH09L12>
+    <CH10L12>0.010</CH10L12>
+    <CH11L12>0.662</CH11L12>
+    <CH12L12>99.196</CH12L12>
+    <CH13L12>0.000</CH13L12>
+    <CH14L12>0.003</CH14L12>
+    <CH15L12>0.000</CH15L12>
+    <CH16L12>0.000</CH16L12>
+    <CH17L12>0.086</CH17L12>
+    <CH18L12>0.022</CH18L12>
+    <CH19L12 xml:space="preserve"> </CH19L12>
+    <CH20L12 xml:space="preserve"> </CH20L12>
+    <CH21L12 xml:space="preserve"> </CH21L12>
+    <CH22L12 xml:space="preserve"> </CH22L12>
+    <CH23L12 xml:space="preserve"> </CH23L12>
+    <CH24L12 xml:space="preserve"> </CH24L12>
+    <CH25L12 xml:space="preserve"> </CH25L12>
+    <CH26L12 xml:space="preserve"> </CH26L12>
+    <CH27L12 xml:space="preserve"> </CH27L12>
+    <CH28L12 xml:space="preserve"> </CH28L12>
+    <CH29L12 xml:space="preserve"> </CH29L12>
+    <CH30L12 xml:space="preserve"> </CH30L12>
+    <CH31L12 xml:space="preserve"> </CH31L12>
+    <CH32L12 xml:space="preserve"> </CH32L12>
+    <CH33L12 xml:space="preserve"> </CH33L12>
+    <CH34L12 xml:space="preserve"> </CH34L12>
+    <CH35L12 xml:space="preserve"> </CH35L12>
+    <CH36L12 xml:space="preserve"> </CH36L12>
+    <CH37L12 xml:space="preserve"> </CH37L12>
+    <CH38L12 xml:space="preserve"> </CH38L12>
+    <CH39L12 xml:space="preserve"> </CH39L12>
+    <CH40L12 xml:space="preserve"> </CH40L12>
+    <CH41L12 xml:space="preserve"> </CH41L12>
+    <CH42L12 xml:space="preserve"> </CH42L12>
+    <CH43L12 xml:space="preserve"> </CH43L12>
+    <CH44L12 xml:space="preserve"> </CH44L12>
+    <CH45L12 xml:space="preserve"> </CH45L12>
+    <CH46L12 xml:space="preserve"> </CH46L12>
+    <CH47L12 xml:space="preserve"> </CH47L12>
+    <CH48L12 xml:space="preserve"> </CH48L12>
+    <CH01L13 xml:space="preserve"> </CH01L13>
+    <CH02L13>2515.980</CH02L13>
+    <CH03L13>3158.475</CH03L13>
+    <CH04L13>227.022</CH04L13>
+    <CH05L13>134.450</CH05L13>
+    <CH06L13>422.636</CH06L13>
+    <CH07L13>207.736</CH07L13>
+    <CH08L13 xml:space="preserve"> </CH08L13>
+    <CH09L13 xml:space="preserve"> </CH09L13>
+    <CH10L13>731.210</CH10L13>
+    <CH11L13>3955.257</CH11L13>
+    <CH12L13>18148.000</CH12L13>
+    <CH13L13>93.123</CH13L13>
+    <CH14L13>322.350</CH14L13>
+    <CH15L13>795.129</CH15L13>
+    <CH16L13>3840.644</CH16L13>
+    <CH17L13>9300.749</CH17L13>
+    <CH18L13>6966.057</CH18L13>
+    <CH19L13 xml:space="preserve"> </CH19L13>
+    <CH20L13 xml:space="preserve"> </CH20L13>
+    <CH21L13 xml:space="preserve"> </CH21L13>
+    <CH22L13 xml:space="preserve"> </CH22L13>
+    <CH23L13 xml:space="preserve"> </CH23L13>
+    <CH24L13 xml:space="preserve"> </CH24L13>
+    <CH25L13 xml:space="preserve"> </CH25L13>
+    <CH26L13 xml:space="preserve"> </CH26L13>
+    <CH27L13 xml:space="preserve"> </CH27L13>
+    <CH28L13 xml:space="preserve"> </CH28L13>
+    <CH29L13 xml:space="preserve"> </CH29L13>
+    <CH30L13 xml:space="preserve"> </CH30L13>
+    <CH31L13 xml:space="preserve"> </CH31L13>
+    <CH32L13 xml:space="preserve"> </CH32L13>
+    <CH33L13 xml:space="preserve"> </CH33L13>
+    <CH34L13 xml:space="preserve"> </CH34L13>
+    <CH35L13 xml:space="preserve"> </CH35L13>
+    <CH36L13 xml:space="preserve"> </CH36L13>
+    <CH37L13 xml:space="preserve"> </CH37L13>
+    <CH38L13 xml:space="preserve"> </CH38L13>
+    <CH39L13 xml:space="preserve"> </CH39L13>
+    <CH40L13 xml:space="preserve"> </CH40L13>
+    <CH41L13 xml:space="preserve"> </CH41L13>
+    <CH42L13 xml:space="preserve"> </CH42L13>
+    <CH43L13 xml:space="preserve"> </CH43L13>
+    <CH44L13 xml:space="preserve"> </CH44L13>
+    <CH45L13 xml:space="preserve"> </CH45L13>
+    <CH46L13 xml:space="preserve"> </CH46L13>
+    <CH47L13 xml:space="preserve"> </CH47L13>
+    <CH48L13 xml:space="preserve"> </CH48L13>
+    <MatrixFile>C:\Angstrom Readout\Low Alloy Pb.cmtx</MatrixFile>
+    <IsAvg>False</IsAvg>
+    <LabelCount>5</LabelCount>
+    <RowLabel>Run no. 1</RowLabel>
+  </Burns>
+  </SampleData>

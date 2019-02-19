@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Clientes>
+  <Cliente>
+    <Id>1</Id>
+    <Nombre>Por defecto</Nombre>
+    <Descripcion>Configuracion usuada para especificaciones por defecto</Descripcion>
+    <Elementos>
+      <Elemento>
+        <Id>1</Id>
+        <Nombre>Estaño</Nombre>
+        <Simbolo>Sn</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.002</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>2</Id>
+        <Nombre>Antimonio</Nombre>
+        <Simbolo>Sb</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.003</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>3</Id>
+        <Nombre>Arsenico</Nombre>
+        <Simbolo>As</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.004</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>4</Id>
+        <Nombre>Cobre</Nombre>
+        <Simbolo>Cu</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.005</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>5</Id>
+        <Nombre>Niquel</Nombre>
+        <Simbolo>Ni</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.006</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>6</Id>
+        <Nombre>Bismuto</Nombre>
+        <Simbolo>Bi</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.007</Max>
+      </Elemento>
+    </Elementos>
+
+  </Cliente>
+
+  <Cliente>
+    <Id>2</Id>
+    <Nombre>Willard</Nombre>
+    <Descripcion>Configuracion personalizada</Descripcion>
+    <Elementos>
+      <Elemento>
+        <Id>1</Id>
+        <Nombre>Estaño</Nombre>
+        <Simbolo>Sn</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.001</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>2</Id>
+        <Nombre>Antimonio</Nombre>
+        <Simbolo>Sb</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.001</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>3</Id>
+        <Nombre>Arsenico</Nombre>
+        <Simbolo>As</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.001</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>4</Id>
+        <Nombre>Cobre</Nombre>
+        <Simbolo>Cu</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.001</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>5</Id>
+        <Nombre>Niquel</Nombre>
+        <Simbolo>Ni</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.001</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>6</Id>
+        <Nombre>Bismuto</Nombre>
+        <Simbolo>Bi</Simbolo>
+        <Min>0.001</Min>
+        <Max>0.001</Max>
+      </Elemento>
+    </Elementos>
+
+  </Cliente>
+</Clientes>

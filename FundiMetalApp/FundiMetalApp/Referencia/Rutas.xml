@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfiguracionRutas>
+  <RutaXmlFuente>d:\CodigoFuenteJohan\FundimetalApp\FundiMetalApp\FundiMetalApp\Referencia\Low Alloy Pb.xml</RutaXmlFuente>
+  <RutaGeneracionCertificados>d:\RutaSalidaPDF</RutaGeneracionCertificados>
+</ConfiguracionRutas>

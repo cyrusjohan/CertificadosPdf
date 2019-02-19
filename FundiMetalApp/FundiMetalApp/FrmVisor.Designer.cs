@@ -1,0 +1,197 @@
+﻿namespace Fundimetal.App
+{
+    partial class FrmVisor
+    {
+        /// <summary>
+        /// Variable del diseñador necesaria.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Limpiar los recursos que se estén usando.
+        /// </summary>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Código generado por el Diseñador de Windows Forms
+
+        /// <summary>
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dataGridVisor = new System.Windows.Forms.DataGridView();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmb_especificacion_cliente = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.bnt_recargar_info = new System.Windows.Forms.Button();
+            this.btn_cerrar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chk_send_email = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVisor)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // dataGridVisor
+            // 
+            this.dataGridVisor.AllowUserToAddRows = false;
+            this.dataGridVisor.AllowUserToDeleteRows = false;
+            this.dataGridVisor.AllowUserToOrderColumns = true;
+            this.dataGridVisor.AllowUserToResizeRows = false;
+            this.dataGridVisor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridVisor.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridVisor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridVisor.Location = new System.Drawing.Point(15, 26);
+            this.dataGridVisor.MultiSelect = false;
+            this.dataGridVisor.Name = "dataGridVisor";
+            this.dataGridVisor.ReadOnly = true;
+            this.dataGridVisor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridVisor.Size = new System.Drawing.Size(1039, 390);
+            this.dataGridVisor.TabIndex = 0;
+            // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnGenerarPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarPDF.ForeColor = System.Drawing.Color.White;
+            this.btnGenerarPDF.Location = new System.Drawing.Point(281, 23);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(177, 50);
+            this.btnGenerarPDF.TabIndex = 4;
+            this.btnGenerarPDF.Text = "Generar certificado";
+            this.btnGenerarPDF.UseVisualStyleBackColor = false;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(322, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Se estan visualizando unicamente registros con calculos promedio.";
+            // 
+            // cmb_especificacion_cliente
+            // 
+            this.cmb_especificacion_cliente.DisplayMember = "Text";
+            this.cmb_especificacion_cliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_especificacion_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_especificacion_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_especificacion_cliente.Location = new System.Drawing.Point(23, 37);
+            this.cmb_especificacion_cliente.Name = "cmb_especificacion_cliente";
+            this.cmb_especificacion_cliente.Size = new System.Drawing.Size(212, 23);
+            this.cmb_especificacion_cliente.TabIndex = 6;
+            this.cmb_especificacion_cliente.ValueMember = "Value";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(20, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(215, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Seleccionar  especificación del cliente";
+            // 
+            // bnt_recargar_info
+            // 
+            this.bnt_recargar_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnt_recargar_info.Location = new System.Drawing.Point(935, 443);
+            this.bnt_recargar_info.Name = "bnt_recargar_info";
+            this.bnt_recargar_info.Size = new System.Drawing.Size(119, 33);
+            this.bnt_recargar_info.TabIndex = 8;
+            this.bnt_recargar_info.Text = "Recargar visor";
+            this.bnt_recargar_info.UseVisualStyleBackColor = true;
+            this.bnt_recargar_info.Click += new System.EventHandler(this.bnt_recargar_info_Click);
+            // 
+            // btn_cerrar
+            // 
+            this.btn_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cerrar.Location = new System.Drawing.Point(935, 486);
+            this.btn_cerrar.Name = "btn_cerrar";
+            this.btn_cerrar.Size = new System.Drawing.Size(119, 33);
+            this.btn_cerrar.TabIndex = 9;
+            this.btn_cerrar.Text = "Cerrar";
+            this.btn_cerrar.UseVisualStyleBackColor = true;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chk_send_email);
+            this.groupBox1.Controls.Add(this.cmb_especificacion_cliente);
+            this.groupBox1.Controls.Add(this.btnGenerarPDF);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(15, 433);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(525, 99);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Certificado PDF";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // chk_send_email
+            // 
+            this.chk_send_email.AutoSize = true;
+            this.chk_send_email.Checked = true;
+            this.chk_send_email.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_send_email.Location = new System.Drawing.Point(23, 71);
+            this.chk_send_email.Name = "chk_send_email";
+            this.chk_send_email.Size = new System.Drawing.Size(107, 17);
+            this.chk_send_email.TabIndex = 11;
+            this.chk_send_email.Text = "Enviar por correo";
+            this.chk_send_email.UseVisualStyleBackColor = true;
+            // 
+            // FrmVisor
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1090, 661);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btn_cerrar);
+            this.Controls.Add(this.bnt_recargar_info);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridVisor);
+            this.Name = "FrmVisor";
+            this.Text = "Visor Espectómetro - Fundimetal";
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVisor)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dataGridVisor;
+        private System.Windows.Forms.Button btnGenerarPDF;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmb_especificacion_cliente;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button bnt_recargar_info;
+        private System.Windows.Forms.Button btn_cerrar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chk_send_email;
+    }
+}
+

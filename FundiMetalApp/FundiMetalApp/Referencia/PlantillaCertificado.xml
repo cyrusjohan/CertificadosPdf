@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  
+  <!--Titulo del certificado por defecto el estilo en Negrita-->
+  <Title> CERTIFICADO DE ANALISIS QUIMICO </Title>
+  
+  <!--texto del primer parrafo del documento-->
+  <Header>Le certificamos el contenido homogéneo de los elementos en un lote  de Metal súper Puro para Oxido de Baterías,  Marca  Fundimetales, de aprox. 10 tons como sigue </Header>
+
+  <!--Texto 1 que sigue despues de la tabla de elementos-->
+  <Texto1>Cada lingote de 30 kg promediados tiene nuestra marca   "Arbolito Reciclaje" y FUNDIMETAL y una identificación  de lote por una letra.</Texto1>
+  
+  <!--Texto 2 que finaliza el documento-->
+  <Texto2>Los elementos han sido analizados en nuestro Espectrómetro de Emisión Óptica marca ANGSTROM modelo V-950, de última generación.</Texto2>
+  
+</Template>

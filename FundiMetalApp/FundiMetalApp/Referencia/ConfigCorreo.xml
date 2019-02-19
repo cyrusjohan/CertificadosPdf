@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Configuracion>
+  <!--Configuracion de servidor-->
+  <ServerSMTP>smtp.gmail.com</ServerSMTP>
+  <Port>587</Port>
+  <User>umana.johan@gmail.com</User>
+  <Password>J0h4nY4nk3</Password>   
+  <!--Informacion del correo-->
+  <From>umana.joha@gmail.com</From>
+  
+  <!--https://myaccount.google.com/lesssecureapps -->
+  
+  <!--Para envío de diferentes cuentas de correo, se debe separa por una coma -->
+  <To>johan.umana@carvajal.com, umana.johan@gmail.com </To>  
+  
+   <!--Asunto deo correo-->
+  <Subject>[Certificado] Envio de archivo</Subject>
+  
+<!--Cuerpo del mensaje del correo-->
+  <Body>Se anexa a este correo un certificado generado de manera automática</Body>  
+</Configuracion>
