@@ -170,6 +170,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Referencia\Low Alloy Pb.xml" />
+    <Content Include="Referencia\Pb_Sb.xml" />
     <Content Include="Referencia\PlantillaCertificado.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

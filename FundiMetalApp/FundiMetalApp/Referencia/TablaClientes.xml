@@ -58,7 +58,7 @@
 
   <Cliente>
     <Id>2</Id>
-    <Nombre>Willard</Nombre>
+    <Nombre>Puro</Nombre>
     <Descripcion>Configuracion personalizada</Descripcion>
     <Elementos>
       <Elemento>
@@ -108,6 +108,56 @@
         <Min>0.001</Min>
         <Max>0.001</Max>
       </Elemento>
+    </Elementos>
+
+  </Cliente>
+
+  <Cliente>
+    <Id>3</Id>
+    <Nombre>Efe 3.335</Nombre>
+    <Descripcion>Configuracion personalizada</Descripcion>
+    <Elementos>
+      <Elemento>
+        <Id>1</Id>
+        <Nombre>Estaño</Nombre>
+        <Simbolo>Sn</Simbolo>
+        <Min>0.15</Min>
+        <Max>0.25</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>2</Id>
+        <Nombre>Antimonio</Nombre>
+        <Simbolo>Sb</Simbolo>
+        <Min>3.2</Min>
+        <Max>3.50</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>3</Id>
+        <Nombre>Arsenico</Nombre>
+        <Simbolo>As</Simbolo>
+        <Min>0.10</Min>
+        <Max>0.20</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>4</Id>
+        <Nombre>Cobre</Nombre>
+        <Simbolo>Cu</Simbolo>
+        <Min>0.02</Min>
+        <Max>0.050</Max>
+      </Elemento>
+
+      <Elemento>
+        <Id>5</Id>
+        <Nombre>Niquel</Nombre>
+        <Simbolo>Ni</Simbolo>
+        <Min></Min>
+        <Max>0.002</Max>
+      </Elemento>
+
+
     </Elementos>
 
   </Cliente>

@@ -63,8 +63,9 @@ namespace fundimetal_core
      /// Permite la creacion del documento completo PDF
      /// </summary>
      /// <param name="dtblTable"></param>
-        public void ToMake(DataTable dtblTable)
+        public void ToMake(DataTable dtblTable, string text_aleacion)
         {
+            Boolean esTablaEspecificaDoble = false;
 
             if (File.Exists(this.RutaSalidaArchivosPDF))
             {
@@ -111,6 +112,7 @@ namespace fundimetal_core
             FontFactory.RegisterDirectories();
 
             Font fntHead = new Font(FontFactory.GetFont("Arial", 14, 3 , Color.BLACK));
+            
 
         
             Paragraph prgHeading = new Paragraph();
@@ -124,60 +126,76 @@ namespace fundimetal_core
            
             // Linea antes , ahora es parametrizable
             //document.Add(new Chunk("Le certificamos el contenido homogéneo de los elementos en un lote  de Metal súper Puro para Oxido de Baterías,  Marca  Fundimetales, de aprox. 10 tons como sigue ", fntBodyNormal));
-            document.Add(new Chunk(this.HeaderText, fntBodyNormal));
+            document.Add(new Chunk(string.Format(this.HeaderText, text_aleacion), fntBodyNormal));
 
+            document.Add(new Chunk("\n", fntHead));            
             document.Add(new Chunk("\n", fntHead));
-            document.Add(new Chunk("\n", fntHead));
-          
+
             #endregion
 
             #region Detalle del documento
 
-            //Write the table
-            PdfPTable table = new PdfPTable(dtblTable.Columns.Count)
+            int NumeroColumnas = ObtenerNumeroColumnasEspecificacion(dtblTable);
+            if (NumeroColumnas == 5) // Espeficacion tabla Simple 
             {
-                TotalWidth = 300f,
+                esTablaEspecificaDoble = true;
+            }
+            else {
+                dtblTable.Columns.Remove("Min");
+            }
+
+            //Write the table
+            PdfPTable table = new PdfPTable(NumeroColumnas)
+            {
+                TotalWidth = 360f,
                 LockedWidth = true
             };
 
             #region Lote 
 
-            PdfPCell cellTitulo = new PdfPCell();
-            cellTitulo.AddElement(new Phrase("Lote Identificado", fntBodyNormal11));            
+            PdfPCell cellTitulo = new PdfPCell(new Phrase("Lote Identificado", fntBodyNormal11));           
+            cellTitulo.HorizontalAlignment = PdfCell.ALIGN_LEFT;
+            //cellTitulo.Colspan = 2;
+            
             table.AddCell(cellTitulo);
 
             // Lote
             PdfPCell cellLote = new PdfPCell(new Phrase(this.Lote, fntBodyBold));
-            cellLote.HorizontalAlignment = PdfCell.ALIGN_CENTER;           
+            cellLote.HorizontalAlignment = PdfCell.ALIGN_CENTER;
+            cellLote.Colspan = 2;
             table.AddCell(cellLote);
             #endregion
 
-            PdfPCell cellTitulo2 = new PdfPCell(new Phrase("", fntBodyNormal));
-            cellTitulo2.HorizontalAlignment = PdfCell.ALIGN_CENTER;
-            table.AddCell(cellTitulo2);
+            //PdfPCell cellTitulo2 = new PdfPCell(new Phrase("", fntBodyNormal));
+            //cellTitulo2.HorizontalAlignment = PdfCell.ALIGN_CENTER;
+            //table.AddCell(cellTitulo2);
 
-            PdfPCell cellTitulo3 = new PdfPCell(new Phrase("Especificación", fntBodyNormal10));
-            cellTitulo2.HorizontalAlignment = PdfCell.ALIGN_CENTER;
-           // cellTitulo2.Colspan = 2;
+            PdfPCell cellTitulo3 = new PdfPCell(new Phrase("Especificación", fntBodyNormal11));
+            cellTitulo3.HorizontalAlignment = PdfCell.ALIGN_CENTER;
+
+            cellTitulo3.Colspan = (!esTablaEspecificaDoble ? 1 : 2);
             table.AddCell(cellTitulo3);          
 
              //Table header
              BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntColumnHeader = new Font(btnColumnHeader, 10, 1, Color.WHITE);
 
-
-         
-            // Titulo de la tabla 
-            //String[] Arr_Titulos = new String[] { "Elemento", " ", "Analizado en %", "Permitidos Max %" };
-
+               
             PdfPCell cellElemento = new PdfPCell(new Phrase("Elemento", fntBodyBold));
             cellElemento.HorizontalAlignment = PdfCell.ALIGN_CENTER;
             cellElemento.Colspan = 2;
             table.AddCell(cellElemento);
-
+          
             PdfPCell cellAnalizado = new PdfPCell(new Phrase("Analizado en %", fntBodyBold));
             cellAnalizado.HorizontalAlignment = PdfCell.ALIGN_CENTER;            
             table.AddCell(cellAnalizado);
+
+            if (esTablaEspecificaDoble )
+            {
+                PdfPCell cellMin = new PdfPCell(new Phrase("Permitidos Min %", fntBodyBold));
+                cellMin.HorizontalAlignment = PdfCell.ALIGN_CENTER;
+                table.AddCell(cellMin);
+            }
 
             PdfPCell cellPermitido = new PdfPCell(new Phrase("Permitidos Max %", fntBodyBold));
             cellPermitido.HorizontalAlignment = PdfCell.ALIGN_CENTER;
@@ -198,8 +216,7 @@ namespace fundimetal_core
             for (int i = 0; i < dtblTable.Rows.Count; i++)
             {
                 for (int j = 0; j < dtblTable.Columns.Count; j++)
-                {
-
+                {                   
                     table.AddCell(dtblTable.Rows[i][j].ToString());
                 }
             }
@@ -238,6 +255,7 @@ namespace fundimetal_core
             document.Add(new Chunk( fechaDocumento, fntBodyNormal));
 
             //Saltos de linea
+            document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));
 
@@ -285,6 +303,28 @@ namespace fundimetal_core
 
         }
 
+        /// <summary>
+        /// Detecta las columnas que debe generar en la tabla 
+        /// de acuerdo si el valor Min esta presente en alguna especificacion
+        /// 
+        /// </summary>
+        /// <param name="dtblTable"></param>
+        /// <returns></returns>
+        private int ObtenerNumeroColumnasEspecificacion(DataTable dtblTable)
+        {
+            int NumeroCol = 4;
+
+            foreach (DataRow item in dtblTable.Rows)
+            {
+                if (item["Min"].ToString().Trim().Length > 0 )
+                {
+                    NumeroCol = 5;
+                    break;
+                }
+            }
+
+            return NumeroCol;
+        }
 
         private static Paragraph addSpace(int size = 1)
         {

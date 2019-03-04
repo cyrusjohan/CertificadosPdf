@@ -58,11 +58,25 @@ namespace Fundimetal.App
                 xDocRutas = new XmlDocument();
                 xDocRutas.Load(rutaXmlRutas);
 
-                var rutaXml = xDocRutas.SelectSingleNode("/ConfiguracionRutas/RutaXmlFuente");
+
+                #region Tabla de rutas
+                DataTable dtElementos = new DataTable();
+                dtElementos.Columns.Add("Ruta", typeof(string));
+
+                XmlNodeList RutaXmlFiles = xDocRutas.SelectNodes("/ConfiguracionRutas/RutaXmlFuente/File");
+                dtagrid_xml_fuente.Rows.Clear();
+
+                foreach (XmlNode item in RutaXmlFiles)
+                {
+                    dtagrid_xml_fuente.Rows.Add(item.Attributes["id"].InnerText, item.InnerText);
+                } 
+                #endregion
+
+
                 var rutaGeneraPDF = xDocRutas.SelectSingleNode("/ConfiguracionRutas/RutaGeneracionCertificados");
 
                 txt_ruta_pdf.Text = rutaGeneraPDF.InnerText;
-                txt_xml_ruta.Text = rutaXml.InnerText;
+                //txt_xml_ruta.Text = rutaXml.InnerText;
 
             }
 
@@ -155,11 +169,11 @@ namespace Fundimetal.App
             }
 
 
-            if (!File.Exists(txt_xml_ruta.Text))
-            {
-                MessageBox.Show("La ruta del XML fuente no es válida ó no existe", "Validación");
-                return;
-            } 
+            //if (!File.Exists(txt_xml_ruta.Text))
+            //{
+            //    MessageBox.Show("La ruta del XML fuente no es válida ó no existe", "Validación");
+            //    return;
+            //} 
             #endregion
 
             if ((MessageBox.Show("Confirma que desea guardar los cambios", "Confirmación",
@@ -180,10 +194,30 @@ namespace Fundimetal.App
 
             try
             {
-                xDocRutas.SelectSingleNode("/ConfiguracionRutas/RutaXmlFuente").InnerText = txt_xml_ruta.Text;
+                //xDocRutas.SelectSingleNode("/ConfiguracionRutas/RutaXmlFuente").InnerText = txt_xml_ruta.Text;
                 xDocRutas.SelectSingleNode("/ConfiguracionRutas/RutaGeneracionCertificados").InnerText = txt_ruta_pdf.Text;
+
+                             
+                //Borrado de todos los nodos
+                XmlNode xnodeDet = xDocRutas.SelectSingleNode("/ConfiguracionRutas/RutaXmlFuente");
+                XmlNodeList xnodeList = xDocRutas.SelectNodes("/ConfiguracionRutas/RutaXmlFuente/File");
+                foreach (XmlNode item in xnodeList) { xnodeDet.RemoveChild(item); }
+
+
+
+                foreach (DataGridViewRow row in dtagrid_xml_fuente.Rows)
+                {
+                    //Nuevo nodo
+                    XmlElement nodeElemento = xDocRutas.CreateElement("File");
+                    nodeElemento.SetAttribute("id", row.Cells[0].Value.ToString());
+                    nodeElemento.InnerText = row.Cells[1].Value.ToString();
+
+                    xnodeDet.AppendChild(nodeElemento);
+                }
+
+
                 xDocRutas.Save(rutaXmlRutas);
-                MessageBox.Show("Guardado con éxito", "Confirmación");
+                MessageBox.Show("Guardado con éxito", "Confirmación",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
@@ -201,6 +235,31 @@ namespace Fundimetal.App
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Boton que permite adicionar ruta de archivo fuente XML a la grilla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_add_grid_Click(object sender, EventArgs e)
+        {
+            var rutaNueva =  txt_xml_ruta.Text;
+            if (rutaNueva.Length == 0 )
+            {
+                MessageBox.Show("Debe ingresar una ruta válida","Error");
+                return;
+            }
+
+            if (!File.Exists(rutaNueva))
+            {
+                MessageBox.Show("El archivo ingresa no es válido ó no es posible accederlo ","Error");
+                return;
+            }
+            var numId = dtagrid_xml_fuente.Rows.Count + 1;
+            dtagrid_xml_fuente.Rows.Add(numId, rutaNueva);
+        }
+
+      
 
         private void btn_select_folder_path_Click(object sender, EventArgs e)
         {

@@ -63,7 +63,7 @@
             this.Panel_menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.Panel_menu_vertical.Location = new System.Drawing.Point(0, 0);
             this.Panel_menu_vertical.Name = "Panel_menu_vertical";
-            this.Panel_menu_vertical.Size = new System.Drawing.Size(213, 600);
+            this.Panel_menu_vertical.Size = new System.Drawing.Size(213, 700);
             this.Panel_menu_vertical.TabIndex = 0;
             // 
             // bnt_help
@@ -217,7 +217,7 @@
             this.panel_contendor_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_contendor_main.Location = new System.Drawing.Point(213, 44);
             this.panel_contendor_main.Name = "panel_contendor_main";
-            this.panel_contendor_main.Size = new System.Drawing.Size(1087, 556);
+            this.panel_contendor_main.Size = new System.Drawing.Size(1087, 656);
             this.panel_contendor_main.TabIndex = 2;
             // 
             // label1
@@ -231,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 600);
+            this.ClientSize = new System.Drawing.Size(1300, 700);
             this.Controls.Add(this.panel_contendor_main);
             this.Controls.Add(this.panel_barra);
             this.Controls.Add(this.Panel_menu_vertical);

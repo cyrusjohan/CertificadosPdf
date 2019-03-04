@@ -22,7 +22,15 @@ namespace Fundimetal.App
         private IRepository _repository = new XmlRepository();
 
         public string RutaXmlFuente = "";
+        public string IdRutaXmlFuente = "";
+
         public string RutaSalidaCertificados = "";
+
+        //Utilizado para el menu
+        //public List<String> listaArchivosFuente = new List<string>();
+        public Dictionary<String, String> listaArchivosFuente = new Dictionary<string, string>();
+        
+        private ToolStripMenuItem temp;
 
         private string rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
         private XmlDocument xDocCliente;
@@ -40,6 +48,7 @@ namespace Fundimetal.App
 
             this.CargaReferenciales();
             this.SetupControls();
+           
 
         }
 
@@ -58,7 +67,8 @@ namespace Fundimetal.App
             
             cmb_especificacion_cliente.DataSource = _repository.GetInfoClientesComboBox();
 
-
+            
+            this.Submenu();
         }
 
 
@@ -71,6 +81,10 @@ namespace Fundimetal.App
             try
             {
                 dtDatosCompletos = _repository.GetAllDataBurns(Errors,this.RutaXmlFuente);
+
+
+                this.lbl_ruta_usuario_archivo.Text = this.RutaXmlFuente;
+                
 
                 if (dtDatosCompletos == null)
                 {
@@ -96,13 +110,25 @@ namespace Fundimetal.App
         {
             ReaderPath objReader = new ReaderPath();
             // ruta del archivo fuente de datos
-            this.RutaXmlFuente = objReader.getRutaXmlSalida();
+            
+          
+            if (this.RutaXmlFuente.Length == 0  && this.IdRutaXmlFuente.Length == 0 )
+            {
+                this.listaArchivosFuente = objReader.getRutaXmlSalida();
+                this.RutaXmlFuente = this.listaArchivosFuente["1"]; // Se inicializa la primera ocurrencia de archivo 
+                this.IdRutaXmlFuente = "1";
+
+
+            }
+         
 
             if (!File.Exists(this.RutaXmlFuente))
             {
-                    MessageBox.Show(String.Format("El archivo fuente Xml {0} no existe.", this.RutaXmlFuente));
+                    MessageBox.Show(String.Format("El archivo fuente Xml {0} no existe. Debe verificar la configuración de rutas", this.RutaXmlFuente) , "Error en lectura",MessageBoxButtons.OK,MessageBoxIcon.Error );
                     return;
             }
+            // Construyo menu
+
 
             // Ruta de salida del archivo PDF
             this.RutaSalidaCertificados = objReader.getRutaGeneracionCertificados();
@@ -133,7 +159,10 @@ namespace Fundimetal.App
                 xDocCliente = new XmlDocument();
                 xDocCliente.Load(rutaXmlCLiente);
             }
-           
+
+            
+
+
 
         }
 
@@ -174,7 +203,10 @@ namespace Fundimetal.App
         {
             // Extraemos el Id del Cliente           
             var ItemSelected = cmb_especificacion_cliente.SelectedItem;
+            
             string IdCliente = ((ListItemCombo)ItemSelected).Value;
+            string TextNombreEspecificacion  = ((ListItemCombo)ItemSelected).Text;
+            
 
             // Obtenemos informacion del cliente
             DataTable especficacionCliente = _repository.GetInfoClientesById (IdCliente);
@@ -191,9 +223,13 @@ namespace Fundimetal.App
             {
 
                 Cursor = Cursors.WaitCursor;
-                
+
                 //objGenerator.setData();
-                objGenerator.ToMake(TablaAnalisQuimico);
+                if (this.IdRutaXmlFuente =="1") // Solo aplica para base de datos de puros
+                { TextNombreEspecificacion = "súper Puro"; }
+                
+
+                objGenerator.ToMake(TablaAnalisQuimico, TextNombreEspecificacion);
             }
             catch (Exception exc)
             {
@@ -286,23 +322,29 @@ namespace Fundimetal.App
             dtInfoAnalisis.Columns.Add("Elemento", typeof(string));
             dtInfoAnalisis.Columns.Add("Simbolo", typeof(string));
             dtInfoAnalisis.Columns.Add("Analizado", typeof(string));
-            dtInfoAnalisis.Columns.Add("Permitido", typeof(string));
+            dtInfoAnalisis.Columns.Add("Min", typeof(string));
+            dtInfoAnalisis.Columns.Add("Max", typeof(string));
 
-
-            foreach (DataGridViewCell Cell in currentRow.Cells)
-            {
-                
+          
                 foreach (DataRow rowClienteEspecificacion in especficacionCliente.Rows)
                 {
+
+                    foreach (DataGridViewCell Cell in currentRow.Cells)
+                    {
                     //Buscamos las coincidencia por elemento entre las tablas
                     if (Cell.OwningColumn.HeaderText.ToUpper() == rowClienteEspecificacion["Simbolo"].ToString().ToUpper())
                     {
+                        
 
+                        //decimal valor_analizado = Convert.ToDecimal(Cell.Value.ToString());
+                        //decimal valor_max = Convert.ToDecimal(rowClienteEspecificacion["Max"].ToString());
+                       
                         dtInfoAnalisis.Rows.Add(
                             rowClienteEspecificacion["Nombre"].ToString(), // Nombre Elemento Ej: Estaño, Cobre
                              rowClienteEspecificacion["Simbolo"].ToString(),
-                             Cell.Value.ToString(),  //Valor analizado promedio
-                             "< "+ rowClienteEspecificacion["Max"].ToString() // Maximo permitido
+                             Cell.Value.ToString(),  //Valor analizado promedio,
+                             rowClienteEspecificacion["Min"].ToString(),
+                              rowClienteEspecificacion["Max"].ToString() // Maximo permitido
                             );
 
 
@@ -341,5 +383,80 @@ namespace Fundimetal.App
 
             MessageBox.Show("Valor :" + valor + " SelectedItem: " + SelectedItem);
         }
+
+
+
+        private void Submenu() {
+
+
+            MenuStrip menu_visor = new MenuStrip();
+            this.MainMenuStrip = menu_visor;
+
+            this.abrirToolStripMenuItem.DropDownItems.Clear();
+            foreach (var item in this.listaArchivosFuente)
+            {
+                ToolStripMenuItem SSMenu = new ToolStripMenuItem(item.Value, null, ChildClick, item.Key);
+
+                this.abrirToolStripMenuItem.DropDownItems.Add(SSMenu);
+            }
+
+            //this.abrirToolStripMenuItem.DropDownItems.AddRange(this.listaArchivosFuente);
+
+
+            //this.Controls.Add(menu_visor);
+
+            //ToolStripMenuItem itemArchivos = new ToolStripMenuItem("Archivos");
+            //menu_visor.Items.Add(itemArchivos);
+
+
+            //ToolStripMenuItem SSAbrir = new ToolStripMenuItem("Abrir", null, ChildClick);
+            //itemArchivos.DropDownItems.Add(SSAbrir);
+
+
+        }
+        public void ChildClick(object sender, System.EventArgs e)
+        {
+
+            if ((MessageBox.Show("Confirma que desea cambiar a otra fuente de datos XML", "Fuente de datos",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                      MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+
+                ((System.Windows.Forms.ToolStripMenuItem)sender).Checked = true;
+
+                #region Funcionalidad para checkear menu
+
+                // Sirve para checkear el menu cuando hacen click ,
+                // De esta manera el usuario visualiza cual archivo fue seleccionado.
+
+                if (temp == null)
+                {
+                    temp = (ToolStripMenuItem)sender;
+                    temp.CheckState = CheckState.Checked;
+                }
+                else
+                {
+                    temp.CheckState = CheckState.Unchecked;
+                    temp = (ToolStripMenuItem)sender;
+                    // check the new one
+                    temp.CheckState = CheckState.Checked;
+
+                }
+                #endregion
+
+                this.RutaXmlFuente = sender.ToString();
+                this.IdRutaXmlFuente = temp.Name; //Usada para determinar cual base de datos es
+                this.lbl_ruta_usuario_archivo.Text = this.RutaXmlFuente;
+
+                this.MakeDataGrid();
+            }
+
+            //MessageBox.Show("Ha selecionado otra fuente de información XML", "Información",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+          
+
+
+        }
+
+       
     }
 }

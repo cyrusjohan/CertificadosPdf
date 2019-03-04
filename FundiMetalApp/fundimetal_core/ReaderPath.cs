@@ -36,16 +36,24 @@ namespace fundimetal.Core
         /// </summary>
       
 
-        public string  getRutaXmlSalida()
+        public Dictionary<string,string> getRutaXmlSalida()
         {
+            //List<string> archivosXmlFuente = new List<string>();
+            Dictionary<string, string> DicArchivosXmlFuente = new Dictionary<string, string>();
+
             if (xdocRutas != null)
             {
-                var xnode = xdocRutas.SelectSingleNode("/ConfiguracionRutas/RutaXmlFuente");
+               XmlNodeList nodeFiles = xdocRutas.SelectNodes("/ConfiguracionRutas/RutaXmlFuente/File");
 
-                return xnode.InnerText;
+                foreach (XmlNode nodeFile in nodeFiles)
+                {
+                    DicArchivosXmlFuente.Add(nodeFile.Attributes[0].InnerText, nodeFile.InnerText);
+                }
+                    
+                return DicArchivosXmlFuente;
 
             }
-            return "";
+            return null;
         }
 
 

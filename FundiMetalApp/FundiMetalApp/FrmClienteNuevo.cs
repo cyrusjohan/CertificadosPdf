@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,9 +121,11 @@ namespace Fundimetal.App
 
                 var simbolo = row.Cells[0].Value.ToString();
                 var elemento = row.Cells[1].Value.ToString(); ;
-                var Valor_Minimo = row.Cells[2].Value.ToString();
-                var Valor_Maximo = row.Cells[3].Value.ToString();
-                clienteModel.lstEspeficacionesElementos.Add(new EspeficiacionElementosCliente { Simbolo = simbolo, Elemento = elemento, Min = Valor_Minimo, Max = Valor_Maximo });
+                var Valor_Minimo = (row.Cells[2].Value == null ? "" : row.Cells[2].Value.ToString());
+                var Valor_Maximo = (row.Cells[3].Value == null ? "" : row.Cells[3].Value.ToString());
+                clienteModel.lstEspeficacionesElementos.Add(new EspeficiacionElementosCliente { Simbolo = simbolo, Elemento = elemento, Min = Valor_Minimo.Replace(',','.'), Max = Valor_Maximo.Replace(',', '.') });
+
+                //double dec = Convert.ToDouble(Valor_Maximo, CultureInfo.InvariantCulture);
                 X++;
             }
             bool estadoSave = false;
@@ -146,9 +149,15 @@ namespace Fundimetal.App
             }
         }
 
+
+        /// <summary>
+        /// Metodo para validacion de valores ingresados en cada celda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridEspecificaciones_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (e.ColumnIndex == 2 || e.ColumnIndex == 3 ) // 1 should be your column index
+            if (e.ColumnIndex == 2 ) //|| e.ColumnIndex == 3 ) // 1 should be your column index
             {
                 Double i;
 

@@ -22,6 +22,12 @@ namespace fundimetal.Core
             rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
     }
 
+        /// <summary>
+        /// Retorna la informacion completa para el visor 
+        /// </summary>
+        /// <param name="errors"></param>
+        /// <param name="rutaArchivoXmlFuente">Ruta del xml fuente</param>
+        /// <returns></returns>
         public DataTable GetAllDataBurns(List<String> errors, string rutaArchivoXmlFuente)
         {
             Boolean errorLoad = false;
@@ -78,6 +84,7 @@ namespace fundimetal.Core
                 var Cd = nodeRow.SelectSingleNode("*[local-name() = 'CH05L12']");
 
                 var Sb = nodeRow.SelectSingleNode("*[local-name() = 'CH06L12']");
+                var Sb_2 = nodeRow.SelectSingleNode("*[local-name() = 'CH09L12']"); // Utilizado para el segundo archivo
 
                 var As = nodeRow.SelectSingleNode("*[local-name() = 'CH07L12']");
                 #endregion
@@ -140,7 +147,15 @@ namespace fundimetal.Core
                 row.Se = (Se != null ? Se.InnerText : "0.000");
                 row.Zn = (Zn != null ? Zn.InnerText : "0.000");
                 row.Cd = (Cd != null ? Cd.InnerText : "0.000");
-                row.Sb = (Sb != null ? Sb.InnerText : "0.000");
+                if (Sb != null && Sb.InnerText.Trim().Length > 0)
+                {
+                    row.Sb = Sb.InnerText.Trim();
+                }
+                else if (Sb_2 != null && Sb_2.InnerText.Trim().Length > 0)
+                {
+                    row.Sb = Sb_2.InnerText.Trim(); // Solo aplica  por que no existe en archivo de Aleacion pura
+                }
+                //row.Sb = (Sb != null ? Sb.InnerText : "0.000");
                 row.As = (As != null ? As.InnerText : "0.000");
                 #endregion
 

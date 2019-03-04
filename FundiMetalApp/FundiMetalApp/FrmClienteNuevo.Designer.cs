@@ -30,6 +30,7 @@
         {
             this.btnGuardarNuevoCliente = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_id_cliente = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.dataGridEspecificaciones = new System.Windows.Forms.DataGridView();
@@ -41,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.bnt_Cerrar_ventana_new_cliente = new System.Windows.Forms.Button();
-            this.lbl_id_cliente = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEspecificaciones)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,15 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información";
+            // 
+            // lbl_id_cliente
+            // 
+            this.lbl_id_cliente.AutoSize = true;
+            this.lbl_id_cliente.Location = new System.Drawing.Point(379, 16);
+            this.lbl_id_cliente.Name = "lbl_id_cliente";
+            this.lbl_id_cliente.Size = new System.Drawing.Size(0, 13);
+            this.lbl_id_cliente.TabIndex = 8;
+            this.lbl_id_cliente.Visible = false;
             // 
             // label3
             // 
@@ -135,9 +144,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(115, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre especificación";
             // 
             // label2
             // 
@@ -165,15 +174,6 @@
             this.bnt_Cerrar_ventana_new_cliente.Text = "Cerrar";
             this.bnt_Cerrar_ventana_new_cliente.UseVisualStyleBackColor = true;
             this.bnt_Cerrar_ventana_new_cliente.Click += new System.EventHandler(this.bnt_Cerrar_ventana_new_cliente_Click);
-            // 
-            // lbl_id_cliente
-            // 
-            this.lbl_id_cliente.AutoSize = true;
-            this.lbl_id_cliente.Location = new System.Drawing.Point(379, 16);
-            this.lbl_id_cliente.Name = "lbl_id_cliente";
-            this.lbl_id_cliente.Size = new System.Drawing.Size(0, 13);
-            this.lbl_id_cliente.TabIndex = 8;
-            this.lbl_id_cliente.Visible = false;
             // 
             // FrmClienteNuevo
             // 
