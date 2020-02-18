@@ -457,6 +457,33 @@ namespace Fundimetal.App
 
         }
 
-       
+        // Boton para mostrar pantalla de exportacion
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            this.ShowFormExport();
+        
+        }
+
+        private void ShowFormExport()
+        {
+            if (dataGridVisor.SelectedRows.Count <= 15)
+            {
+                //Especificacion elegida para ver tabla
+                var ItemSelected = cmb_especificacion_cliente.SelectedItem;
+
+                string IdCliente = ((ListItemCombo)ItemSelected).Value;
+
+                // Obtenemos informacion del cliente
+                DataTable especficacionCliente = _repository.GetInfoClientesById(IdCliente);
+
+                FrmExportacion frmExpo = new FrmExportacion(dataGridVisor, especficacionCliente);
+                frmExpo.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("El limite de selección permitida es 15 registros");
+            }
+        }
     }
 }

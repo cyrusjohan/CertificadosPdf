@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ConfiguracionRutas>
   <RutaXmlFuente>
-    <File id="1">D:\CodigoFuenteJohan\AyG Ingenieria\CertificadosPdf\FundiMetalApp\FundiMetalApp\Referencia\Low Alloy Pb.xml</File>
-    <File id="2">D:\CodigoFuenteJohan\AyG Ingenieria\CertificadosPdf\FundiMetalApp\FundiMetalApp\Referencia\Pb_Sb.xml</File>    
+    <File id="1">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\Low Alloy Pb.xml</File>
+    <File id="2">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\Pb_Sb.xml</File>    
   </RutaXmlFuente>
-  <RutaGeneracionCertificados>d:\RutaSalidaPDF</RutaGeneracionCertificados>
+  <RutaGeneracionCertificados>C:\RutaSalidaPDF</RutaGeneracionCertificados>
 </ConfiguracionRutas>

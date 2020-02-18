@@ -61,7 +61,7 @@
     <ManifestKeyFile>Fundimetal.App_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -70,7 +70,13 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Fundimetal.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Select.HtmlToPdf">
@@ -101,6 +107,12 @@
     <Compile Include="FrmConfiguration.Designer.cs">
       <DependentUpon>FrmConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmExportacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExportacion.Designer.cs">
+      <DependentUpon>FrmExportacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,9 @@
     <EmbeddedResource Include="FrmConfiguration.resx">
       <DependentUpon>FrmConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmExportacion.resx">
+      <DependentUpon>FrmExportacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVisor.resx">
       <DependentUpon>FrmVisor.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,7 +147,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Fundimetal.App_TemporaryKey.pfx" />
+    <None Include="Fundimetal.snk" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
