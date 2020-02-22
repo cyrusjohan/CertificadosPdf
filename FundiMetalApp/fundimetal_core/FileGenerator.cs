@@ -408,6 +408,23 @@ namespace fundimetal_core
 
 
 
+
+            PdfPCell cell_grossweight = new PdfPCell(new Phrase("GROSS WEIGHT: (PESO-BRUTO) "));
+            cell_grossweight.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+            cell_grossweight.BorderWidthRight = 0;
+            PdfPCell cell_grossweight_2  = new PdfPCell(new Phrase(exportacionModel.PesoBruto.ToString()));
+            cell_grossweight_2.BorderWidthLeft = 0;
+
+            table_enc.AddCell(cell_grossweight);
+            table_enc.AddCell(cell_grossweight_2);
+            table_enc.AddCell(new PdfPCell(new Phrase("PRESENTATIOS: (PRESENTACIÓN)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(exportacionModel.Presentacion);
+
+
+            // Secciones melts y cargas
+
+
+
             document.Add(table_enc);
 
 

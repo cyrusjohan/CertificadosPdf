@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_certificado_numero = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_producto = new System.Windows.Forms.Label();
             this.lbl_factura = new System.Windows.Forms.Label();
@@ -45,7 +43,6 @@
             this.lbl_presentacion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datagrid_elementos = new System.Windows.Forms.DataGridView();
-            this.datagrid_melts = new System.Windows.Forms.DataGridView();
             this.txtcliente = new System.Windows.Forms.TextBox();
             this.cmb_producto = new System.Windows.Forms.ComboBox();
             this.cmb_presentacion = new System.Windows.Forms.ComboBox();
@@ -58,8 +55,13 @@
             this.txt_lingotes = new System.Windows.Forms.TextBox();
             this.txtobservaciones = new System.Windows.Forms.TextBox();
             this.lbl_observaciones = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.datagrid_melts = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_elementos)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_melts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,37 +75,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Certificado Nº";
             // 
-            // label2
+            // lbl_certificado_numero
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(594, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "lbl_certificado_numero";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Fecha";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(98, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 3;
+            this.lbl_certificado_numero.AutoSize = true;
+            this.lbl_certificado_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_certificado_numero.Location = new System.Drawing.Point(594, 21);
+            this.lbl_certificado_numero.Name = "lbl_certificado_numero";
+            this.lbl_certificado_numero.Size = new System.Drawing.Size(0, 20);
+            this.lbl_certificado_numero.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 63);
+            this.label4.Location = new System.Drawing.Point(44, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 4;
@@ -112,7 +96,7 @@
             // lbl_producto
             // 
             this.lbl_producto.AutoSize = true;
-            this.lbl_producto.Location = new System.Drawing.Point(44, 149);
+            this.lbl_producto.Location = new System.Drawing.Point(33, 133);
             this.lbl_producto.Name = "lbl_producto";
             this.lbl_producto.Size = new System.Drawing.Size(50, 13);
             this.lbl_producto.TabIndex = 6;
@@ -121,7 +105,7 @@
             // lbl_factura
             // 
             this.lbl_factura.AutoSize = true;
-            this.lbl_factura.Location = new System.Drawing.Point(466, 101);
+            this.lbl_factura.Location = new System.Drawing.Point(405, 133);
             this.lbl_factura.Name = "lbl_factura";
             this.lbl_factura.Size = new System.Drawing.Size(58, 13);
             this.lbl_factura.TabIndex = 8;
@@ -129,7 +113,7 @@
             // 
             // txt_factura
             // 
-            this.txt_factura.Location = new System.Drawing.Point(529, 97);
+            this.txt_factura.Location = new System.Drawing.Point(468, 126);
             this.txt_factura.MaxLength = 20;
             this.txt_factura.Name = "txt_factura";
             this.txt_factura.Size = new System.Drawing.Size(203, 20);
@@ -138,7 +122,7 @@
             // lbl_marcas_embalaje
             // 
             this.lbl_marcas_embalaje.AutoSize = true;
-            this.lbl_marcas_embalaje.Location = new System.Drawing.Point(442, 145);
+            this.lbl_marcas_embalaje.Location = new System.Drawing.Point(381, 164);
             this.lbl_marcas_embalaje.Name = "lbl_marcas_embalaje";
             this.lbl_marcas_embalaje.Size = new System.Drawing.Size(82, 13);
             this.lbl_marcas_embalaje.TabIndex = 10;
@@ -146,7 +130,7 @@
             // 
             // txt_marca_embalaje
             // 
-            this.txt_marca_embalaje.Location = new System.Drawing.Point(529, 142);
+            this.txt_marca_embalaje.Location = new System.Drawing.Point(468, 157);
             this.txt_marca_embalaje.MaxLength = 250;
             this.txt_marca_embalaje.Name = "txt_marca_embalaje";
             this.txt_marca_embalaje.Size = new System.Drawing.Size(203, 20);
@@ -155,7 +139,7 @@
             // lbl_peso_bruto
             // 
             this.lbl_peso_bruto.AutoSize = true;
-            this.lbl_peso_bruto.Location = new System.Drawing.Point(35, 218);
+            this.lbl_peso_bruto.Location = new System.Drawing.Point(24, 202);
             this.lbl_peso_bruto.Name = "lbl_peso_bruto";
             this.lbl_peso_bruto.Size = new System.Drawing.Size(59, 13);
             this.lbl_peso_bruto.TabIndex = 12;
@@ -164,7 +148,7 @@
             // lbl_peso_neto
             // 
             this.lbl_peso_neto.AutoSize = true;
-            this.lbl_peso_neto.Location = new System.Drawing.Point(37, 184);
+            this.lbl_peso_neto.Location = new System.Drawing.Point(28, 164);
             this.lbl_peso_neto.Name = "lbl_peso_neto";
             this.lbl_peso_neto.Size = new System.Drawing.Size(57, 13);
             this.lbl_peso_neto.TabIndex = 13;
@@ -172,22 +156,25 @@
             // 
             // txt_peso_neto
             // 
-            this.txt_peso_neto.Location = new System.Drawing.Point(98, 180);
+            this.txt_peso_neto.Location = new System.Drawing.Point(100, 161);
             this.txt_peso_neto.Name = "txt_peso_neto";
-            this.txt_peso_neto.Size = new System.Drawing.Size(148, 20);
+            this.txt_peso_neto.ReadOnly = true;
+            this.txt_peso_neto.Size = new System.Drawing.Size(72, 20);
             this.txt_peso_neto.TabIndex = 3;
             // 
             // txt_peso_bruto
             // 
-            this.txt_peso_bruto.Location = new System.Drawing.Point(98, 214);
+            this.txt_peso_bruto.Location = new System.Drawing.Point(100, 199);
+            this.txt_peso_bruto.MaxLength = 7;
             this.txt_peso_bruto.Name = "txt_peso_bruto";
-            this.txt_peso_bruto.Size = new System.Drawing.Size(148, 20);
+            this.txt_peso_bruto.Size = new System.Drawing.Size(72, 20);
             this.txt_peso_bruto.TabIndex = 15;
+            this.txt_peso_bruto.Text = "0";
             // 
             // lbl_presentacion
             // 
             this.lbl_presentacion.AutoSize = true;
-            this.lbl_presentacion.Location = new System.Drawing.Point(445, 179);
+            this.lbl_presentacion.Location = new System.Drawing.Point(384, 202);
             this.lbl_presentacion.Name = "lbl_presentacion";
             this.lbl_presentacion.Size = new System.Drawing.Size(69, 13);
             this.lbl_presentacion.TabIndex = 16;
@@ -197,9 +184,9 @@
             // 
             this.groupBox1.Controls.Add(this.datagrid_elementos);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox1.Location = new System.Drawing.Point(98, 357);
+            this.groupBox1.Location = new System.Drawing.Point(43, 357);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(644, 208);
+            this.groupBox1.Size = new System.Drawing.Size(685, 208);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Composición química";
@@ -207,24 +194,18 @@
             // datagrid_elementos
             // 
             this.datagrid_elementos.AllowUserToAddRows = false;
+            this.datagrid_elementos.AllowUserToOrderColumns = true;
+            this.datagrid_elementos.AllowUserToResizeColumns = false;
             this.datagrid_elementos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid_elementos.Location = new System.Drawing.Point(18, 19);
+            this.datagrid_elementos.Location = new System.Drawing.Point(4, 19);
             this.datagrid_elementos.Name = "datagrid_elementos";
             this.datagrid_elementos.ReadOnly = true;
-            this.datagrid_elementos.Size = new System.Drawing.Size(616, 171);
+            this.datagrid_elementos.Size = new System.Drawing.Size(663, 171);
             this.datagrid_elementos.TabIndex = 8;
-            // 
-            // datagrid_melts
-            // 
-            this.datagrid_melts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid_melts.Location = new System.Drawing.Point(98, 251);
-            this.datagrid_melts.Name = "datagrid_melts";
-            this.datagrid_melts.Size = new System.Drawing.Size(634, 81);
-            this.datagrid_melts.TabIndex = 7;
             // 
             // txtcliente
             // 
-            this.txtcliente.Location = new System.Drawing.Point(98, 56);
+            this.txtcliente.Location = new System.Drawing.Point(100, 23);
             this.txtcliente.Multiline = true;
             this.txtcliente.Name = "txtcliente";
             this.txtcliente.Size = new System.Drawing.Size(224, 86);
@@ -237,9 +218,9 @@
             this.cmb_producto.Items.AddRange(new object[] {
             "Plomo refinado",
             "Plomo aliado"});
-            this.cmb_producto.Location = new System.Drawing.Point(100, 153);
+            this.cmb_producto.Location = new System.Drawing.Point(98, 125);
             this.cmb_producto.Name = "cmb_producto";
-            this.cmb_producto.Size = new System.Drawing.Size(222, 21);
+            this.cmb_producto.Size = new System.Drawing.Size(226, 21);
             this.cmb_producto.TabIndex = 2;
             // 
             // cmb_presentacion
@@ -252,7 +233,7 @@
             "Lingotes 34K",
             "Lingotes 100K",
             "Jumbo"});
-            this.cmb_presentacion.Location = new System.Drawing.Point(529, 178);
+            this.cmb_presentacion.Location = new System.Drawing.Point(468, 194);
             this.cmb_presentacion.Name = "cmb_presentacion";
             this.cmb_presentacion.Size = new System.Drawing.Size(203, 21);
             this.cmb_presentacion.TabIndex = 6;
@@ -260,7 +241,7 @@
             // lblcontainer
             // 
             this.lblcontainer.AutoSize = true;
-            this.lblcontainer.Location = new System.Drawing.Point(359, 591);
+            this.lblcontainer.Location = new System.Drawing.Point(315, 591);
             this.lblcontainer.Name = "lblcontainer";
             this.lblcontainer.Size = new System.Drawing.Size(52, 13);
             this.lblcontainer.TabIndex = 23;
@@ -268,7 +249,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(424, 588);
+            this.textBox2.Location = new System.Drawing.Point(380, 588);
             this.textBox2.MaxLength = 40;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(222, 20);
@@ -277,7 +258,7 @@
             // lbl_embalaje
             // 
             this.lbl_embalaje.AutoSize = true;
-            this.lbl_embalaje.Location = new System.Drawing.Point(361, 655);
+            this.lbl_embalaje.Location = new System.Drawing.Point(317, 655);
             this.lbl_embalaje.Name = "lbl_embalaje";
             this.lbl_embalaje.Size = new System.Drawing.Size(50, 13);
             this.lbl_embalaje.TabIndex = 25;
@@ -285,14 +266,14 @@
             // 
             // txt_embalajeç
             // 
-            this.txt_embalajeç.Location = new System.Drawing.Point(424, 652);
+            this.txt_embalajeç.Location = new System.Drawing.Point(380, 652);
             this.txt_embalajeç.Name = "txt_embalajeç";
             this.txt_embalajeç.Size = new System.Drawing.Size(222, 20);
             this.txt_embalajeç.TabIndex = 10;
             // 
             // btn_generar_pdf_exportacion
             // 
-            this.btn_generar_pdf_exportacion.Location = new System.Drawing.Point(678, 637);
+            this.btn_generar_pdf_exportacion.Location = new System.Drawing.Point(667, 605);
             this.btn_generar_pdf_exportacion.Name = "btn_generar_pdf_exportacion";
             this.btn_generar_pdf_exportacion.Size = new System.Drawing.Size(127, 35);
             this.btn_generar_pdf_exportacion.TabIndex = 12;
@@ -303,7 +284,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(364, 623);
+            this.label5.Location = new System.Drawing.Point(320, 623);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 28;
@@ -312,7 +293,7 @@
             // txt_lingotes
             // 
             this.txt_lingotes.AcceptsReturn = true;
-            this.txt_lingotes.Location = new System.Drawing.Point(424, 620);
+            this.txt_lingotes.Location = new System.Drawing.Point(380, 620);
             this.txt_lingotes.MaxLength = 3;
             this.txt_lingotes.Name = "txt_lingotes";
             this.txt_lingotes.Size = new System.Drawing.Size(136, 20);
@@ -320,7 +301,7 @@
             // 
             // txtobservaciones
             // 
-            this.txtobservaciones.Location = new System.Drawing.Point(98, 604);
+            this.txtobservaciones.Location = new System.Drawing.Point(40, 599);
             this.txtobservaciones.Multiline = true;
             this.txtobservaciones.Name = "txtobservaciones";
             this.txtobservaciones.Size = new System.Drawing.Size(235, 73);
@@ -329,17 +310,62 @@
             // lbl_observaciones
             // 
             this.lbl_observaciones.AutoSize = true;
-            this.lbl_observaciones.Location = new System.Drawing.Point(95, 583);
+            this.lbl_observaciones.Location = new System.Drawing.Point(37, 583);
             this.lbl_observaciones.Name = "lbl_observaciones";
             this.lbl_observaciones.Size = new System.Drawing.Size(78, 13);
             this.lbl_observaciones.TabIndex = 30;
             this.lbl_observaciones.Text = "Observaciones";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.datagrid_melts);
+            this.groupBox2.Location = new System.Drawing.Point(40, 251);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(692, 92);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lotes";
+            // 
+            // datagrid_melts
+            // 
+            this.datagrid_melts.AllowUserToAddRows = false;
+            this.datagrid_melts.AllowUserToDeleteRows = false;
+            this.datagrid_melts.AllowUserToResizeColumns = false;
+            this.datagrid_melts.AllowUserToResizeRows = false;
+            this.datagrid_melts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrid_melts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.datagrid_melts.Location = new System.Drawing.Point(7, 19);
+            this.datagrid_melts.Name = "datagrid_melts";
+            this.datagrid_melts.Size = new System.Drawing.Size(679, 58);
+            this.datagrid_melts.TabIndex = 8;
+            this.datagrid_melts.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid_melts_CellEndEdit);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(178, 164);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "(Kg)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(178, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "(Kg)";
             // 
             // FrmExportacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 706);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbl_observaciones);
             this.Controls.Add(this.txtobservaciones);
             this.Controls.Add(this.txt_lingotes);
@@ -352,7 +378,6 @@
             this.Controls.Add(this.cmb_presentacion);
             this.Controls.Add(this.cmb_producto);
             this.Controls.Add(this.txtcliente);
-            this.Controls.Add(this.datagrid_melts);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbl_presentacion);
             this.Controls.Add(this.txt_peso_bruto);
@@ -365,9 +390,7 @@
             this.Controls.Add(this.lbl_factura);
             this.Controls.Add(this.lbl_producto);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_certificado_numero);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmExportacion";
@@ -376,6 +399,7 @@
             this.Load += new System.EventHandler(this.FrmExportacion_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_elementos)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_melts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -385,9 +409,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbl_certificado_numero;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_producto;
         private System.Windows.Forms.Label lbl_factura;
@@ -401,7 +423,6 @@
         private System.Windows.Forms.Label lbl_presentacion;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView datagrid_elementos;
-        private System.Windows.Forms.DataGridView datagrid_melts;
         private System.Windows.Forms.TextBox txtcliente;
         private System.Windows.Forms.ComboBox cmb_producto;
         private System.Windows.Forms.ComboBox cmb_presentacion;
@@ -414,5 +435,9 @@
         private System.Windows.Forms.TextBox txt_lingotes;
         private System.Windows.Forms.TextBox txtobservaciones;
         private System.Windows.Forms.Label lbl_observaciones;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView datagrid_melts;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

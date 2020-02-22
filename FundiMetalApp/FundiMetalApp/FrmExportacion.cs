@@ -58,12 +58,49 @@ namespace Fundimetal.App
                 this.datagrid_elementos.DataSource = null;
             }
 
+            DataTable dtElementos = this.getDataTableElementos(_datosVisor, _dtEspecificacionCLiente);
+            this.datagrid_elementos.DataSource = dtElementos;
+            this.datagrid_melts.DataSource = this.getDataMelts(dtElementos);
 
-            this.datagrid_elementos.DataSource = this.getDataTableElementos(_datosVisor, _dtEspecificacionCLiente);
-           
         }
 
-        
+        private DataTable getDataMelts(DataTable dtElementos)
+        {
+            DataTable dtMelts = new DataTable("tabla_melts");
+
+            var lotes = dtElementos.AsEnumerable().Select(x => new { Name = x.Field<String>("Melts") });
+
+            var count = lotes.Count();
+
+            List<String> list_lotes = new List<string>();
+
+            foreach (var item in lotes)
+            {
+                if (list_lotes.IndexOf(item.Name) < 0)
+                {
+                    list_lotes.Add(item.Name);
+                }
+            }
+
+            foreach (var item in list_lotes)
+            {
+                dtMelts.Columns.Add(item, typeof(string));
+            }
+          
+            DataRow drow = dtMelts.NewRow();
+
+            foreach (DataColumn column in dtMelts.Columns) {
+              
+                drow[column] = 0;
+            }
+            dtMelts.Rows.Add(drow);
+
+
+
+            return dtMelts;
+        }
+
+
         //Permite obtener la informacion delos elementos de manera ordenada
         private DataTable getDataTableElementos(DataGridView datosVisor, DataTable especficacionCliente)
         {
@@ -72,8 +109,8 @@ namespace Fundimetal.App
             //Crear columnas  voy por aca toca enviar al especificacion  primeero
 
 
-
-
+            // Primea columna con el valor del lote
+            dtElementos.Columns.Add("Melts", typeof(string));
 
 
             foreach (DataRow rowClienteEspecificacion in especficacionCliente.Rows)
@@ -103,6 +140,11 @@ namespace Fundimetal.App
                       
            
                         if (column.ColumnName.ToUpper() == _datosVisor.SelectedRows[i].Cells[j].OwningColumn.HeaderText.ToUpper())
+                        {
+                            drow[column] = _datosVisor.SelectedRows[i].Cells[j].Value;
+                        }
+
+                        if (column.ColumnName.Equals("Melts") && _datosVisor.SelectedRows[i].Cells[name_column].OwningColumn.HeaderText.ToUpper().Equals("LOTE") )
                         {
                             drow[column] = _datosVisor.SelectedRows[i].Cells[j].Value;
                         }
@@ -157,6 +199,10 @@ namespace Fundimetal.App
             this._exportacionModel = new ExportacionModel();
 
             this.cmb_producto.SelectedIndex = 0;
+            this.cmb_presentacion.SelectedIndex = 0;
+
+            var pathConsec = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, "Referencia\\consecutivo-exportacion.txt");
+            this.lbl_certificado_numero.Text = File.ReadAllText(pathConsec, Encoding.Default);
         }
 
         private void btn_generar_pdf_exportacion_Click(object sender, EventArgs e)
@@ -164,8 +210,8 @@ namespace Fundimetal.App
 
             // Load Information to model
             this._exportacionModel.Cliente = txtcliente.Text;
-            var pathConsec = string.Format("{0}\\{1}" ,AppDomain.CurrentDomain.BaseDirectory , "Referencia\\consecutivo-exportacion.txt");
-            _exportacionModel.NumeroCertificado = File.ReadAllText(pathConsec,Encoding.Default);
+          
+            _exportacionModel.NumeroCertificado = lbl_certificado_numero.Text;
 
             this._exportacionModel.Producto = cmb_producto.SelectedItem.ToString();
             this._exportacionModel.NumeroFactura = txt_factura.Text;
@@ -173,6 +219,9 @@ namespace Fundimetal.App
             this._exportacionModel.PesoBruto =    Convert.ToInt32( txt_peso_bruto.Text);
             this._exportacionModel.MarcaEmbalaje = txt_marca_embalaje.Text;
             this._exportacionModel.Presentacion = cmb_presentacion.SelectedItem.ToString();
+            this._exportacionModel.dtMelts = (DataTable) datagrid_melts.DataSource;
+            this._exportacionModel.dtElementos = (DataTable) datagrid_elementos.DataSource;
+
 
 
 
@@ -246,6 +295,25 @@ namespace Fundimetal.App
                 sw.WriteLine("");
                 sw.WriteLine("Fin! ");
             }
+        }
+
+
+        // Eventoque se dispara cuando termina de editar una celada
+        private void datagrid_melts_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            Double sum = 0;
+            for (int i = 0; i < datagrid_melts.Rows.Count; ++i)
+
+            {
+
+                for (int j = 0; j < datagrid_melts.Rows[i].Cells.Count; j++)
+                {
+                    sum += Convert.ToDouble(datagrid_melts.Rows[i].Cells[j].Value);
+                }
+               
+            }
+            txt_peso_neto.Text = sum.ToString();
+
         }
     }
 }

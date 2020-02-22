@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,9 @@ namespace fundimetal_core.Model
         public int Lingotes { get; set; }
 
         public String  Embalaje { get; set; }
+
+        public DataTable dtMelts { get; set; }
+        public DataTable dtElementos { get; set; }
 
         public ExportacionModel()
         {
