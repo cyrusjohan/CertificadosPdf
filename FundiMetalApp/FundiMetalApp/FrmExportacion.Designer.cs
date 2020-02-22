@@ -170,6 +170,7 @@
             this.txt_peso_bruto.Size = new System.Drawing.Size(72, 20);
             this.txt_peso_bruto.TabIndex = 15;
             this.txt_peso_bruto.Text = "0";
+            this.txt_peso_bruto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_peso_bruto_KeyPress);
             // 
             // lbl_presentacion
             // 
@@ -339,6 +340,7 @@
             this.datagrid_melts.Size = new System.Drawing.Size(679, 58);
             this.datagrid_melts.TabIndex = 8;
             this.datagrid_melts.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid_melts_CellEndEdit);
+            this.datagrid_melts.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.datagrid_melts_CellValidating);
             // 
             // label2
             // 

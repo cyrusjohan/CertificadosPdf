@@ -467,7 +467,7 @@ namespace Fundimetal.App
 
         private void ShowFormExport()
         {
-            if (dataGridVisor.SelectedRows.Count <= 15)
+            if (dataGridVisor.SelectedRows.Count <= 6)
             {
                 //Especificacion elegida para ver tabla
                 var ItemSelected = cmb_especificacion_cliente.SelectedItem;
@@ -482,7 +482,7 @@ namespace Fundimetal.App
             }
             else
             {
-                MessageBox.Show("El limite de selección permitida es 15 registros");
+                MessageBox.Show("El limite de selección permitida es 6 registros");
             }
         }
     }

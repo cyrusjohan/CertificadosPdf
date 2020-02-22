@@ -341,9 +341,6 @@ namespace fundimetal_core
 
             #endregion
 
-
-
-
             #region encabezado Documento
 
             PdfPTable table = new PdfPTable(1);
@@ -420,21 +417,47 @@ namespace fundimetal_core
             table_enc.AddCell(new PdfPCell(new Phrase("PRESENTATIOS: (PRESENTACIÓN)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.Presentacion);
 
+            #region TABLA MELTS
+            PdfPTable table_melts = new PdfPTable(exportacionModel.dtMelts.Columns.Count + 1)  //Se adiciona columna melts
+            {
+                TotalWidth = 500f,
+                LockedWidth = true
+            };
 
-            // Secciones melts y cargas
 
+            PdfPCell cellTitulo = new PdfPCell(new Phrase("MELTS (lote)"));
+            cellTitulo.HorizontalAlignment = PdfCell.ALIGN_LEFT;
+
+            table_melts.AddCell(cellTitulo);
+            // Adicon de valores de los lotes
+            for (int j = 0; j < exportacionModel.dtMelts.Columns.Count; j++)
+            {
+                table_melts.AddCell(exportacionModel.dtMelts.Columns[j].ToString());
+            }
+
+            PdfPCell cellTitulo_2 = new PdfPCell(new Phrase("WEIGHT (kg)"));
+            cellTitulo_2.HorizontalAlignment = PdfCell.ALIGN_LEFT;
+
+            table_melts.AddCell(cellTitulo_2);
+
+            for (int i = 0; i < exportacionModel.dtMelts.Rows.Count; i++)
+            {
+                for (int j = 0; j < exportacionModel.dtMelts.Columns.Count; j++)
+                {
+                    table_melts.AddCell(exportacionModel.dtMelts.Rows[i][j].ToString());
+                }
+            } 
+            #endregion
 
 
             document.Add(table_enc);
-
-
-
-
-
+            document.Add(table_melts);
 
             #endregion
 
             #region Detalle Documento
+
+
             #endregion
 
             #region Pie de pagina Documento
