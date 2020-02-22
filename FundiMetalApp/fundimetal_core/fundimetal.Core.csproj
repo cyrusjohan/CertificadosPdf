@@ -58,6 +58,7 @@
     <Compile Include="ListItemCombo.cs" />
     <Compile Include="MailManager.cs" />
     <Compile Include="Model\ClienteModel.cs" />
+    <Compile Include="Model\ExportacionModel.cs" />
     <Compile Include="ReaderPath.cs" />
     <Compile Include="XmlRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

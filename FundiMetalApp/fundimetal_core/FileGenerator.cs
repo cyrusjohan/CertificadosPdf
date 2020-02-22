@@ -1,4 +1,5 @@
-﻿using iTextSharp.text;
+﻿using fundimetal_core.Model;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 
 using System;
@@ -17,7 +18,8 @@ namespace fundimetal_core
 
         private string rutaSalidaArchivosPDF = string.Empty;
         private string FileNameMask = "{0}_Certificado_Analisis_{1}_{2}.pdf";
-        
+        private string FileNameMaskExportacion = "{0}_Certificado_Exportacion_{1}_{2}.pdf";
+
         private readonly string RutaTemplateXmlArchivo = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\PlantillaCertificado.xml";
 
         // Variables del contenido del archivo 
@@ -35,12 +37,22 @@ namespace fundimetal_core
         /// <param name="RutaSalidaArchivos"></param>
         public FileGenerator(string RutaSalidaArchivos, String lote)
         {
-            this.RutaSalidaArchivosPDF =Path.Combine(RutaSalidaArchivos, String.Format(   FileNameMask,  
-                                                                                                    DateTime.Now.ToString("yyyy"), 
-                                                                                                    lote, 
-                                                                                                    DateTime.Now.ToString("MMddHHmmss")) );
+            this.RutaSalidaArchivosPDF = Path.Combine(RutaSalidaArchivos, String.Format(FileNameMask,
+                                                                                                    DateTime.Now.ToString("yyyy"),
+                                                                                                    lote,
+                                                                                                    DateTime.Now.ToString("MMddHHmmss")));
             this.Lote = lote;
             this.SetDataTemplate();
+        }
+
+        public FileGenerator(string RutaSalidaArchivos, int NumeroCertificado)
+        {
+            this.RutaSalidaArchivosPDF = Path.Combine(RutaSalidaArchivos, String.Format(FileNameMaskExportacion,
+                                                                                                    DateTime.Now.ToString("yyyy"),
+                                                                                                  NumeroCertificado,
+                                                                                                    DateTime.Now.ToString("MMddHHmmss")));
+
+
         }
 
         /// <summary>
@@ -59,10 +71,10 @@ namespace fundimetal_core
 
         }
 
-     /// <summary>
-     /// Permite la creacion del documento completo PDF
-     /// </summary>
-     /// <param name="dtblTable"></param>
+        /// <summary>
+        /// Permite la creacion del documento completo PDF
+        /// </summary>
+        /// <param name="dtblTable"></param>
         public void ToMake(DataTable dtblTable, string text_aleacion)
         {
             Boolean esTablaEspecificaDoble = false;
@@ -71,7 +83,7 @@ namespace fundimetal_core
             {
                 File.Delete(this.RutaSalidaArchivosPDF);
             }
-          
+
             #region Creacion Documento
 
             System.IO.FileStream fs = new FileStream(this.rutaSalidaArchivosPDF, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -81,7 +93,7 @@ namespace fundimetal_core
             document.Open();
 
             //Fuente Cuerpo del Documento
-           // BaseFont baseFontBody = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            // BaseFont baseFontBody = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntBodyBold = new Font(FontFactory.GetFont("Arial", 12, 1, Color.BLACK));
             Font fntBodyNormal = new Font(FontFactory.GetFont("Arial", 12, 0, Color.BLACK));
             Font fntBodyNormal11 = new Font(FontFactory.GetFont("Arial", 11, 0, Color.BLACK));
@@ -111,10 +123,10 @@ namespace fundimetal_core
             //Font fntHead = new Font(bfntHead, 16, 1, Color.GRAY);
             FontFactory.RegisterDirectories();
 
-            Font fntHead = new Font(FontFactory.GetFont("Arial", 14, 3 , Color.BLACK));
-            
+            Font fntHead = new Font(FontFactory.GetFont("Arial", 14, 3, Color.BLACK));
 
-        
+
+
             Paragraph prgHeading = new Paragraph();
             prgHeading.Alignment = Element.ALIGN_CENTER;
             prgHeading.Add(new Chunk(this.Titulo, fntHead));
@@ -123,12 +135,12 @@ namespace fundimetal_core
 
             //Add line break
             document.Add(new Chunk("\n", fntHead));
-           
+
             // Linea antes , ahora es parametrizable
             //document.Add(new Chunk("Le certificamos el contenido homogéneo de los elementos en un lote  de Metal súper Puro para Oxido de Baterías,  Marca  Fundimetales, de aprox. 10 tons como sigue ", fntBodyNormal));
             document.Add(new Chunk(string.Format(this.HeaderText, text_aleacion), fntBodyNormal));
 
-            document.Add(new Chunk("\n", fntHead));            
+            document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));
 
             #endregion
@@ -140,7 +152,8 @@ namespace fundimetal_core
             {
                 esTablaEspecificaDoble = true;
             }
-            else {
+            else
+            {
                 dtblTable.Columns.Remove("Min");
             }
 
@@ -153,10 +166,10 @@ namespace fundimetal_core
 
             #region Lote 
 
-            PdfPCell cellTitulo = new PdfPCell(new Phrase("Lote Identificado", fntBodyNormal11));           
+            PdfPCell cellTitulo = new PdfPCell(new Phrase("Lote Identificado", fntBodyNormal11));
             cellTitulo.HorizontalAlignment = PdfCell.ALIGN_LEFT;
             //cellTitulo.Colspan = 2;
-            
+
             table.AddCell(cellTitulo);
 
             // Lote
@@ -174,23 +187,23 @@ namespace fundimetal_core
             cellTitulo3.HorizontalAlignment = PdfCell.ALIGN_CENTER;
 
             cellTitulo3.Colspan = (!esTablaEspecificaDoble ? 1 : 2);
-            table.AddCell(cellTitulo3);          
+            table.AddCell(cellTitulo3);
 
-             //Table header
-             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            //Table header
+            BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntColumnHeader = new Font(btnColumnHeader, 10, 1, Color.WHITE);
 
-               
+
             PdfPCell cellElemento = new PdfPCell(new Phrase("Elemento", fntBodyBold));
             cellElemento.HorizontalAlignment = PdfCell.ALIGN_CENTER;
             cellElemento.Colspan = 2;
             table.AddCell(cellElemento);
-          
+
             PdfPCell cellAnalizado = new PdfPCell(new Phrase("Analizado en %", fntBodyBold));
-            cellAnalizado.HorizontalAlignment = PdfCell.ALIGN_CENTER;            
+            cellAnalizado.HorizontalAlignment = PdfCell.ALIGN_CENTER;
             table.AddCell(cellAnalizado);
 
-            if (esTablaEspecificaDoble )
+            if (esTablaEspecificaDoble)
             {
                 PdfPCell cellMin = new PdfPCell(new Phrase("Permitidos Min %", fntBodyBold));
                 cellMin.HorizontalAlignment = PdfCell.ALIGN_CENTER;
@@ -216,7 +229,7 @@ namespace fundimetal_core
             for (int i = 0; i < dtblTable.Rows.Count; i++)
             {
                 for (int j = 0; j < dtblTable.Columns.Count; j++)
-                {                   
+                {
                     table.AddCell(dtblTable.Rows[i][j].ToString());
                 }
             }
@@ -230,7 +243,7 @@ namespace fundimetal_core
             //Saltos de linea
             document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));
-           
+
 
             // Ahora es parametrizable
             //String text1 = "Cada lingote de 30 kg promediados tiene nuestra marca   \"Arbolito Reciclaje\" y FUNDIMETAL y una identificación  de lote por una letra.";            
@@ -239,7 +252,7 @@ namespace fundimetal_core
             //Saltos de linea
             document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));
-           
+
 
             //String text2 = "Los elementos han sido analizados en nuestro Espectrómetro de Emisión Óptica marca ANGSTROM modelo V-950, de última generación.";
 
@@ -247,12 +260,12 @@ namespace fundimetal_core
             //Saltos de linea
             document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));
-            
+
 
             String fechaDocumento = HelperString.GetFechaDocumento();
             //
             //Cali, Noviembre 27 / 2018
-            document.Add(new Chunk( fechaDocumento, fntBodyNormal));
+            document.Add(new Chunk(fechaDocumento, fntBodyNormal));
 
             //Saltos de linea
             document.Add(new Chunk("\n", fntHead));
@@ -266,7 +279,7 @@ namespace fundimetal_core
             prgFooter.Add(new Chunk("Nit 890323114-7", fntBodyNormal));
             document.Add(prgFooter);
 
-            
+
 
             Paragraph prgFooter2 = new Paragraph();
             prgFooter2.Alignment = Element.ALIGN_RIGHT;
@@ -303,6 +316,127 @@ namespace fundimetal_core
 
         }
 
+        public void ToMakeExportacion(DataTable tablaAnalisQuimico, ExportacionModel exportacionModel)
+        {
+            if (File.Exists(this.RutaSalidaArchivosPDF))
+            {
+                File.Delete(this.RutaSalidaArchivosPDF);
+            }
+
+            #region Creacion Documento
+            float TotalWidth = 216f;
+
+            System.IO.FileStream fs = new FileStream(this.rutaSalidaArchivosPDF, FileMode.Create, FileAccess.Write, FileShare.None);
+            Document document = new Document();
+            document.SetPageSize(iTextSharp.text.PageSize.A4);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+            document.Open();
+
+            //Fuente Cuerpo del Documento
+            // BaseFont baseFontBody = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntBodyBold = new Font(FontFactory.GetFont("Arial", 12, 1, Color.BLACK));
+            Font fntBodyNormal = new Font(FontFactory.GetFont("Arial", 12, 0, Color.BLACK));
+            Font fntBodyNormal11 = new Font(FontFactory.GetFont("Arial", 11, 0, Color.BLACK));
+            Font fntBodyNormal10 = new Font(FontFactory.GetFont("Arial", 10, 0, Color.BLACK));
+
+            #endregion
+
+
+
+
+            #region encabezado Documento
+
+            PdfPTable table = new PdfPTable(1);
+           
+            PdfPCell cell = new PdfPCell(new Phrase("CERTIFICATE OF QUALITY \n (CERTIFICADO DE CALIDAD)"));
+            cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+            table.AddCell(cell);
+            document.Add(table);
+
+
+            PdfPTable table_enc = new PdfPTable(4);
+            float[] widths = new float[] { 4, 5, 3,4 };
+            //actual width of table in points
+            table_enc.TotalWidth = 500f;
+            //fix the absolute width of the table
+            table_enc.LockedWidth = true;
+
+            table_enc.SetWidths(widths);
+            //leave a gap before and after the table
+
+            table_enc.SpacingBefore = 20f;
+            table_enc.SpacingAfter = 30f;
+
+
+            PdfPCell cell_customer = new PdfPCell(new Phrase("CUSTOMER "));
+            cell_customer.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+            cell_customer.BorderWidthRight = 0;
+            PdfPCell cell_customer_2 = new PdfPCell(new Phrase(exportacionModel.Cliente));
+            cell_customer_2.BorderWidthLeft = 0;
+
+            table_enc.AddCell(cell_customer);
+            table_enc.AddCell(cell_customer_2);
+
+            table_enc.AddCell(new PdfPCell(new Phrase("CERTIFICATE (CERTIFICADO) \n\n\n  DATE (FECHA) ")) {HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(exportacionModel.NumeroCertificado + "\n\n\n\n" + DateTime.Now.ToString("yyyMMdd"));
+            
+
+
+            PdfPCell cell_PRODUCTO = new PdfPCell(new Phrase("PRODUCT: (PRODUCTO) "));
+            cell_PRODUCTO.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+            cell_PRODUCTO.BorderWidthRight = 0;
+            PdfPCell cell_PRODUCTO_2 = new PdfPCell(new Phrase(exportacionModel.Producto));
+            cell_PRODUCTO_2.BorderWidthLeft = 0;
+
+            table_enc.AddCell(cell_PRODUCTO);
+            table_enc.AddCell(cell_PRODUCTO_2);
+            table_enc.AddCell(new PdfPCell(new Phrase("INVOICE No: (FACTURA)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(exportacionModel.NumeroFactura);
+
+
+
+            PdfPCell cell_netweight = new PdfPCell(new Phrase("NET WEIGHT: (PESO-NETO) "));
+            cell_netweight.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+            cell_netweight.BorderWidthRight = 0;
+            PdfPCell cell_netweight_2 = new PdfPCell(new Phrase(exportacionModel.PesoNeto.ToString()));
+            cell_netweight_2.BorderWidthLeft = 0;
+
+            table_enc.AddCell(cell_netweight);
+            table_enc.AddCell(cell_netweight_2);
+            table_enc.AddCell(new PdfPCell(new Phrase("SHIPPING MARKS: (MARCAS DE EMBALAJE)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(exportacionModel.MarcaEmbalaje);
+
+
+
+            document.Add(table_enc);
+
+
+
+
+
+
+            #endregion
+
+            #region Detalle Documento
+            #endregion
+
+            #region Pie de pagina Documento
+            #endregion
+
+            document.Close();
+            writer.Close();
+
+
+            fs.Close();
+            fs.Close();
+
+
+
+
+
+
+        }
+
         /// <summary>
         /// Detecta las columnas que debe generar en la tabla 
         /// de acuerdo si el valor Min esta presente en alguna especificacion
@@ -316,7 +450,7 @@ namespace fundimetal_core
 
             foreach (DataRow item in dtblTable.Rows)
             {
-                if (item["Min"].ToString().Trim().Length > 0 )
+                if (item["Min"].ToString().Trim().Length > 0)
                 {
                     NumeroCol = 5;
                     break;
@@ -336,7 +470,7 @@ namespace fundimetal_core
         }
 
 
-     
+
 
         public string GetFileName()
         {

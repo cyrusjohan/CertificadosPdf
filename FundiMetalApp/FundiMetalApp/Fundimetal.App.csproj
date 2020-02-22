@@ -178,6 +178,9 @@
     <Content Include="Referencia\ConfigCorreo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Referencia\consecutivo-exportacion.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Referencia\direccion_pie_pagina.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

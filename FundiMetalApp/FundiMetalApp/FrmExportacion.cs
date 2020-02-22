@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using fundimetal.Core;
+using fundimetal_core;
+using fundimetal_core.Model;
 
 namespace Fundimetal.App
 {
@@ -15,6 +19,11 @@ namespace Fundimetal.App
 
         public DataGridView _datosVisor = new DataGridView();
         public DataTable _dtEspecificacionCLiente;
+
+        public ExportacionModel _exportacionModel;
+
+        public string RutaSalidaCertificados { get; private set; }
+
         public FrmExportacion()
         {
             InitializeComponent();
@@ -25,6 +34,8 @@ namespace Fundimetal.App
             InitializeComponent();
             _datosVisor = datos_visor_exportacion;
             _dtEspecificacionCLiente = especficacionCliente;
+
+           
          
         }
 
@@ -143,6 +154,98 @@ namespace Fundimetal.App
         private void FrmExportacion_Load(object sender, EventArgs e)
         {
             this.loadInformationInit();
+            this._exportacionModel = new ExportacionModel();
+
+            this.cmb_producto.SelectedIndex = 0;
+        }
+
+        private void btn_generar_pdf_exportacion_Click(object sender, EventArgs e)
+        {
+
+            // Load Information to model
+            this._exportacionModel.Cliente = txtcliente.Text;
+            var pathConsec = string.Format("{0}\\{1}" ,AppDomain.CurrentDomain.BaseDirectory , "Referencia\\consecutivo-exportacion.txt");
+            _exportacionModel.NumeroCertificado = File.ReadAllText(pathConsec,Encoding.Default);
+
+            this._exportacionModel.Producto = cmb_producto.SelectedItem.ToString();
+            this._exportacionModel.NumeroFactura = txt_factura.Text;
+            this._exportacionModel.PesoNeto =    Convert.ToInt32( txt_peso_neto.Text);
+            this._exportacionModel.PesoBruto =    Convert.ToInt32( txt_peso_bruto.Text);
+            this._exportacionModel.MarcaEmbalaje = txt_marca_embalaje.Text;
+            this._exportacionModel.Presentacion = cmb_presentacion.SelectedItem.ToString();
+
+
+
+
+            pdfGeneratorExport(this._exportacionModel);
+        }
+
+        //Metodo que permite genear PDF de exportacion
+        private void pdfGeneratorExport(ExportacionModel exportacionModel)
+        {
+            ReaderPath objReader = new ReaderPath();
+            this.RutaSalidaCertificados = objReader.getRutaGeneracionCertificados();
+
+            FileGenerator objGenerator = new FileGenerator(this.RutaSalidaCertificados,exportacionModel.NumeroCertificado);
+            try
+            {
+
+                Cursor = Cursors.WaitCursor;
+                DataTable TablaAnalisQuimico = this.GetInfoTablaAnalisis(datagrid_elementos);
+                objGenerator.ToMakeExportacion(TablaAnalisQuimico, exportacionModel);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(String.Format("Error: {0}", exc.Message),
+                  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                addlog(exc.ToString() + exc.Message);
+                return;
+                throw;
+            }
+            finally
+            {
+                Cursor = Cursors.Arrow;
+            }
+
+
+            try
+            {
+                System.Diagnostics.Process.Start(objGenerator.RutaSalidaArchivosPDF);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("No se puede abrir el PDF , instale un software para visualizar",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                addlog(exc.ToString() + exc.Message);
+            }
+
+
+
+        }
+
+        private DataTable GetInfoTablaAnalisis(DataGridView datagrid_elementos)
+        {
+            return new DataTable();
+        }
+
+
+        private void addlog(string text)
+        {
+            string namefileLog = string.Format("log_errores_{0}.txt", DateTime.Now.ToString("yyymmdd"));
+            string fileName = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, namefileLog);
+
+
+            using (StreamWriter sw = File.AppendText(fileName))
+            {
+                sw.WriteLine("Linea adicionada {0}", DateTime.Now.ToString());
+                sw.WriteLine("Error:");
+
+                sw.WriteLine(text);
+                sw.WriteLine("");
+                sw.WriteLine("");
+                sw.WriteLine("Fin! ");
+            }
         }
     }
 }
