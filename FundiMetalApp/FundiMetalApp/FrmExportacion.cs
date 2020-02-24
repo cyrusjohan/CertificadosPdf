@@ -245,7 +245,7 @@ namespace Fundimetal.App
             {
 
                 Cursor = Cursors.WaitCursor;
-                DataTable TablaAnalisQuimico = this.GetInfoTablaAnalisis(datagrid_elementos , null , _dtEspecificacionCLiente);
+                DataTable TablaAnalisQuimico = this.GetInfoTablaAnalisis(exportacionModel, null , _dtEspecificacionCLiente);
                 
                 objGenerator.ToMakeExportacion(TablaAnalisQuimico, exportacionModel);
             }
@@ -284,40 +284,60 @@ namespace Fundimetal.App
             return new DataTable();
         }
 
-        private DataTable GetInfoTablaAnalisis(DataGridView datagrid_elementos, DataGridViewRow currentRow, DataTable especficacionCliente)
+        private DataTable GetInfoTablaAnalisis(ExportacionModel exportacionModel, DataGridViewRow currentRow, DataTable especficacionCliente)
         {
             DataTable dtInfoAnalisis = new DataTable();
-            DataTable dtelementos=  
+            DataTable dtelementos = exportacionModel.dtElementos;
 
             dtInfoAnalisis.Columns.Add("Element", typeof(string));
             dtInfoAnalisis.Columns.Add("ESPECIFICATION", typeof(string));
-           
+
+            // se creanb todas las columnas Melts
+            for (int i = 0; i < datagrid_elementos.Rows.Count; i++)
+            {
+
+                var name_melt = String.Format("MELT_{0}", datagrid_elementos[0, i].Value.ToString());
+                dtInfoAnalisis.Columns.Add(name_melt, typeof(string));
+
+            }
+
+
+
 
 
             foreach (DataRow rowClienteEspecificacion in especficacionCliente.Rows)
             {
 
-                foreach (DataGridViewCell Cell in currentRow.Cells)
+                // Recorre cada fila y columna de la tabla de elementosw
+                for (int i = 0; i < datagrid_elementos.Rows.Count; i++)
                 {
-                    //Buscamos las coincidencia por elemento entre las tablas
-                    if (Cell.OwningColumn.HeaderText.ToUpper() == rowClienteEspecificacion["Simbolo"].ToString().ToUpper())
+
+                    var name_melt = String.Format("MELT_{0}", datagrid_elementos[0, i].Value.ToString());
+
+                  
+                    for (int j = 0; j < datagrid_elementos.Columns.Count; j++)
                     {
+                        //Buscamos las coincidencia por elemento entre las tablas
+                        if (datagrid_elementos[j,i].OwningColumn.HeaderText.ToUpper() == rowClienteEspecificacion["Simbolo"].ToString().ToUpper())
+                        {
 
 
-                        //decimal valor_analizado = Convert.ToDecimal(Cell.Value.ToString());
-                        //decimal valor_max = Convert.ToDecimal(rowClienteEspecificacion["Max"].ToString());
-
-                        dtInfoAnalisis.Rows.Add(
-                            rowClienteEspecificacion["Nombre"].ToString(), // Nombre Elemento Ej: Estaño, Cobre
-                             rowClienteEspecificacion["Simbolo"].ToString(),
-                             Cell.Value.ToString(),  //Valor analizado promedio,
-                             rowClienteEspecificacion["Min"].ToString(),
-                              rowClienteEspecificacion["Max"].ToString() // Maximo permitido
-                            );
+                            //decimal valor_analizado = Convert.ToDecimal(Cell.Value.ToString());
+                            //decimal valor_max = Convert.ToDecimal(rowClienteEspecificacion["Max"].ToString());
+                            DataRow drow = dtInfoAnalisis.NewRow();
+                            drow["Element"] = rowClienteEspecificacion["Simbolo"].ToString();
+                            drow["ESPECIFICATION"] = rowClienteEspecificacion["Min"].ToString();
+                            drow[name_melt] = datagrid_elementos[j, i].Value.ToString();
 
 
+                            dtInfoAnalisis.Rows.Add(drow);
+
+                      
+
+                        }
                     }
                 }
+               
 
             }
 
