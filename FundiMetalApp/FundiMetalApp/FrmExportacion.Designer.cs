@@ -161,6 +161,7 @@
             this.txt_peso_neto.ReadOnly = true;
             this.txt_peso_neto.Size = new System.Drawing.Size(72, 20);
             this.txt_peso_neto.TabIndex = 3;
+            this.txt_peso_neto.Text = "0";
             // 
             // txt_peso_bruto
             // 

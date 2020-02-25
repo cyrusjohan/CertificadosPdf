@@ -308,36 +308,34 @@ namespace Fundimetal.App
             foreach (DataRow rowClienteEspecificacion in especficacionCliente.Rows)
             {
 
+                //Nueva fila 
+                DataRow drow = dtInfoAnalisis.NewRow();
                 // Recorre cada fila y columna de la tabla de elementosw
                 for (int i = 0; i < datagrid_elementos.Rows.Count; i++)
                 {
 
                     var name_melt = String.Format("MELT_{0}", datagrid_elementos[0, i].Value.ToString());
 
-                  
+                   
                     for (int j = 0; j < datagrid_elementos.Columns.Count; j++)
                     {
                         //Buscamos las coincidencia por elemento entre las tablas
                         if (datagrid_elementos[j,i].OwningColumn.HeaderText.ToUpper() == rowClienteEspecificacion["Simbolo"].ToString().ToUpper())
                         {
-
-
                             //decimal valor_analizado = Convert.ToDecimal(Cell.Value.ToString());
                             //decimal valor_max = Convert.ToDecimal(rowClienteEspecificacion["Max"].ToString());
-                            DataRow drow = dtInfoAnalisis.NewRow();
+                           
                             drow["Element"] = rowClienteEspecificacion["Simbolo"].ToString();
                             drow["ESPECIFICATION"] = rowClienteEspecificacion["Min"].ToString();
                             drow[name_melt] = datagrid_elementos[j, i].Value.ToString();
 
 
-                            dtInfoAnalisis.Rows.Add(drow);
-
-                      
-
                         }
                     }
+                  
                 }
-               
+                dtInfoAnalisis.Rows.Add(drow);
+
 
             }
 

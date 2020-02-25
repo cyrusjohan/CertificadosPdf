@@ -414,7 +414,7 @@ namespace fundimetal_core
 
             table_enc.AddCell(cell_grossweight);
             table_enc.AddCell(cell_grossweight_2);
-            table_enc.AddCell(new PdfPCell(new Phrase("PRESENTATIOS: (PRESENTACIÓN)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(new PdfPCell(new Phrase("PRESENTATION: (PRESENTACIÓN)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.Presentacion);
 
             #region TABLA MELTS
@@ -451,11 +451,38 @@ namespace fundimetal_core
 
 
             document.Add(table_enc);
+            
             document.Add(table_melts);
+
+
+
 
             #endregion
 
             #region Detalle Documento
+
+            // Listado de composicion quimica de elementos
+
+
+            PdfPTable table_quimical_father = new PdfPTable(1);
+            table_quimical_father.SpacingBefore = 20f;
+            table_quimical_father.SpacingAfter = 30f;
+            table_quimical_father.TotalWidth = 500f;
+            //fix the absolute width of the table
+            table_quimical_father.LockedWidth = true;
+
+
+            PdfPCell cell_chemical = new PdfPCell(new Phrase("CHEMICAL COMPOSITION"));
+            cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+            table_quimical_father.AddCell(cell_chemical);
+
+            table_quimical_father.AddCell(new PdfPCell(new Phrase("(COMPOSICIÓN QUIMICA)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+
+            document.Add(table_quimical_father);
+
+
+           
+
 
 
             #endregion
