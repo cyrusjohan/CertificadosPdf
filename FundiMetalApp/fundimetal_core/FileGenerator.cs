@@ -344,7 +344,8 @@ namespace fundimetal_core
             #region encabezado Documento
 
             PdfPTable table = new PdfPTable(1);
-           
+            table.WidthPercentage = 100;
+
             PdfPCell cell = new PdfPCell(new Phrase("CERTIFICATE OF QUALITY \n (CERTIFICADO DE CALIDAD)"));
             cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
             table.AddCell(cell);
@@ -352,11 +353,11 @@ namespace fundimetal_core
 
 
             PdfPTable table_enc = new PdfPTable(4);
-            float[] widths = new float[] { 4, 5, 3,4 };
+            float[] widths = new float[] { 4, 5, 3, 4 };
             //actual width of table in points
-            table_enc.TotalWidth = 500f;
+            table_enc.WidthPercentage = 100;
             //fix the absolute width of the table
-            table_enc.LockedWidth = true;
+
 
             table_enc.SetWidths(widths);
             //leave a gap before and after the table
@@ -368,22 +369,26 @@ namespace fundimetal_core
             PdfPCell cell_customer = new PdfPCell(new Phrase("CUSTOMER "));
             cell_customer.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
             cell_customer.BorderWidthRight = 0;
+            cell_customer.BorderWidthBottom = 0;
             PdfPCell cell_customer_2 = new PdfPCell(new Phrase(exportacionModel.Cliente));
             cell_customer_2.BorderWidthLeft = 0;
+            cell_customer_2.BorderWidthBottom = 0;
 
             table_enc.AddCell(cell_customer);
             table_enc.AddCell(cell_customer_2);
 
-            table_enc.AddCell(new PdfPCell(new Phrase("CERTIFICATE (CERTIFICADO) \n\n\n  DATE (FECHA) ")) {HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(new PdfPCell(new Phrase("CERTIFICATE (CERTIFICADO)\n\n\nDATE (FECHA) ")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.NumeroCertificado + "\n\n\n\n" + DateTime.Now.ToString("yyyMMdd"));
-            
+
 
 
             PdfPCell cell_PRODUCTO = new PdfPCell(new Phrase("PRODUCT: (PRODUCTO) "));
             cell_PRODUCTO.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
             cell_PRODUCTO.BorderWidthRight = 0;
+            cell_PRODUCTO.BorderWidthBottom = 0;
             PdfPCell cell_PRODUCTO_2 = new PdfPCell(new Phrase(exportacionModel.Producto));
             cell_PRODUCTO_2.BorderWidthLeft = 0;
+            cell_PRODUCTO_2.BorderWidthBottom = 0;
 
             table_enc.AddCell(cell_PRODUCTO);
             table_enc.AddCell(cell_PRODUCTO_2);
@@ -392,11 +397,13 @@ namespace fundimetal_core
 
 
 
-            PdfPCell cell_netweight = new PdfPCell(new Phrase("NET WEIGHT: (PESO-NETO) "));
+            PdfPCell cell_netweight = new PdfPCell(new Phrase("NET WEIGHT:\n\n(PESO-NETO) "));
             cell_netweight.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
             cell_netweight.BorderWidthRight = 0;
+            cell_netweight.BorderWidthBottom = 0;
             PdfPCell cell_netweight_2 = new PdfPCell(new Phrase(exportacionModel.PesoNeto.ToString()));
             cell_netweight_2.BorderWidthLeft = 0;
+            cell_netweight_2.BorderWidthBottom = 0;
 
             table_enc.AddCell(cell_netweight);
             table_enc.AddCell(cell_netweight_2);
@@ -409,19 +416,20 @@ namespace fundimetal_core
             PdfPCell cell_grossweight = new PdfPCell(new Phrase("GROSS WEIGHT: (PESO-BRUTO) "));
             cell_grossweight.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
             cell_grossweight.BorderWidthRight = 0;
-            PdfPCell cell_grossweight_2  = new PdfPCell(new Phrase(exportacionModel.PesoBruto.ToString()));
+            PdfPCell cell_grossweight_2 = new PdfPCell(new Phrase(exportacionModel.PesoBruto.ToString()));
             cell_grossweight_2.BorderWidthLeft = 0;
 
             table_enc.AddCell(cell_grossweight);
             table_enc.AddCell(cell_grossweight_2);
             table_enc.AddCell(new PdfPCell(new Phrase("PRESENTATION: (PRESENTACIÓN)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.Presentacion);
+            // Finalmente, añadimos la tabla al documento PDF y cerramos el documento
+            document.Add(table_enc);
 
             #region TABLA MELTS
             PdfPTable table_melts = new PdfPTable(exportacionModel.dtMelts.Columns.Count + 1)  //Se adiciona columna melts
             {
-                TotalWidth = 500f,
-                LockedWidth = true
+                WidthPercentage = 100
             };
 
 
@@ -446,15 +454,10 @@ namespace fundimetal_core
                 {
                     table_melts.AddCell(exportacionModel.dtMelts.Rows[i][j].ToString());
                 }
-            } 
-            #endregion
+            }
 
-
-            document.Add(table_enc);
-            
             document.Add(table_melts);
-
-
+            #endregion
 
 
             #endregion
@@ -467,9 +470,9 @@ namespace fundimetal_core
             PdfPTable table_quimical_father = new PdfPTable(1);
             table_quimical_father.SpacingBefore = 20f;
             table_quimical_father.SpacingAfter = 30f;
-            table_quimical_father.TotalWidth = 500f;
+            table_quimical_father.WidthPercentage = 100;
             //fix the absolute width of the table
-            table_quimical_father.LockedWidth = true;
+            //table_quimical_father.LockedWidth = true;
 
 
             PdfPCell cell_chemical = new PdfPCell(new Phrase("CHEMICAL COMPOSITION"));
@@ -478,6 +481,28 @@ namespace fundimetal_core
 
             table_quimical_father.AddCell(new PdfPCell(new Phrase("(COMPOSICIÓN QUIMICA)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
 
+            //Nueva tabla de analisis quimico
+            PdfPTable tabla_analisis_quimico = new PdfPTable(tablaAnalisQuimico.Columns.Count)
+            {
+                WidthPercentage = 100
+            };
+
+            foreach (var columna in tablaAnalisQuimico.Columns)
+            {
+                tabla_analisis_quimico.AddCell(columna.ToString());
+            }
+
+            for (int i = 0; i < tablaAnalisQuimico.Rows.Count; i++)
+            {
+                for (int j = 0; j < tablaAnalisQuimico.Columns.Count; j++)
+                {
+                    tabla_analisis_quimico.AddCell(tablaAnalisQuimico.Rows[i][j].ToString());
+                }
+            }
+
+            table_quimical_father.AddCell(tabla_analisis_quimico);
+           
+          
             document.Add(table_quimical_father);
 
 
