@@ -504,15 +504,63 @@ namespace fundimetal_core
            
           
             document.Add(table_quimical_father);
+            document.Add(new Paragraph("\n"));
+            document.Add(new Paragraph("\n"));
+            document.Add(new Paragraph("\n"));
+            document.Add(new Paragraph("\n"));
+            document.Add(new Paragraph("\n"));
+            document.Add(new Paragraph("\n"));
+            
 
 
-           
+
 
 
 
             #endregion
 
             #region Pie de pagina Documento
+
+
+            PdfPTable table_pie = new PdfPTable(5);
+            float[] widths_pie = new float[] { 4, 5, 3, 4, 6 };
+            //actual width of table in points
+            table_pie.WidthPercentage = 100;
+
+            //fix the absolute width of the table
+
+
+            table_pie.SetWidths(widths_pie);
+
+
+            cell = new PdfPCell(new Phrase("REMARKS\n\n(Observaciones)"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("Aqui son las observaciones que son largas"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("CONTAINER"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("AQUI VALOR CONTAINER"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("SIGNER BY"));
+            cell.BorderWidthBottom = 0;
+            cell.FixedHeight = 50;
+            table_pie.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase("PACKING\n(embalaje)"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("valor embalaje"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("lingote"));
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase("valor lingote"));
+
+            table_pie.AddCell(cell);
+            cell = new PdfPCell(new Phrase(""));
+            cell.FixedHeight = 50;
+            cell.BorderWidthTop = 0;
+            table_pie.AddCell(cell);
+
+            document.Add(table_pie);
             #endregion
 
             document.Close();
