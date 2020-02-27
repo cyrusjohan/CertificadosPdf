@@ -323,7 +323,7 @@ namespace fundimetal_core
                 File.Delete(this.RutaSalidaArchivosPDF);
             }
 
-            #region Creacion Documento
+             #region Creacion Documento
             float TotalWidth = 216f;
 
             System.IO.FileStream fs = new FileStream(this.rutaSalidaArchivosPDF, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -331,6 +331,7 @@ namespace fundimetal_core
             document.SetPageSize(iTextSharp.text.PageSize.A4);
             PdfWriter writer = PdfWriter.GetInstance(document, fs);
             document.Open();
+           
 
             //Fuente Cuerpo del Documento
             // BaseFont baseFontBody = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -338,6 +339,7 @@ namespace fundimetal_core
             Font fntBodyNormal = new Font(FontFactory.GetFont("Arial", 12, 0, Color.BLACK));
             Font fntBodyNormal11 = new Font(FontFactory.GetFont("Arial", 11, 0, Color.BLACK));
             Font fntBodyNormal10 = new Font(FontFactory.GetFont("Arial", 10, 0, Color.BLACK));
+            Font fntBodyNormal9 = new Font(FontFactory.GetFont("Arial", 9, 0, Color.BLACK));
 
             #endregion
 
@@ -345,6 +347,7 @@ namespace fundimetal_core
 
             PdfPTable table = new PdfPTable(1);
             table.WidthPercentage = 100;
+            table.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
 
             PdfPCell cell = new PdfPCell(new Phrase("CERTIFICATE OF QUALITY \n (CERTIFICADO DE CALIDAD)"));
             cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
@@ -353,9 +356,10 @@ namespace fundimetal_core
 
 
             PdfPTable table_enc = new PdfPTable(4);
-            float[] widths = new float[] { 4, 5, 3, 4 };
+            float[] widths = new float[] { 4, 5, 4, 3 };
             //actual width of table in points
             table_enc.WidthPercentage = 100;
+            table_enc.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
             //fix the absolute width of the table
 
 
@@ -431,6 +435,7 @@ namespace fundimetal_core
             {
                 WidthPercentage = 100
             };
+            table_melts.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
 
 
             PdfPCell cellTitulo = new PdfPCell(new Phrase("MELTS (lote)"));
@@ -468,6 +473,8 @@ namespace fundimetal_core
 
 
             PdfPTable table_quimical_father = new PdfPTable(1);
+            table_quimical_father.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
+
             table_quimical_father.SpacingBefore = 20f;
             table_quimical_father.SpacingAfter = 30f;
             table_quimical_father.WidthPercentage = 100;
@@ -476,16 +483,19 @@ namespace fundimetal_core
 
 
             PdfPCell cell_chemical = new PdfPCell(new Phrase("CHEMICAL COMPOSITION"));
+            cell_chemical.BorderWidthBottom = 0;
             cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+
             table_quimical_father.AddCell(cell_chemical);
 
-            table_quimical_father.AddCell(new PdfPCell(new Phrase("(COMPOSICIÓN QUIMICA)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_quimical_father.AddCell(new PdfPCell(new Phrase("(COMPOSICIÓN QUIMICA)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT,BorderWidthTop =0 });
 
             //Nueva tabla de analisis quimico
             PdfPTable tabla_analisis_quimico = new PdfPTable(tablaAnalisQuimico.Columns.Count)
             {
                 WidthPercentage = 100
             };
+            tabla_analisis_quimico.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
 
             foreach (var columna in tablaAnalisQuimico.Columns)
             {
@@ -507,9 +517,7 @@ namespace fundimetal_core
             document.Add(new Paragraph("\n"));
             document.Add(new Paragraph("\n"));
             document.Add(new Paragraph("\n"));
-            document.Add(new Paragraph("\n"));
-            document.Add(new Paragraph("\n"));
-            document.Add(new Paragraph("\n"));
+          
             
 
 
@@ -523,7 +531,8 @@ namespace fundimetal_core
 
 
             PdfPTable table_pie = new PdfPTable(5);
-            float[] widths_pie = new float[] { 4, 5, 3, 4, 6 };
+            table_pie.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
+            float[] widths_pie = new float[] { 6, 5, 4, 4, 6 };
             //actual width of table in points
             table_pie.WidthPercentage = 100;
 
@@ -533,26 +542,26 @@ namespace fundimetal_core
             table_pie.SetWidths(widths_pie);
 
 
-            cell = new PdfPCell(new Phrase("REMARKS\n\n(Observaciones)"));
+            cell = new PdfPCell(new Phrase("REMARKS\n(Observaciones)"));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("Aqui son las observaciones que son largas"));
+            cell = new PdfPCell(new Phrase(exportacionModel.Observaciones));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("CONTAINER"));
+            cell = new PdfPCell(new Phrase("CONTAINER #"));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("AQUI VALOR CONTAINER"));
+            cell = new PdfPCell(new Phrase(exportacionModel.Container));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("SIGNER BY"));
+            cell = new PdfPCell(new Phrase("SIGNER BY\n(FIRMADO POR)"));
             cell.BorderWidthBottom = 0;
             cell.FixedHeight = 50;
             table_pie.AddCell(cell);
 
             cell = new PdfPCell(new Phrase("PACKING\n(embalaje)"));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("valor embalaje"));
+            cell = new PdfPCell(new Phrase(exportacionModel.Embalaje));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("lingote"));
+            cell = new PdfPCell(new Phrase("INGOT\n(lingotes)"));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("valor lingote"));
+            cell = new PdfPCell(new Phrase(exportacionModel.Lingotes));
 
             table_pie.AddCell(cell);
             cell = new PdfPCell(new Phrase(""));
