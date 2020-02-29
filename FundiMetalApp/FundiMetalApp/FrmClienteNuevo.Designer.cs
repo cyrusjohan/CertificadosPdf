@@ -188,7 +188,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmClienteNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Adicionar nuevo cliente";
+            this.Text = "Adicionar nueva especificación";
             this.Load += new System.EventHandler(this.FrmClienteNuevo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

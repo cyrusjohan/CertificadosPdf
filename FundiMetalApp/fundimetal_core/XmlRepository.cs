@@ -15,11 +15,14 @@ namespace fundimetal.Core
     {
 
         private string rutaXmlCLiente = "";
+        private string rutaXmlInfoCLiente = "";
+
 
 
         public XmlRepository()
         {
             rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
+            rutaXmlInfoCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\InfoClientes.xml";
     }
 
         /// <summary>
@@ -183,7 +186,7 @@ namespace fundimetal.Core
         /// </summary>
         /// <param name="xdoc"></param>
         /// <returns>datatable</returns>
-        public DataTable getInfoClientes(XmlDocument xdoc)
+        public DataTable getEspecificacionClientes(XmlDocument xdoc)
         {
 
             DtInfo dtinfo = new DtInfo();
@@ -203,6 +206,38 @@ namespace fundimetal.Core
                 row.Nombre = Nombre.InnerText;
                 row.Descripcion = Descripcion.InnerText;
                 
+                //Adiciona fila
+                dtCliente.Rows.Add(row);
+            }
+
+            return dtCliente;
+        }
+
+        /// <summary>
+        /// Retorna la informacion de clientes
+        /// </summary>
+        /// <param name="xdoc"></param>
+        /// <returns></returns>
+        public DataTable getInfoClientes(XmlDocument xdoc)
+        {
+
+            DtInfo dtinfo = new DtInfo();
+            DataTable dtCliente = dtinfo.Tables["InfoCliente"];
+            XmlNodeList xnodeList = xdoc.SelectNodes("/Clientes/Cliente");
+
+            foreach (XmlNode nodeRow in xnodeList)
+            {
+                XmlNode id = nodeRow.SelectSingleNode("Id");
+                XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
+                XmlNode direccion = nodeRow.SelectSingleNode("Direccion");
+
+
+
+                DtInfo.InfoClienteRow row = dtinfo.InfoCliente.NewInfoClienteRow();
+                row.Id = id.InnerText;
+                row.Nombre = Nombre.InnerText;
+                row.Direccion = direccion.InnerText;
+
                 //Adiciona fila
                 dtCliente.Rows.Add(row);
             }
@@ -257,6 +292,27 @@ namespace fundimetal.Core
             return lstCombo;
         }
 
+        /// <summary>
+        /// Retorna la informacion de contacto de los clientes
+        /// </summary>
+        /// <returns></returns>
+        public List<ListItemCombo> GetInformacionClientesComboBox()
+        {
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(rutaXmlInfoCLiente);
+
+            List<ListItemCombo> lstCombo = new List<ListItemCombo>();
+            XmlNodeList xnodeList = xdoc.SelectNodes("/Clientes/Cliente");
+
+            foreach (XmlNode nodeRow in xnodeList)
+            {
+                XmlNode id = nodeRow.SelectSingleNode("Id");
+                XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
+                lstCombo.Add(new ListItemCombo { Text = Nombre.InnerText, Value = id.InnerText.ToString() });
+            }
+
+            return lstCombo;
+        }
 
 
         /// <summary>
@@ -558,5 +614,107 @@ namespace fundimetal.Core
 
             return cliente;
         }
+
+        public bool SaveOrEditInfoCliente(ClienteModel clienteModel)
+        {
+            bool isError = false;
+            XmlDocument xdoc = new XmlDocument();
+
+            xdoc.Load(this.rutaXmlInfoCLiente);
+
+            if (string.IsNullOrEmpty(clienteModel.IdCLiente))
+            {
+                this.SaveNewInfoCliente(xdoc, clienteModel);
+            }
+            else
+            {
+                this.SaveEditInfoCliente(xdoc, clienteModel);
+            }
+
+            return isError;
+        }
+
+        private void SaveEditInfoCliente(XmlDocument xdoc, ClienteModel clienteModel)
+        {
+            XmlNode xnodeCliente = xdoc.SelectSingleNode("/Clientes/Cliente[Id='" + clienteModel.IdCLiente + "']");
+
+            XmlNode IDCliente = xnodeCliente.SelectSingleNode("Id");
+            XmlNode xmNodelNombre = xnodeCliente.SelectSingleNode("Nombre");
+            XmlNode xmlNodeDireccion = xnodeCliente.SelectSingleNode("Direccion");
+
+            //Modifico Informacion del cliente
+
+            xmNodelNombre.InnerText = clienteModel.NombreCliente;
+            xmlNodeDireccion.InnerText = clienteModel.Descripcion;  // se usa para  la direccion
+            IDCliente.InnerText = clienteModel.IdCLiente;
+
+    
+            xdoc.Save(this.rutaXmlInfoCLiente);
+
+
+        }
+
+        private void SaveNewInfoCliente(XmlDocument xdoc, ClienteModel clienteModel)
+        {
+           
+                XmlElement rootCliente = xdoc.CreateElement("Cliente");
+
+                XmlElement id = xdoc.CreateElement("Id");
+                id.InnerText = GetPkcliente(xdoc);//  "5"; //Pendiente auto generar
+
+                XmlElement Nombre = xdoc.CreateElement("Nombre");
+                Nombre.InnerText = clienteModel.NombreCliente;
+
+                XmlElement direccion = xdoc.CreateElement("Direccion");
+                direccion.InnerText = clienteModel.Descripcion;
+
+                //Informacion del encabezado de un cliente
+                rootCliente.AppendChild(id);
+                rootCliente.AppendChild(Nombre);
+                rootCliente.AppendChild(direccion);
+
+             
+
+                // Adiciciona un nodo <Cliente> a la raiz pabdre
+                xdoc.DocumentElement.AppendChild(rootCliente);
+
+                //Guarda Documento
+                xdoc.Save(this.rutaXmlInfoCLiente);
+
+            
+        }
+
+
+        /// <summary>
+        /// Permite obtener un solo registro busqueda por ID
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ClienteModel GetInfoClienteById(string Id)
+        {
+            ClienteModel cliente = new ClienteModel();
+
+            XmlDocument xDocCliente = new XmlDocument();
+
+            xDocCliente.Load(this.rutaXmlInfoCLiente);
+
+            List<ListItemCombo> lstCombo = new List<ListItemCombo>();
+            XmlNode xnodeCliente = xDocCliente.SelectSingleNode("/Clientes/Cliente[Id='" + Id + "']");
+
+            XmlNode IDCliente = xnodeCliente.SelectSingleNode("Id");
+            XmlNode xmNodelNombre = xnodeCliente.SelectSingleNode("Nombre");
+            XmlNode xmlNodeDireccion = xnodeCliente.SelectSingleNode("Direccion");
+
+            //Informacion del cliente
+            cliente.IdCLiente = IDCliente.InnerText;
+            cliente.NombreCliente = xmNodelNombre.InnerText;
+            cliente.Descripcion = xmlNodeDireccion.InnerText;
+
+
+
+            return cliente;
+        }
     }
+
+
 }

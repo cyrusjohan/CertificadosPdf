@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tab_configuracion = new System.Windows.Forms.TabControl();
-            this.Clientes = new System.Windows.Forms.TabPage();
+            this.Espec_Clientes = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo_cliente = new System.Windows.Forms.Button();
             this.dataGridCliente = new System.Windows.Forms.DataGridView();
@@ -51,36 +51,45 @@
             this.btn_close_win = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.Cliente = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnNewCliente = new System.Windows.Forms.Button();
+            this.datagridClientesListado = new System.Windows.Forms.DataGridView();
+            this.btnEditCliente = new System.Windows.Forms.Button();
             this.tab_configuracion.SuspendLayout();
-            this.Clientes.SuspendLayout();
+            this.Espec_Clientes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.Rutas.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtagrid_xml_fuente)).BeginInit();
+            this.Cliente.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridClientesListado)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_configuracion
             // 
-            this.tab_configuracion.Controls.Add(this.Clientes);
+            this.tab_configuracion.Controls.Add(this.Espec_Clientes);
             this.tab_configuracion.Controls.Add(this.Rutas);
+            this.tab_configuracion.Controls.Add(this.Cliente);
             this.tab_configuracion.Location = new System.Drawing.Point(12, 24);
             this.tab_configuracion.Name = "tab_configuracion";
             this.tab_configuracion.SelectedIndex = 0;
             this.tab_configuracion.Size = new System.Drawing.Size(850, 359);
             this.tab_configuracion.TabIndex = 0;
             // 
-            // Clientes
+            // Espec_Clientes
             // 
-            this.Clientes.Controls.Add(this.groupBox2);
-            this.Clientes.Location = new System.Drawing.Point(4, 22);
-            this.Clientes.Name = "Clientes";
-            this.Clientes.Padding = new System.Windows.Forms.Padding(3);
-            this.Clientes.Size = new System.Drawing.Size(842, 333);
-            this.Clientes.TabIndex = 0;
-            this.Clientes.Text = "Clientes";
-            this.Clientes.UseVisualStyleBackColor = true;
+            this.Espec_Clientes.Controls.Add(this.groupBox2);
+            this.Espec_Clientes.Location = new System.Drawing.Point(4, 22);
+            this.Espec_Clientes.Name = "Espec_Clientes";
+            this.Espec_Clientes.Padding = new System.Windows.Forms.Padding(3);
+            this.Espec_Clientes.Size = new System.Drawing.Size(842, 333);
+            this.Espec_Clientes.TabIndex = 0;
+            this.Espec_Clientes.Text = "Especificación Clientes";
+            this.Espec_Clientes.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -278,6 +287,60 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Cliente
+            // 
+            this.Cliente.Controls.Add(this.groupBox4);
+            this.Cliente.Location = new System.Drawing.Point(4, 22);
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Size = new System.Drawing.Size(842, 333);
+            this.Cliente.TabIndex = 2;
+            this.Cliente.Text = "Info Clientes";
+            this.Cliente.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnNewCliente);
+            this.groupBox4.Controls.Add(this.datagridClientesListado);
+            this.groupBox4.Controls.Add(this.btnEditCliente);
+            this.groupBox4.Location = new System.Drawing.Point(19, 23);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(706, 270);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Administración";
+            // 
+            // btnNewCliente
+            // 
+            this.btnNewCliente.Location = new System.Drawing.Point(46, 28);
+            this.btnNewCliente.Name = "btnNewCliente";
+            this.btnNewCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnNewCliente.TabIndex = 4;
+            this.btnNewCliente.Text = "Nuevo";
+            this.btnNewCliente.UseVisualStyleBackColor = true;
+            this.btnNewCliente.Click += new System.EventHandler(this.btnNewCliente_Click);
+            // 
+            // datagridClientesListado
+            // 
+            this.datagridClientesListado.AllowUserToAddRows = false;
+            this.datagridClientesListado.AllowUserToDeleteRows = false;
+            this.datagridClientesListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.datagridClientesListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridClientesListado.Location = new System.Drawing.Point(46, 74);
+            this.datagridClientesListado.Name = "datagridClientesListado";
+            this.datagridClientesListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridClientesListado.Size = new System.Drawing.Size(587, 152);
+            this.datagridClientesListado.TabIndex = 0;
+            // 
+            // btnEditCliente
+            // 
+            this.btnEditCliente.Location = new System.Drawing.Point(141, 28);
+            this.btnEditCliente.Name = "btnEditCliente";
+            this.btnEditCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnEditCliente.TabIndex = 2;
+            this.btnEditCliente.Text = "Editar";
+            this.btnEditCliente.UseVisualStyleBackColor = true;
+            this.btnEditCliente.Click += new System.EventHandler(this.btnEditCliente_Click);
+            // 
             // FrmConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,7 +352,7 @@
             this.Text = "Ajustes de configuración";
             this.Load += new System.EventHandler(this.FrmConfiguration_Load);
             this.tab_configuracion.ResumeLayout(false);
-            this.Clientes.ResumeLayout(false);
+            this.Espec_Clientes.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             this.Rutas.ResumeLayout(false);
@@ -298,6 +361,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtagrid_xml_fuente)).EndInit();
+            this.Cliente.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridClientesListado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,7 +371,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tab_configuracion;
-        private System.Windows.Forms.TabPage Clientes;
+        private System.Windows.Forms.TabPage Espec_Clientes;
         private System.Windows.Forms.TabPage Rutas;
         private System.Windows.Forms.Button bnt_editar_Cliente;
         private System.Windows.Forms.DataGridView dataGridCliente;
@@ -327,5 +393,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn txt_ruta_xml;
+        private System.Windows.Forms.TabPage Cliente;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnNewCliente;
+        private System.Windows.Forms.DataGridView datagridClientesListado;
+        private System.Windows.Forms.Button btnEditCliente;
     }
 }

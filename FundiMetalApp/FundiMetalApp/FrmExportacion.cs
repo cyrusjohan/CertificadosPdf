@@ -23,6 +23,8 @@ namespace Fundimetal.App
         public ExportacionModel _exportacionModel;
 
         public string RutaSalidaCertificados { get; private set; }
+        public string RutaConsecutivo { get; private set; }
+        private IRepository _repository = new XmlRepository();
 
         public FrmExportacion()
         {
@@ -35,8 +37,10 @@ namespace Fundimetal.App
             _datosVisor = datos_visor_exportacion;
             _dtEspecificacionCLiente = especficacionCliente;
 
-           
-         
+            this.RutaConsecutivo = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, "Referencia\\consecutivo-exportacion.txt");
+
+
+
         }
 
         
@@ -201,16 +205,37 @@ namespace Fundimetal.App
             this.cmb_producto.SelectedIndex = 0;
             this.cmb_presentacion.SelectedIndex = 0;
 
-            var pathConsec = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, "Referencia\\consecutivo-exportacion.txt");
-            this.lbl_certificado_numero.Text = File.ReadAllText(pathConsec, Encoding.Default);
+           
+            this.lbl_certificado_numero.Text = File.ReadAllText(this.RutaConsecutivo, Encoding.Default);
+
+            this.setupControles();
+
+        }
+
+        private void setupControles()
+        {
+            // Lista de Clientes   
+            cmb_cliente.DataSource = null;
+            cmb_cliente.DisplayMember = "Text";
+            cmb_cliente.ValueMember = "Value";
+            cmb_cliente.BindingContext = new BindingContext();
+
+            cmb_cliente.DataSource = _repository.GetInformacionClientesComboBox();
         }
 
         private void btn_generar_pdf_exportacion_Click(object sender, EventArgs e)
         {
 
             // Load Information to model
-            this._exportacionModel.Cliente = txtcliente.Text;
-          
+            var idCliente = cmb_cliente.SelectedValue.ToString();
+            var clienteModel = _repository.GetInfoClienteById(idCliente);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(clienteModel.NombreCliente);
+            sb.AppendLine(clienteModel.Descripcion);
+
+            this._exportacionModel.Cliente = sb.ToString();
+
+
             _exportacionModel.NumeroCertificado = lbl_certificado_numero.Text;
 
             this._exportacionModel.Producto = cmb_producto.SelectedItem.ToString();
@@ -226,12 +251,6 @@ namespace Fundimetal.App
             this._exportacionModel.Container = txt_container.Text;
             this._exportacionModel.Lingotes = txt_lingotes.Text;
 
-
-
-
-
-
-
             pdfGeneratorExport(this._exportacionModel);
         }
 
@@ -241,10 +260,6 @@ namespace Fundimetal.App
             ReaderPath objReader = new ReaderPath();
             this.RutaSalidaCertificados = objReader.getRutaGeneracionCertificados();
 
-        
-
-
-          
 
             FileGenerator objGenerator = new FileGenerator(this.RutaSalidaCertificados,exportacionModel.NumeroCertificado);
             try
@@ -267,6 +282,11 @@ namespace Fundimetal.App
             finally
             {
                 Cursor = Cursors.Arrow;
+                var valConsecutivo = Convert.ToInt32(this.lbl_certificado_numero.Text) + 1;
+                File.WriteAllText(this.RutaConsecutivo, valConsecutivo.ToString());
+                this.Close();
+               
+
             }
 
 
@@ -467,6 +487,26 @@ namespace Fundimetal.App
                 }
 
             
+        }
+
+        private void datagrid_elementos_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            Double i;
+
+
+            if (e.ColumnIndex > 0) //|| e.ColumnIndex == 3 ) // 1 should be your column index
+            {
+
+                if (!String.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+                {
+                    if (!Double.TryParse(Convert.ToString(e.FormattedValue), out i))
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show("Debe ingresar solo caracteres numéricos", "Validacion", MessageBoxButtons.OK);
+                    }
+
+                }
+            }
         }
     }
 }

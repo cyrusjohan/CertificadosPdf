@@ -19,7 +19,9 @@ namespace Fundimetal.App
 
         private string rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
         private string rutaXmlRutas = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\Rutas.xml";
-        private XmlDocument xDocCliente,xDocRutas;
+        private string rutaXmlInfoCliente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\InfoClientes.xml";
+
+        private XmlDocument xDocCliente,xDocRutas,XDocInfoClientes;
 
         private IRepository _repository = new XmlRepository();
         public FrmConfiguration()
@@ -38,8 +40,12 @@ namespace Fundimetal.App
             xDocCliente = new XmlDocument();
             xDocCliente.Load(rutaXmlCLiente);
 
+            XDocInfoClientes = new XmlDocument();
+            XDocInfoClientes.Load(rutaXmlInfoCliente);
+
             LoadConfigurationCliente();
             LoadConfigurationPath();
+            LoadConfigInfoClientes();
 
          
         }
@@ -84,13 +90,21 @@ namespace Fundimetal.App
 
         public void LoadConfigurationCliente()
         {
-            DataTable infoCliente = _repository.getInfoClientes(xDocCliente);
+            DataTable infoCliente = _repository.getEspecificacionClientes(xDocCliente);
 
             // Carga informacion solo de cliente
             dataGridCliente.DataSource = infoCliente;
         }
 
-      
+
+        public void LoadConfigInfoClientes()
+        {
+            DataTable infoCliente = _repository.getInfoClientes(XDocInfoClientes);
+
+            // Carga informacion solo de cliente
+            datagridClientesListado.DataSource = infoCliente;
+        }
+
 
         private void editar_cliente_Click(object sender, EventArgs e)
         {
@@ -259,7 +273,44 @@ namespace Fundimetal.App
             dtagrid_xml_fuente.Rows.Add(numId, rutaNueva);
         }
 
-      
+        private void btnEditCliente_Click(object sender, EventArgs e)
+        {
+            if (datagridClientesListado.SelectedRows.Count > 0)
+            {
+                this.OpenFormEditarInfoCliente();
+            }
+            else
+            {
+                MessageBox.Show("Debe primero seleccionar una fila");
+            }
+        }
+
+        private void OpenFormEditarInfoCliente()
+        {
+
+            ClienteModel cliente = new ClienteModel();
+
+
+            cliente = _repository.GetInfoClienteById(datagridClientesListado.CurrentRow.Cells[0].Value.ToString());
+
+            ///Esto permite el momento de cerrar de guarda se pueda refrescar la grid y mostrar nuevos registros
+            FrmInfoCliente formClienteNuevo = new FrmInfoCliente(cliente);
+            formClienteNuevo.ShowDialog();
+            this.LoadConfigurationBase();
+        }
+
+        /// <summary>
+        /// Permite abrir formuario de ventana nueva pra informacion  cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNewCliente_Click(object sender, EventArgs e)
+        {
+            FrmInfoCliente frm = new FrmInfoCliente();
+
+            frm.ShowDialog();
+            this.LoadConfigurationBase();
+        }
 
         private void btn_select_folder_path_Click(object sender, EventArgs e)
         {

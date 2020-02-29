@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Clientes>
+	<Cliente>
+		<Id>1</Id>
+		<Nombre>Comersana sa de cv</Nombre>
+		<Direccion>Sierra San isidro, San Luis Potosi</Direccion>
+	</Cliente>
+</Clientes>
