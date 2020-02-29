@@ -225,7 +225,7 @@ namespace Fundimetal.App
 
         private void btn_generar_pdf_exportacion_Click(object sender, EventArgs e)
         {
-
+           
             // Load Information to model
             var idCliente = cmb_cliente.SelectedValue.ToString();
             var clienteModel = _repository.GetInfoClienteById(idCliente);
@@ -251,7 +251,74 @@ namespace Fundimetal.App
             this._exportacionModel.Container = txt_container.Text;
             this._exportacionModel.Lingotes = txt_lingotes.Text;
 
+            if (this.validateForm(this._exportacionModel))
+            {
+                return;
+            }
+
             pdfGeneratorExport(this._exportacionModel);
+        }
+
+        /// <summary>
+        /// Permite la validacion de obligatorios del campos 
+        /// </summary>
+        /// <returns></returns>
+        private bool validateForm(ExportacionModel exportacionModel)
+        {
+            bool isError = false;
+            if (exportacionModel.PesoBruto <= 0 )
+            {
+                isError = true;
+                MessageBox.Show("El campo peso bruto debe ser mayor a Cero");
+                txt_peso_bruto.Select();
+                return isError;
+
+            }
+            if (exportacionModel.PesoNeto <= 0)
+            {
+                isError = true;
+                MessageBox.Show("El campo peso Neto debe ser mayor a Cero");
+                txt_peso_neto.Select();
+                return isError;
+
+            }
+
+            if (exportacionModel.NumeroFactura.Length ==0)
+            {
+                isError = true;
+                MessageBox.Show("El campo Numero factura es obligatorio");
+                txt_factura.Select();
+                return isError;
+
+            }
+
+            if (exportacionModel.MarcaEmbalaje.Length == 0)
+            {
+                isError = true;
+                MessageBox.Show("El campo Marca Embalaje es obligatorio");
+                txt_marca_embalaje.Select();
+                return isError;
+
+            }
+
+            if (exportacionModel.Container.Length == 0)
+            {
+                isError = true;
+                MessageBox.Show("El campo Container es obligatorio");
+                txt_container.Select();
+                return isError;
+
+            }
+
+            if (exportacionModel.Lingotes.Length == 0)
+            {
+                isError = true;
+                MessageBox.Show("El campo Lingotes es obligatorio");
+                txt_lingotes.Select();
+                return isError;
+
+            }
+            return isError;
         }
 
         //Metodo que permite genear PDF de exportacion
