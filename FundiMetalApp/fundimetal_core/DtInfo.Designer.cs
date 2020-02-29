@@ -422,6 +422,8 @@ namespace fundimetal_core {
             
             private global::System.Data.DataColumn columnAs;
             
+            private global::System.Data.DataColumn columnTe;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DtInfogridDataTable() {
@@ -609,6 +611,14 @@ namespace fundimetal_core {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TeColumn {
+                get {
+                    return this.columnTe;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -662,7 +672,8 @@ namespace fundimetal_core {
                         string Zn, 
                         string Cd, 
                         string Sb, 
-                        string As) {
+                        string As, 
+                        string Te) {
                 DtInfogridRow rowDtInfogridRow = ((DtInfogridRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -683,7 +694,8 @@ namespace fundimetal_core {
                         Zn,
                         Cd,
                         Sb,
-                        As};
+                        As,
+                        Te};
                 rowDtInfogridRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtInfogridRow);
                 return rowDtInfogridRow;
@@ -732,6 +744,7 @@ namespace fundimetal_core {
                 this.columnCd = base.Columns["Cd"];
                 this.columnSb = base.Columns["Sb"];
                 this.columnAs = base.Columns["As"];
+                this.columnTe = base.Columns["Te"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -775,6 +788,8 @@ namespace fundimetal_core {
                 base.Columns.Add(this.columnSb);
                 this.columnAs = new global::System.Data.DataColumn("As", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAs);
+                this.columnTe = new global::System.Data.DataColumn("Te", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTe);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2097,6 +2112,22 @@ namespace fundimetal_core {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Te {
+                get {
+                    if (this.IsTeNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableDtInfogrid.TeColumn]));
+                    }
+                }
+                set {
+                    this[this.tableDtInfogrid.TeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFechaNull() {
                 return this.IsNull(this.tableDtInfogrid.FechaColumn);
             }
@@ -2309,6 +2340,18 @@ namespace fundimetal_core {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAsNull() {
                 this[this.tableDtInfogrid.AsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTeNull() {
+                return this.IsNull(this.tableDtInfogrid.TeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTeNull() {
+                this[this.tableDtInfogrid.TeColumn] = global::System.Convert.DBNull;
             }
         }
         

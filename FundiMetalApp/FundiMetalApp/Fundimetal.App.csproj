@@ -184,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconFundimetal.ico" />
+    <Content Include="Referencia\AyG Pb Te.xml" />
     <Content Include="Referencia\ConfigCorreo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

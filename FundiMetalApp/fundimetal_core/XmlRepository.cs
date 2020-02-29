@@ -90,6 +90,8 @@ namespace fundimetal.Core
                 var Sb_2 = nodeRow.SelectSingleNode("*[local-name() = 'CH09L12']"); // Utilizado para el segundo archivo
 
                 var As = nodeRow.SelectSingleNode("*[local-name() = 'CH07L12']");
+
+                var Te = nodeRow.SelectSingleNode("*[local-name() = 'CH19L12']");
                 #endregion
 
                 DtInfo.DtInfogridRow row = dtinfo.DtInfogrid.NewDtInfogridRow();
@@ -150,6 +152,7 @@ namespace fundimetal.Core
                 row.Se = (Se != null ? Se.InnerText : "0.000");
                 row.Zn = (Zn != null ? Zn.InnerText : "0.000");
                 row.Cd = (Cd != null ? Cd.InnerText : "0.000");
+                row.Te = (Te != null ? Te.InnerText : "0.000"); 
                 if (Sb != null && Sb.InnerText.Trim().Length > 0)
                 {
                     row.Sb = Sb.InnerText.Trim();

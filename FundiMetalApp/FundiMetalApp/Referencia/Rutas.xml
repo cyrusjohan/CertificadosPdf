@@ -2,7 +2,9 @@
 <ConfiguracionRutas>
   <RutaXmlFuente>
     <File id="1">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\Low Alloy Pb.xml</File>
-    <File id="2">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\Pb_Sb.xml</File>    
+    <File id="2">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\Pb_Sb.xml</File>
+    <File id="3">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\AyG Pb Te.xml</File>
+	 
   </RutaXmlFuente>
   <RutaGeneracionCertificados>C:\RutaSalidaPDF</RutaGeneracionCertificados>
 </ConfiguracionRutas>
