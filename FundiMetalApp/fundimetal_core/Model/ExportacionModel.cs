@@ -30,7 +30,7 @@ namespace fundimetal_core.Model
         public String Observaciones { get; set; }
         public String  Container { get; set; }
 
-        public int Lingotes { get; set; }
+        public String Lingotes { get; set; }
 
         public String  Embalaje { get; set; }
 

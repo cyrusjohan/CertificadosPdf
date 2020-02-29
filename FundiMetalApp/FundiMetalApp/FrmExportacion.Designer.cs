@@ -47,9 +47,7 @@
             this.cmb_producto = new System.Windows.Forms.ComboBox();
             this.cmb_presentacion = new System.Windows.Forms.ComboBox();
             this.lblcontainer = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lbl_embalaje = new System.Windows.Forms.Label();
-            this.txt_embalajeç = new System.Windows.Forms.TextBox();
+            this.txt_container = new System.Windows.Forms.TextBox();
             this.btn_generar_pdf_exportacion = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_lingotes = new System.Windows.Forms.TextBox();
@@ -249,29 +247,13 @@
             this.lblcontainer.TabIndex = 23;
             this.lblcontainer.Text = "Container";
             // 
-            // textBox2
+            // txt_container
             // 
-            this.textBox2.Location = new System.Drawing.Point(380, 588);
-            this.textBox2.MaxLength = 40;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 20);
-            this.textBox2.TabIndex = 9;
-            // 
-            // lbl_embalaje
-            // 
-            this.lbl_embalaje.AutoSize = true;
-            this.lbl_embalaje.Location = new System.Drawing.Point(317, 655);
-            this.lbl_embalaje.Name = "lbl_embalaje";
-            this.lbl_embalaje.Size = new System.Drawing.Size(50, 13);
-            this.lbl_embalaje.TabIndex = 25;
-            this.lbl_embalaje.Text = "Embalaje";
-            // 
-            // txt_embalajeç
-            // 
-            this.txt_embalajeç.Location = new System.Drawing.Point(380, 652);
-            this.txt_embalajeç.Name = "txt_embalajeç";
-            this.txt_embalajeç.Size = new System.Drawing.Size(222, 20);
-            this.txt_embalajeç.TabIndex = 10;
+            this.txt_container.Location = new System.Drawing.Point(380, 588);
+            this.txt_container.MaxLength = 40;
+            this.txt_container.Name = "txt_container";
+            this.txt_container.Size = new System.Drawing.Size(222, 20);
+            this.txt_container.TabIndex = 9;
             // 
             // btn_generar_pdf_exportacion
             // 
@@ -304,9 +286,10 @@
             // txtobservaciones
             // 
             this.txtobservaciones.Location = new System.Drawing.Point(40, 599);
+            this.txtobservaciones.MaxLength = 200;
             this.txtobservaciones.Multiline = true;
             this.txtobservaciones.Name = "txtobservaciones";
-            this.txtobservaciones.Size = new System.Drawing.Size(235, 73);
+            this.txtobservaciones.Size = new System.Drawing.Size(269, 62);
             this.txtobservaciones.TabIndex = 29;
             // 
             // lbl_observaciones
@@ -374,9 +357,7 @@
             this.Controls.Add(this.txt_lingotes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_generar_pdf_exportacion);
-            this.Controls.Add(this.txt_embalajeç);
-            this.Controls.Add(this.lbl_embalaje);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_container);
             this.Controls.Add(this.lblcontainer);
             this.Controls.Add(this.cmb_presentacion);
             this.Controls.Add(this.cmb_producto);
@@ -430,9 +411,7 @@
         private System.Windows.Forms.ComboBox cmb_producto;
         private System.Windows.Forms.ComboBox cmb_presentacion;
         private System.Windows.Forms.Label lblcontainer;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label lbl_embalaje;
-        private System.Windows.Forms.TextBox txt_embalajeç;
+        private System.Windows.Forms.TextBox txt_container;
         private System.Windows.Forms.Button btn_generar_pdf_exportacion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_lingotes;

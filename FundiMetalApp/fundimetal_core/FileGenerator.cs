@@ -343,6 +343,12 @@ namespace fundimetal_core
 
             #endregion
 
+            var imagepath = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\logo.jpg";
+            var image_PIE_PAGINA = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\direccion_pie_pagina.jpg";
+            Image jpg = Image.GetInstance(imagepath);
+            jpg.Alignment = Image.ALIGN_CENTER;
+            document.Add(jpg);
+            document.Add(addSpace(12));
             #region encabezado Documento
 
             PdfPTable table = new PdfPTable(1);
@@ -514,17 +520,8 @@ namespace fundimetal_core
            
           
             document.Add(table_quimical_father);
-            document.Add(new Paragraph("\n"));
-            document.Add(new Paragraph("\n"));
-            document.Add(new Paragraph("\n"));
+           
           
-            
-
-
-
-
-
-
             #endregion
 
             #region Pie de pagina Documento
@@ -532,7 +529,7 @@ namespace fundimetal_core
 
             PdfPTable table_pie = new PdfPTable(5);
             table_pie.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
-            float[] widths_pie = new float[] { 6, 5, 4, 4, 6 };
+            float[] widths_pie = new float[] { 5, 4, 4, 4, 6 };
             //actual width of table in points
             table_pie.WidthPercentage = 100;
 
@@ -543,9 +540,11 @@ namespace fundimetal_core
 
 
             cell = new PdfPCell(new Phrase("REMARKS\n(Observaciones)"));
+            cell.Colspan = 2;
+            cell.BorderWidthBottom = 0;
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase(exportacionModel.Observaciones));
-            table_pie.AddCell(cell);
+
+           
             cell = new PdfPCell(new Phrase("CONTAINER #"));
             table_pie.AddCell(cell);
             cell = new PdfPCell(new Phrase(exportacionModel.Container));
@@ -555,13 +554,14 @@ namespace fundimetal_core
             cell.FixedHeight = 50;
             table_pie.AddCell(cell);
 
-            cell = new PdfPCell(new Phrase("PACKING\n(embalaje)"));
-            table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase(exportacionModel.Embalaje));
+           
+            cell = new PdfPCell(new Phrase(exportacionModel.Observaciones));
+            cell.Colspan = 2;
+            cell.BorderWidthTop = 0;
             table_pie.AddCell(cell);
             cell = new PdfPCell(new Phrase("INGOT\n(lingotes)"));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase(exportacionModel.Lingotes));
+            cell = new PdfPCell(new Phrase(exportacionModel.Lingotes.ToString()));
 
             table_pie.AddCell(cell);
             cell = new PdfPCell(new Phrase(""));
@@ -570,6 +570,13 @@ namespace fundimetal_core
             table_pie.AddCell(cell);
 
             document.Add(table_pie);
+
+           
+
+            Image jpgPIE_PAGINA = Image.GetInstance(image_PIE_PAGINA);
+            jpgPIE_PAGINA.Alignment = Image.ALIGN_CENTER;
+            jpgPIE_PAGINA.SetAbsolutePosition(100f, 0f);
+            document.Add(jpgPIE_PAGINA);
             #endregion
 
             document.Close();

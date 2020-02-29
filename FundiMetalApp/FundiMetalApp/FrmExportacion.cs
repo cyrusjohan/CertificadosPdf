@@ -222,6 +222,12 @@ namespace Fundimetal.App
             this._exportacionModel.dtMelts = (DataTable) datagrid_melts.DataSource;
             this._exportacionModel.dtElementos = (DataTable) datagrid_elementos.DataSource;
 
+            this._exportacionModel.Observaciones = txtobservaciones.Text;
+            this._exportacionModel.Container = txt_container.Text;
+            this._exportacionModel.Lingotes = txt_lingotes.Text;
+
+
+
 
 
 
