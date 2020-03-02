@@ -75,7 +75,7 @@ namespace fundimetal_core
         /// Permite la creacion del documento completo PDF
         /// </summary>
         /// <param name="dtblTable"></param>
-        public void ToMake(DataTable dtblTable, string text_aleacion)
+        public void ToMake(DataTable dtblTable, string text_aleacion,string  TextEspecComplemento)
         {
             Boolean esTablaEspecificaDoble = false;
 
@@ -138,7 +138,7 @@ namespace fundimetal_core
 
             // Linea antes , ahora es parametrizable
             //document.Add(new Chunk("Le certificamos el contenido homogéneo de los elementos en un lote  de Metal súper Puro para Oxido de Baterías,  Marca  Fundimetales, de aprox. 10 tons como sigue ", fntBodyNormal));
-            document.Add(new Chunk(string.Format(this.HeaderText, text_aleacion), fntBodyNormal));
+            document.Add(new Chunk(string.Format(this.HeaderText, text_aleacion, TextEspecComplemento), fntBodyNormal));
 
             document.Add(new Chunk("\n", fntHead));
             document.Add(new Chunk("\n", fntHead));

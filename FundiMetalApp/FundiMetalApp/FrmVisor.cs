@@ -203,9 +203,12 @@ namespace Fundimetal.App
         {
             // Extraemos el Id del Cliente           
             var ItemSelected = cmb_especificacion_cliente.SelectedItem;
-            
-            string IdCliente = ((ListItemCombo)ItemSelected).Value;
-            string TextNombreEspecificacion  = ((ListItemCombo)ItemSelected).Text;
+
+            string TextEspecComplemento = "Oxido de Baterías";
+           
+           
+            string IdCliente = ((ListItemCombo)ItemSelected).Value; 
+            string text_aleacion = ((ListItemCombo)ItemSelected).Text;
             
 
             // Obtenemos informacion del cliente
@@ -225,11 +228,17 @@ namespace Fundimetal.App
                 Cursor = Cursors.WaitCursor;
 
                 //objGenerator.setData();
-                if (this.IdRutaXmlFuente =="1") // Solo aplica para base de datos de puros
-                { TextNombreEspecificacion = "súper Puro"; }
+                if (this.IdRutaXmlFuente == "1")
+                {
+                    text_aleacion = "súper Puro";
+                    TextEspecComplemento = "Oxido de Baterías";
+                }
+                else if (this.IdRutaXmlFuente == "2")
+                    TextEspecComplemento = "Baterías";
                 
 
-                objGenerator.ToMake(TablaAnalisQuimico, TextNombreEspecificacion);
+
+                objGenerator.ToMake(TablaAnalisQuimico, text_aleacion, TextEspecComplemento);
             }
             catch (Exception exc)
             {
