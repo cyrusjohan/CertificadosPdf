@@ -25,6 +25,7 @@ namespace Fundimetal.App
         public string RutaSalidaCertificados { get; private set; }
         public string RutaConsecutivo { get; private set; }
         private IRepository _repository = new XmlRepository();
+        private string consecutivoArchivo;
 
         public FrmExportacion()
         {
@@ -38,6 +39,25 @@ namespace Fundimetal.App
             _dtEspecificacionCLiente = especficacionCliente;
 
             this.RutaConsecutivo = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, "Referencia\\consecutivo-exportacion.txt");
+
+
+            // Listado en combo de productos
+            cmb_producto.DataSource = null;
+            cmb_producto.DisplayMember = "Text";
+            cmb_producto.ValueMember = "Value";
+            cmb_producto.BindingContext = new BindingContext();
+
+            cmb_producto.DataSource = _repository.GetInfoProductosComboBox();
+
+
+            // Listado en combo presentacion
+            cmb_presentacion.DataSource = null;
+            cmb_presentacion.DisplayMember = "Text";
+            cmb_presentacion.ValueMember = "Value";
+            cmb_presentacion.BindingContext = new BindingContext();
+
+            cmb_presentacion.DataSource = _repository.GetInfoPresentacionComboBox();
+
 
 
 
@@ -208,6 +228,7 @@ namespace Fundimetal.App
            
             var numeroConse = File.ReadAllText(this.RutaConsecutivo, Encoding.Default);
             this.lbl_certificado_numero.Text = DateTime.Now.ToString("yyyyMMdd") +"-"+ numeroConse;
+            this.consecutivoArchivo = numeroConse;
 
             this.setupControles();
 
@@ -356,7 +377,7 @@ namespace Fundimetal.App
             finally
             {
                 Cursor = Cursors.Arrow;
-                var valConsecutivo = Convert.ToInt32(this.lbl_certificado_numero.Text) + 1;
+                var valConsecutivo = Convert.ToInt32(this.consecutivoArchivo) + 1;
                 File.WriteAllText(this.RutaConsecutivo, valConsecutivo.ToString());
                 this.Close();
                

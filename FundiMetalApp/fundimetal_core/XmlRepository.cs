@@ -851,6 +851,47 @@ namespace fundimetal.Core
 
  
         }
+
+        /// <summary>
+        /// Retorna el listado par el combo en pantalla exportacion
+        /// </summary>
+        /// <returns></returns>
+        public List<ListItemCombo> GetInfoProductosComboBox()
+        {
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(rutaXmlTipoProducto);
+
+            List<ListItemCombo> lstCombo = new List<ListItemCombo>();
+            XmlNodeList xnodeList = xdoc.SelectNodes("/Info/TipoProducto");
+
+            foreach (XmlNode nodeRow in xnodeList)
+            {
+                XmlNode id = nodeRow.SelectSingleNode("Id");
+                XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
+                lstCombo.Add(new ListItemCombo { Text = Nombre.InnerText, Value = id.InnerText.ToString() });
+            }
+
+            return lstCombo;
+        }
+
+        public List<ListItemCombo> GetInfoPresentacionComboBox()
+        {
+
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(rutaXmlTipoLingote);
+
+            List<ListItemCombo> lstCombo = new List<ListItemCombo>();
+            XmlNodeList xnodeList = xdoc.SelectNodes("/Info/TipoLingote");
+
+            foreach (XmlNode nodeRow in xnodeList)
+            {
+                XmlNode id = nodeRow.SelectSingleNode("Id");
+                XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
+                lstCombo.Add(new ListItemCombo { Text = Nombre.InnerText, Value = id.InnerText.ToString() });
+            }
+
+            return lstCombo;
+        }
     }
 
 

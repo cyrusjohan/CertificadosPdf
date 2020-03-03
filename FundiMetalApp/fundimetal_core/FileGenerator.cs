@@ -389,7 +389,7 @@ namespace fundimetal_core
 
             table_enc.AddCell(new PdfPCell(new Phrase("CERTIFICATE (CERTIFICADO)\n\n\nDATE (FECHA) ")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
 
-            var certiNum = string.Format("{0}-{1}", DateTime.Now.ToString("yyyMMdd"), exportacionModel.NumeroCertificado);
+            var certiNum = string.Format("{0}", exportacionModel.NumeroCertificado);
             table_enc.AddCell(certiNum + "\n\n\n\n" + DateTime.Now.ToString("yyyMMdd"));
 
 

@@ -16,6 +16,10 @@ namespace fundimetal.Core
 
         List<ListItemCombo> GetInfoClientesComboBox();
         List<ListItemCombo> GetInformacionClientesComboBox();
+
+        List<ListItemCombo> GetInfoProductosComboBox();
+        List<ListItemCombo> GetInfoPresentacionComboBox();
+
         DataTable GetInfoClientesById( string  idCliente);
         //bool SaveNewCliente(ClienteModel clienteModel);
 
