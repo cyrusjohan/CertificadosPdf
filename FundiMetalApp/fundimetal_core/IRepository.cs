@@ -23,6 +23,9 @@ namespace fundimetal.Core
         ClienteModel GetClienteById( string Id);
         ClienteModel GetInfoClienteById(string Id);
         bool SaveOrEditInfoCliente(ClienteModel clienteModel);
-       
+        DataTable getTipoProducto(XmlDocument xDocTipoProduct);
+        DataTable getTipoLingote(XmlDocument xdocLingote);
+        bool SaveOrEditParameter(DataTable dataSource1, DataTable dataSource2);
+        bool SaveOrEditTipoProduct(DataTable dataSource, XmlDocument xDocTipoProduct);
     }
 }

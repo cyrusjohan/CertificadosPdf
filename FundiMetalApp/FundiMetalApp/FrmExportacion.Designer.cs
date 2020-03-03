@@ -67,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(464, 29);
+            this.label1.Location = new System.Drawing.Point(383, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             this.lbl_certificado_numero.AutoSize = true;
             this.lbl_certificado_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_certificado_numero.Location = new System.Drawing.Point(576, 27);
+            this.lbl_certificado_numero.Location = new System.Drawing.Point(495, 27);
             this.lbl_certificado_numero.Name = "lbl_certificado_numero";
             this.lbl_certificado_numero.Size = new System.Drawing.Size(0, 20);
             this.lbl_certificado_numero.TabIndex = 1;
@@ -128,7 +128,7 @@
             // 
             // txt_marca_embalaje
             // 
-            this.txt_marca_embalaje.Location = new System.Drawing.Point(468, 110);
+            this.txt_marca_embalaje.Location = new System.Drawing.Point(468, 114);
             this.txt_marca_embalaje.MaxLength = 250;
             this.txt_marca_embalaje.Name = "txt_marca_embalaje";
             this.txt_marca_embalaje.Size = new System.Drawing.Size(203, 20);
@@ -228,7 +228,7 @@
             "Lingotes 34K",
             "Lingotes 100K",
             "Jumbo"});
-            this.cmb_presentacion.Location = new System.Drawing.Point(468, 147);
+            this.cmb_presentacion.Location = new System.Drawing.Point(468, 151);
             this.cmb_presentacion.Name = "cmb_presentacion";
             this.cmb_presentacion.Size = new System.Drawing.Size(203, 21);
             this.cmb_presentacion.TabIndex = 6;

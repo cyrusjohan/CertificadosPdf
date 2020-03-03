@@ -362,7 +362,7 @@ namespace fundimetal_core
 
 
             PdfPTable table_enc = new PdfPTable(4);
-            float[] widths = new float[] { 4, 5, 4, 3 };
+            float[] widths = new float[] { 4, 4, 4, 4 };
             //actual width of table in points
             table_enc.WidthPercentage = 100;
             table_enc.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
@@ -388,7 +388,9 @@ namespace fundimetal_core
             table_enc.AddCell(cell_customer_2);
 
             table_enc.AddCell(new PdfPCell(new Phrase("CERTIFICATE (CERTIFICADO)\n\n\nDATE (FECHA) ")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
-            table_enc.AddCell(exportacionModel.NumeroCertificado + "\n\n\n\n" + DateTime.Now.ToString("yyyMMdd"));
+
+            var certiNum = string.Format("{0}-{1}", DateTime.Now.ToString("yyyMMdd"), exportacionModel.NumeroCertificado);
+            table_enc.AddCell(certiNum + "\n\n\n\n" + DateTime.Now.ToString("yyyMMdd"));
 
 
 

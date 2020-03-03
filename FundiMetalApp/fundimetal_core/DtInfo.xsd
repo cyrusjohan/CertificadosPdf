@@ -67,6 +67,22 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="TipoProducto" msprop:Generator_TableClassName="TipoProductoDataTable" msprop:Generator_TableVarName="tableTipoProducto" msprop:Generator_TablePropName="TipoProducto" msprop:Generator_RowDeletingName="TipoProductoRowDeleting" msprop:Generator_RowChangingName="TipoProductoRowChanging" msprop:Generator_RowEvHandlerName="TipoProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="TipoProductoRowDeleted" msprop:Generator_UserTableName="TipoProducto" msprop:Generator_RowChangedName="TipoProductoRowChanged" msprop:Generator_RowEvArgName="TipoProductoRowChangeEvent" msprop:Generator_RowClassName="TipoProductoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TipoLingotes" msprop:Generator_TableClassName="TipoLingotesDataTable" msprop:Generator_TableVarName="tableTipoLingotes" msprop:Generator_TablePropName="TipoLingotes" msprop:Generator_RowDeletingName="TipoLingotesRowDeleting" msprop:Generator_RowChangingName="TipoLingotesRowChanging" msprop:Generator_RowEvHandlerName="TipoLingotesRowChangeEventHandler" msprop:Generator_RowDeletedName="TipoLingotesRowDeleted" msprop:Generator_UserTableName="TipoLingotes" msprop:Generator_RowChangedName="TipoLingotesRowChanged" msprop:Generator_RowEvArgName="TipoLingotesRowChangeEvent" msprop:Generator_RowClassName="TipoLingotesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -79,6 +95,14 @@
     </xs:unique>
     <xs:unique name="ClienteEspecificaciones_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ClienteEspecificaciones" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="TipoProducto_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TipoProducto" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="TipoLingotes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TipoLingotes" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
   </xs:element>

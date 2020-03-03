@@ -174,24 +174,30 @@ namespace Fundimetal.App
         /// <param name="e"></param>
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
-          
-             if (dataGridVisor.SelectedRows.Count > 0 )
+            if (dataGridVisor.SelectedRows.Count == 0)
             {
-                if ((MessageBox.Show("Confirma que desea generar PDF", "Generar PDF",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                       MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
-                {
-                  
-                    //Valor de cada celda
-                    PdfGenerator();
-                }
-               
-               
+                MessageBox.Show("Debe primero seleccionar una fila","Validación",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
             }
-            else
+            if (dataGridVisor.SelectedRows.Count > 1)
             {
-                MessageBox.Show("Debe primero seleccionar una fila");
+                MessageBox.Show("Debe seleccionar solo 1 fila,para certificado normal","Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+
+            if ((MessageBox.Show("Confirma que desea generar PDF", "Generar PDF",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                   MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+
+                //Valor de cada celda
+                PdfGenerator();
+            }
+
+
+
+
         }
 
 
@@ -478,6 +484,14 @@ namespace Fundimetal.App
         {
             if (dataGridVisor.SelectedRows.Count <= 6)
             {
+
+
+                if (this.validateMeltUnique(dataGridVisor))
+                {
+                    MessageBox.Show("Ha seleccionado mas de 1 lote (melt) repetido, por favor verifique", "Información", MessageBoxButtons.OK);
+                    return;
+
+                }
                 //Especificacion elegida para ver tabla
                 var ItemSelected = cmb_especificacion_cliente.SelectedItem;
 
@@ -491,8 +505,30 @@ namespace Fundimetal.App
             }
             else
             {
-                MessageBox.Show("El limite de selección permitida es 6 registros");
+                MessageBox.Show("El limite de selección permitida es 6 registros para exportación","Información",MessageBoxButtons.OK);
             }
+        }
+
+        private bool validateMeltUnique(DataGridView dataGridVisor)
+        {
+            bool Error = false;
+            List<string> listMetl = new List<string>();
+            // Itera por cada uno de las filas del visor filas seleccionadas
+            for (int i = 0; i < dataGridVisor.SelectedRows.Count; i++)
+            
+                
+            {
+                listMetl.Add(dataGridVisor.SelectedRows[i].Cells[4].Value.ToString().Trim());
+            }
+
+            var duplicates = listMetl.GroupBy(s => s)
+                              .Where(g => g.Count() > 1)
+                              .Select(g => g.Key); // or .SelectMany(g => g)
+
+            
+    
+
+            return duplicates.Count() > 0;
         }
     }
 }

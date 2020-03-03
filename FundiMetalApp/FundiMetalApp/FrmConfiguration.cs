@@ -20,8 +20,11 @@ namespace Fundimetal.App
         private string rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
         private string rutaXmlRutas = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\Rutas.xml";
         private string rutaXmlInfoCliente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\InfoClientes.xml";
+        private string rutaXmlTipoProducto = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TipoProducto.xml";
+        private string rutaXmlTipoLingote = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TipoLingotes.xml";
+      
 
-        private XmlDocument xDocCliente,xDocRutas,XDocInfoClientes;
+        private XmlDocument xDocCliente,xDocRutas,XDocInfoClientes,xDocTipoProduct,xdocLingote;
 
         private IRepository _repository = new XmlRepository();
         public FrmConfiguration()
@@ -42,12 +45,52 @@ namespace Fundimetal.App
 
             XDocInfoClientes = new XmlDocument();
             XDocInfoClientes.Load(rutaXmlInfoCliente);
+           
+
 
             LoadConfigurationCliente();
             LoadConfigurationPath();
             LoadConfigInfoClientes();
+            loadParametros();
 
          
+        }
+
+        private void loadParametros()
+        {
+           
+
+          
+            if (!File.Exists(rutaXmlTipoProducto))
+            {
+                MessageBox.Show("La información de Tipo Producto no se encuentra en carpeta de Referencias");
+            }
+            else
+            {
+
+                xDocTipoProduct = new XmlDocument();
+                xDocTipoProduct.Load(rutaXmlTipoProducto);
+                DataTable tipoProducto = _repository.getTipoProducto(xDocTipoProduct);
+
+                // Carga informacion solo de cliente
+                dataGridTipoProducto.DataSource = tipoProducto;
+            }
+
+            if (!File.Exists(rutaXmlTipoLingote))
+            {
+                MessageBox.Show("La información de Tipo Lingoete no se encuentra en carpeta de Referencias");
+            }
+            else
+            {
+                xdocLingote = new XmlDocument();
+                xdocLingote.Load(rutaXmlTipoLingote);
+                DataTable tipoLingote = _repository.getTipoLingote(xdocLingote);
+
+                // Carga informacion solo de cliente
+                dataGridView_lingotes.DataSource = tipoLingote;
+            }
+
+
         }
 
         /// <summary>
@@ -273,6 +316,13 @@ namespace Fundimetal.App
             dtagrid_xml_fuente.Rows.Add(numId, rutaNueva);
         }
 
+        private void btn_guardar_parametros_Click(object sender, EventArgs e)
+        {
+            this.saveParameter();
+        }
+
+      
+
         private void btnEditCliente_Click(object sender, EventArgs e)
         {
             if (datagridClientesListado.SelectedRows.Count > 0)
@@ -325,6 +375,33 @@ namespace Fundimetal.App
                 }
             }
 
+        }
+
+
+        /// <summary>
+        /// Permmmmmmmmite guardar los parametros de lingotes y tipo producto
+        /// </summary>
+        private void saveParameter()
+        {
+            try
+            {
+
+
+               bool estadoSave = _repository.SaveOrEditTipoProduct((DataTable)dataGridTipoProducto.DataSource, xDocTipoProduct);
+               //bool estadoSave = _repository.SaveOrEditParameter((DataTable)dataGridTipoProducto.DataSource, (DataTable) dataGridView_lingotes.DataSource);
+
+
+                MessageBox.Show("Operacion realiza con exito", "Confirmación", MessageBoxButtons.OK);
+                //((FrmConfiguration)Owner).LoadConfigurationCliente();
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                this.Close();
+                MessageBox.Show("Un error ha ocurrido al guardar nuevo registro", "Error", MessageBoxButtons.OK);
+                return;
+            }
         }
     }
 }

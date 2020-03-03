@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Info>
+	<TipoLingote>
+		<Id>1</Id>
+		<Nombre>Ingot 19K</Nombre>
+	</TipoLingote>
+	<TipoLingote>
+		<Id>2</Id>
+		<Nombre>Ingot 29K</Nombre>
+	</TipoLingote>
+	<TipoLingote>
+		<Id>3</Id>
+		<Nombre>Ingot 34k</Nombre>
+	</TipoLingote>
+	<TipoLingote>
+		<Id>4</Id>
+		<Nombre>Ingot 100k</Nombre>
+	</TipoLingote>
+	<TipoLingote>
+		<Id>5</Id>
+		<Nombre>Jumbo</Nombre>
+	</TipoLingote>
+</Info>

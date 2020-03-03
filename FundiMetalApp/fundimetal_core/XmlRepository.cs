@@ -16,6 +16,7 @@ namespace fundimetal.Core
 
         private string rutaXmlCLiente = "";
         private string rutaXmlInfoCLiente = "";
+        private string rutaXmlTipoProducto = "";
 
 
 
@@ -23,6 +24,7 @@ namespace fundimetal.Core
         {
             rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
             rutaXmlInfoCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\InfoClientes.xml";
+            rutaXmlTipoProducto = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TipoProducto.xml";
     }
 
         /// <summary>
@@ -716,6 +718,105 @@ namespace fundimetal.Core
 
 
             return cliente;
+        }
+
+        public DataTable getTipoProducto(XmlDocument xdoc)
+        {
+            DtInfo dtinfo = new DtInfo();
+            DataTable data = dtinfo.Tables["TipoProducto"];
+            XmlNodeList xnodeList = xdoc.SelectNodes("/Info/TipoProducto");
+
+            foreach (XmlNode nodeRow in xnodeList)
+            {
+                XmlNode id = nodeRow.SelectSingleNode("Id");
+                XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
+
+
+
+
+                DtInfo.TipoProductoRow row = dtinfo.TipoProducto.NewTipoProductoRow();
+                row.Id = id.InnerText;
+                row.Nombre = Nombre.InnerText;
+
+
+                //Adiciona fila
+                data.Rows.Add(row);
+            }
+
+            return data;
+        }
+
+        public DataTable getTipoLingote(XmlDocument xdoc)
+        {
+            DtInfo dtinfo = new DtInfo();
+            DataTable data = dtinfo.Tables["TipoLingotes"];
+            XmlNodeList xnodeList = xdoc.SelectNodes("/Info/TipoLingote");
+
+            foreach (XmlNode nodeRow in xnodeList)
+            {
+                XmlNode id = nodeRow.SelectSingleNode("Id");
+                XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
+
+
+
+
+                DtInfo.TipoLingotesRow row = dtinfo.TipoLingotes.NewTipoLingotesRow();
+                row.Id = id.InnerText;
+                row.Nombre = Nombre.InnerText;
+
+
+                //Adiciona fila
+                data.Rows.Add(row);
+            }
+
+            return data;
+        }
+
+        public bool SaveOrEditParameter(DataTable dtTipoProducto, DataTable dtLingotes)
+        {
+
+            return true;
+
+          
+        }
+
+        public bool SaveOrEditTipoProduct(DataTable dataSource, XmlDocument xdoc)
+        {
+
+
+          XmlNode root1 =  xdoc.DocumentElement;
+            root1.RemoveAll();
+
+            int i = 1;
+            foreach (DataRow item in dataSource.Rows)
+            {
+                XmlElement root = xdoc.CreateElement("TipoProducto");
+
+                XmlElement id = xdoc.CreateElement("Id");
+                id.InnerText = i.ToString();
+
+                XmlElement Nombre = xdoc.CreateElement("Nombre");
+                Nombre.InnerText = item[1].ToString();
+
+                
+
+                //Informacion del encabezado de un cliente
+                root.AppendChild(id);
+                root.AppendChild(Nombre);
+              
+
+
+
+                // Adiciciona un nodo <Cliente> a la raiz pabdre
+                xdoc.DocumentElement.AppendChild(root);
+                i++;
+                
+            }
+            //Guarda Documento
+            xdoc.Save(this.rutaXmlTipoProducto);
+
+
+            return true;
         }
     }
 

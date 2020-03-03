@@ -48,14 +48,20 @@
             this.btn_find_1 = new System.Windows.Forms.Button();
             this.txt_xml_ruta = new System.Windows.Forms.TextBox();
             this.bnt_save_rutas = new System.Windows.Forms.Button();
-            this.btn_close_win = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.Cliente = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnNewCliente = new System.Windows.Forms.Button();
             this.datagridClientesListado = new System.Windows.Forms.DataGridView();
             this.btnEditCliente = new System.Windows.Forms.Button();
+            this.btn_close_win = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridTipoProducto = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_guardar_parametros = new System.Windows.Forms.Button();
+            this.lbl_lingotes = new System.Windows.Forms.Label();
+            this.dataGridView_lingotes = new System.Windows.Forms.DataGridView();
             this.tab_configuracion.SuspendLayout();
             this.Espec_Clientes.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,6 +73,9 @@
             this.Cliente.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridClientesListado)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lingotes)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_configuracion
@@ -74,6 +83,7 @@
             this.tab_configuracion.Controls.Add(this.Espec_Clientes);
             this.tab_configuracion.Controls.Add(this.Rutas);
             this.tab_configuracion.Controls.Add(this.Cliente);
+            this.tab_configuracion.Controls.Add(this.tabPage1);
             this.tab_configuracion.Location = new System.Drawing.Point(12, 24);
             this.tab_configuracion.Name = "tab_configuracion";
             this.tab_configuracion.SelectedIndex = 0;
@@ -273,20 +283,6 @@
             this.bnt_save_rutas.UseVisualStyleBackColor = true;
             this.bnt_save_rutas.Click += new System.EventHandler(this.bnt_save_rutas_Click);
             // 
-            // btn_close_win
-            // 
-            this.btn_close_win.Location = new System.Drawing.Point(777, 401);
-            this.btn_close_win.Name = "btn_close_win";
-            this.btn_close_win.Size = new System.Drawing.Size(75, 23);
-            this.btn_close_win.TabIndex = 6;
-            this.btn_close_win.Text = "Cerrar";
-            this.btn_close_win.UseVisualStyleBackColor = true;
-            this.btn_close_win.Click += new System.EventHandler(this.btn_close_win_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // Cliente
             // 
             this.Cliente.Controls.Add(this.groupBox4);
@@ -341,6 +337,79 @@
             this.btnEditCliente.UseVisualStyleBackColor = true;
             this.btnEditCliente.Click += new System.EventHandler(this.btnEditCliente_Click);
             // 
+            // btn_close_win
+            // 
+            this.btn_close_win.Location = new System.Drawing.Point(777, 401);
+            this.btn_close_win.Name = "btn_close_win";
+            this.btn_close_win.Size = new System.Drawing.Size(75, 23);
+            this.btn_close_win.TabIndex = 6;
+            this.btn_close_win.Text = "Cerrar";
+            this.btn_close_win.UseVisualStyleBackColor = true;
+            this.btn_close_win.Click += new System.EventHandler(this.btn_close_win_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridView_lingotes);
+            this.tabPage1.Controls.Add(this.lbl_lingotes);
+            this.tabPage1.Controls.Add(this.btn_guardar_parametros);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.dataGridTipoProducto);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(842, 333);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Parametros";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridTipoProducto
+            // 
+            this.dataGridTipoProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTipoProducto.Location = new System.Drawing.Point(25, 79);
+            this.dataGridTipoProducto.Name = "dataGridTipoProducto";
+            this.dataGridTipoProducto.Size = new System.Drawing.Size(342, 150);
+            this.dataGridTipoProducto.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Tipo Producto Exportación";
+            // 
+            // btn_guardar_parametros
+            // 
+            this.btn_guardar_parametros.Location = new System.Drawing.Point(632, 263);
+            this.btn_guardar_parametros.Name = "btn_guardar_parametros";
+            this.btn_guardar_parametros.Size = new System.Drawing.Size(131, 23);
+            this.btn_guardar_parametros.TabIndex = 2;
+            this.btn_guardar_parametros.Text = "Guardar";
+            this.btn_guardar_parametros.UseVisualStyleBackColor = true;
+            this.btn_guardar_parametros.Click += new System.EventHandler(this.btn_guardar_parametros_Click);
+            // 
+            // lbl_lingotes
+            // 
+            this.lbl_lingotes.AutoSize = true;
+            this.lbl_lingotes.Location = new System.Drawing.Point(424, 41);
+            this.lbl_lingotes.Name = "lbl_lingotes";
+            this.lbl_lingotes.Size = new System.Drawing.Size(131, 13);
+            this.lbl_lingotes.TabIndex = 3;
+            this.lbl_lingotes.Text = "Tipo lingotes presentación";
+            // 
+            // dataGridView_lingotes
+            // 
+            this.dataGridView_lingotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_lingotes.Location = new System.Drawing.Point(427, 79);
+            this.dataGridView_lingotes.Name = "dataGridView_lingotes";
+            this.dataGridView_lingotes.Size = new System.Drawing.Size(336, 150);
+            this.dataGridView_lingotes.TabIndex = 4;
+            // 
             // FrmConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +433,10 @@
             this.Cliente.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridClientesListado)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTipoProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lingotes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -398,5 +471,11 @@
         private System.Windows.Forms.Button btnNewCliente;
         private System.Windows.Forms.DataGridView datagridClientesListado;
         private System.Windows.Forms.Button btnEditCliente;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridTipoProducto;
+        private System.Windows.Forms.Button btn_guardar_parametros;
+        private System.Windows.Forms.DataGridView dataGridView_lingotes;
+        private System.Windows.Forms.Label lbl_lingotes;
     }
 }

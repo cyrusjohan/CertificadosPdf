@@ -206,7 +206,8 @@ namespace Fundimetal.App
             this.cmb_presentacion.SelectedIndex = 0;
 
            
-            this.lbl_certificado_numero.Text = File.ReadAllText(this.RutaConsecutivo, Encoding.Default);
+            var numeroConse = File.ReadAllText(this.RutaConsecutivo, Encoding.Default);
+            this.lbl_certificado_numero.Text = DateTime.Now.ToString("yyyyMMdd") +"-"+ numeroConse;
 
             this.setupControles();
 
@@ -223,6 +224,12 @@ namespace Fundimetal.App
             cmb_cliente.DataSource = _repository.GetInformacionClientesComboBox();
         }
 
+
+        /// <summary>
+        /// Boton que permite generar reporte exportación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_generar_pdf_exportacion_Click(object sender, EventArgs e)
         {
            
@@ -269,7 +276,7 @@ namespace Fundimetal.App
             if (exportacionModel.PesoBruto <= 0 )
             {
                 isError = true;
-                MessageBox.Show("El campo peso bruto debe ser mayor a Cero");
+                MessageBox.Show("El campo peso bruto debe ser mayor a Cero","Información",MessageBoxButtons.OK);
                 txt_peso_bruto.Select();
                 return isError;
 
@@ -277,7 +284,7 @@ namespace Fundimetal.App
             if (exportacionModel.PesoNeto <= 0)
             {
                 isError = true;
-                MessageBox.Show("El campo peso Neto debe ser mayor a Cero");
+                MessageBox.Show("El campo peso Neto debe ser mayor a Cero", "Información", MessageBoxButtons.OK);
                 txt_peso_neto.Select();
                 return isError;
 
@@ -286,7 +293,7 @@ namespace Fundimetal.App
             if (exportacionModel.NumeroFactura.Length ==0)
             {
                 isError = true;
-                MessageBox.Show("El campo Numero factura es obligatorio");
+                MessageBox.Show("El campo Numero factura es obligatorio", "Información", MessageBoxButtons.OK);
                 txt_factura.Select();
                 return isError;
 
@@ -295,7 +302,7 @@ namespace Fundimetal.App
             if (exportacionModel.MarcaEmbalaje.Length == 0)
             {
                 isError = true;
-                MessageBox.Show("El campo Marca Embalaje es obligatorio");
+                MessageBox.Show("El campo Marca Embalaje es obligatorio", "Información", MessageBoxButtons.OK);
                 txt_marca_embalaje.Select();
                 return isError;
 
@@ -304,7 +311,7 @@ namespace Fundimetal.App
             if (exportacionModel.Container.Length == 0)
             {
                 isError = true;
-                MessageBox.Show("El campo Container es obligatorio");
+                MessageBox.Show("El campo Container es obligatorio", "Información", MessageBoxButtons.OK);
                 txt_container.Select();
                 return isError;
 
@@ -313,7 +320,7 @@ namespace Fundimetal.App
             if (exportacionModel.Lingotes.Length == 0)
             {
                 isError = true;
-                MessageBox.Show("El campo Lingotes es obligatorio");
+                MessageBox.Show("El campo Lingotes es obligatorio", "Información", MessageBoxButtons.OK);
                 txt_lingotes.Select();
                 return isError;
 
@@ -419,7 +426,7 @@ namespace Fundimetal.App
                             //decimal valor_max = Convert.ToDecimal(rowClienteEspecificacion["Max"].ToString());
                            
                             drow["Element"] = rowClienteEspecificacion["Simbolo"].ToString();
-                            drow["ESPECIFICATION"] = rowClienteEspecificacion["Min"].ToString();
+                            drow["ESPECIFICATION"] = rowClienteEspecificacion["Max"].ToString();
                             drow[name_melt] = datagrid_elementos[j, i].Value.ToString();
 
 

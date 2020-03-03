@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Info>
+	<TipoProducto>
+		<Id>1</Id>
+		<Nombre>Pure Lead</Nombre>
+	</TipoProducto>
+	<TipoProducto>
+		<Id>2</Id>
+		<Nombre>Refined Lead</Nombre>
+	</TipoProducto>
+</Info>
