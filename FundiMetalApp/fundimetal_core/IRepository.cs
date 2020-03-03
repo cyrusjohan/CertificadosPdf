@@ -27,5 +27,6 @@ namespace fundimetal.Core
         DataTable getTipoLingote(XmlDocument xdocLingote);
         bool SaveOrEditParameter(DataTable dataSource1, DataTable dataSource2);
         bool SaveOrEditTipoProduct(DataTable dataSource, XmlDocument xDocTipoProduct);
+        void SaveEditLingote(DataTable dataSource, XmlDocument xdocLingote);
     }
 }

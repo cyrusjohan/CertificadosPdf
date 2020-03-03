@@ -388,12 +388,13 @@ namespace Fundimetal.App
 
 
                bool estadoSave = _repository.SaveOrEditTipoProduct((DataTable)dataGridTipoProducto.DataSource, xDocTipoProduct);
-               //bool estadoSave = _repository.SaveOrEditParameter((DataTable)dataGridTipoProducto.DataSource, (DataTable) dataGridView_lingotes.DataSource);
+
+               _repository.SaveEditLingote((DataTable) dataGridView_lingotes.DataSource,xdocLingote);
 
 
                 MessageBox.Show("Operacion realiza con exito", "Confirmación", MessageBoxButtons.OK);
                 //((FrmConfiguration)Owner).LoadConfigurationCliente();
-                this.Close();
+               
 
             }
             catch (Exception ex)

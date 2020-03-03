@@ -17,6 +17,7 @@ namespace fundimetal.Core
         private string rutaXmlCLiente = "";
         private string rutaXmlInfoCLiente = "";
         private string rutaXmlTipoProducto = "";
+        private string rutaXmlTipoLingote = "";
 
 
 
@@ -25,6 +26,7 @@ namespace fundimetal.Core
             rutaXmlCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TablaClientes.xml";
             rutaXmlInfoCLiente = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\InfoClientes.xml";
             rutaXmlTipoProducto = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TipoProducto.xml";
+            rutaXmlTipoLingote = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\TipoLingotes.xml";
     }
 
         /// <summary>
@@ -731,11 +733,8 @@ namespace fundimetal.Core
                 XmlNode id = nodeRow.SelectSingleNode("Id");
                 XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
 
-
-
-
                 DtInfo.TipoProductoRow row = dtinfo.TipoProducto.NewTipoProductoRow();
-                row.Id = id.InnerText;
+                //row.Id = id.InnerText;
                 row.Nombre = Nombre.InnerText;
 
 
@@ -796,7 +795,7 @@ namespace fundimetal.Core
                 id.InnerText = i.ToString();
 
                 XmlElement Nombre = xdoc.CreateElement("Nombre");
-                Nombre.InnerText = item[1].ToString();
+                Nombre.InnerText = item[0].ToString();
 
                 
 
@@ -817,6 +816,40 @@ namespace fundimetal.Core
 
 
             return true;
+        }
+
+        public void SaveEditLingote(DataTable dataSource, XmlDocument xdoc)
+        {
+
+            XmlNode root1 = xdoc.DocumentElement;
+            root1.RemoveAll();
+
+            int i = 1;
+            foreach (DataRow item in dataSource.Rows)
+            {
+                XmlElement root = xdoc.CreateElement("TipoLingote");
+
+                XmlElement id = xdoc.CreateElement("Id");
+                id.InnerText = i.ToString();
+
+                XmlElement Nombre = xdoc.CreateElement("Nombre");
+                Nombre.InnerText = item[1].ToString();
+
+
+
+                //Informacion del encabezado de un cliente
+                root.AppendChild(id);
+                root.AppendChild(Nombre);
+                // Adiciciona un nodo <TipoLingote> a la raiz pabdre
+                xdoc.DocumentElement.AppendChild(root);
+                i++;
+
+            }
+            //Guarda Documento
+            xdoc.Save(this.rutaXmlTipoLingote);
+
+
+ 
         }
     }
 
