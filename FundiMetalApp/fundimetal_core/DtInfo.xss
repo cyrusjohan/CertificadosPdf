@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:ClienteEspecificaciones" ZOrder="4" X="601" Y="281" Height="124" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
     <Shape ID="DesignTable:InfoCliente" ZOrder="3" X="391" Y="451" Height="86" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="82" />
     <Shape ID="DesignTable:TipoProducto" ZOrder="2" X="664" Y="481" Height="48" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="44" />
-    <Shape ID="DesignTable:TipoLingotes" ZOrder="1" X="884" Y="661" Height="67" Width="152" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
+    <Shape ID="DesignTable:TipoLingotes" ZOrder="1" X="692" Y="563" Height="48" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="44" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

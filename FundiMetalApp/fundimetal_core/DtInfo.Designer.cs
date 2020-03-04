@@ -2121,8 +2121,6 @@ namespace fundimetal_core {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TipoLingotesDataTable : global::System.Data.TypedTableBase<TipoLingotesRow> {
             
-            private global::System.Data.DataColumn columnId;
-            
             private global::System.Data.DataColumn columnNombre;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2156,14 +2154,6 @@ namespace fundimetal_core {
             protected TipoLingotesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2211,21 +2201,13 @@ namespace fundimetal_core {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TipoLingotesRow AddTipoLingotesRow(string Id, string Nombre) {
+            public TipoLingotesRow AddTipoLingotesRow(string Nombre) {
                 TipoLingotesRow rowTipoLingotesRow = ((TipoLingotesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
                         Nombre};
                 rowTipoLingotesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTipoLingotesRow);
                 return rowTipoLingotesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TipoLingotesRow FindById(string Id) {
-                return ((TipoLingotesRow)(this.Rows.Find(new object[] {
-                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2245,21 +2227,14 @@ namespace fundimetal_core {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnId = base.Columns["Id"];
                 this.columnNombre = base.Columns["Nombre"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AllowDBNull = false;
-                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3318,17 +3293,6 @@ namespace fundimetal_core {
             internal TipoLingotesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableTipoLingotes = ((TipoLingotesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Id {
-                get {
-                    return ((string)(this[this.tableTipoLingotes.IdColumn]));
-                }
-                set {
-                    this[this.tableTipoLingotes.IdColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

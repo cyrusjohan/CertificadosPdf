@@ -753,16 +753,11 @@ namespace fundimetal.Core
 
             foreach (XmlNode nodeRow in xnodeList)
             {
-                XmlNode id = nodeRow.SelectSingleNode("Id");
                 XmlNode Nombre = nodeRow.SelectSingleNode("Nombre");
 
-
-
-
                 DtInfo.TipoLingotesRow row = dtinfo.TipoLingotes.NewTipoLingotesRow();
-                row.Id = id.InnerText;
+               
                 row.Nombre = Nombre.InnerText;
-
 
                 //Adiciona fila
                 data.Rows.Add(row);
@@ -833,7 +828,7 @@ namespace fundimetal.Core
                 id.InnerText = i.ToString();
 
                 XmlElement Nombre = xdoc.CreateElement("Nombre");
-                Nombre.InnerText = item[1].ToString();
+                Nombre.InnerText = item["Nombre"].ToString();
 
 
 

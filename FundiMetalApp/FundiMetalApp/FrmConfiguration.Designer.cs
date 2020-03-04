@@ -369,17 +369,18 @@
             // dataGridTipoProducto
             // 
             this.dataGridTipoProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTipoProducto.Location = new System.Drawing.Point(25, 79);
+            this.dataGridTipoProducto.Location = new System.Drawing.Point(25, 57);
             this.dataGridTipoProducto.Name = "dataGridTipoProducto";
-            this.dataGridTipoProducto.Size = new System.Drawing.Size(342, 150);
+            this.dataGridTipoProducto.Size = new System.Drawing.Size(216, 198);
             this.dataGridTipoProducto.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 41);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 13);
+            this.label3.Size = new System.Drawing.Size(167, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tipo Producto Exportación";
             // 
@@ -396,18 +397,19 @@
             // lbl_lingotes
             // 
             this.lbl_lingotes.AutoSize = true;
-            this.lbl_lingotes.Location = new System.Drawing.Point(424, 41);
+            this.lbl_lingotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lingotes.Location = new System.Drawing.Point(340, 27);
             this.lbl_lingotes.Name = "lbl_lingotes";
-            this.lbl_lingotes.Size = new System.Drawing.Size(131, 13);
+            this.lbl_lingotes.Size = new System.Drawing.Size(167, 16);
             this.lbl_lingotes.TabIndex = 3;
             this.lbl_lingotes.Text = "Tipo lingotes presentación";
             // 
             // dataGridView_lingotes
             // 
             this.dataGridView_lingotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_lingotes.Location = new System.Drawing.Point(427, 79);
+            this.dataGridView_lingotes.Location = new System.Drawing.Point(343, 57);
             this.dataGridView_lingotes.Name = "dataGridView_lingotes";
-            this.dataGridView_lingotes.Size = new System.Drawing.Size(336, 150);
+            this.dataGridView_lingotes.Size = new System.Drawing.Size(216, 198);
             this.dataGridView_lingotes.TabIndex = 4;
             // 
             // FrmConfiguration
@@ -472,10 +474,10 @@
         private System.Windows.Forms.DataGridView datagridClientesListado;
         private System.Windows.Forms.Button btnEditCliente;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridTipoProducto;
-        private System.Windows.Forms.Button btn_guardar_parametros;
         private System.Windows.Forms.DataGridView dataGridView_lingotes;
         private System.Windows.Forms.Label lbl_lingotes;
+        private System.Windows.Forms.Button btn_guardar_parametros;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridTipoProducto;
     }
 }
