@@ -32,5 +32,6 @@ namespace fundimetal.Core
         bool SaveOrEditParameter(DataTable dataSource1, DataTable dataSource2);
         bool SaveOrEditTipoProduct(DataTable dataSource, XmlDocument xDocTipoProduct);
         void SaveEditLingote(DataTable dataSource, XmlDocument xdocLingote);
+        void deleteByIdEspecificacionCliente(string id);
     }
 }

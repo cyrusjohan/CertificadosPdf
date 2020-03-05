@@ -419,7 +419,7 @@ namespace fundimetal_core
 
             table_enc.AddCell(cell_netweight);
             table_enc.AddCell(cell_netweight_2);
-            table_enc.AddCell(new PdfPCell(new Phrase("SHIPPING MARKS: (MARCAS DE EMBALAJE)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(new PdfPCell(new Phrase("REMISSION: (REMISION)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.MarcaEmbalaje);
 
 

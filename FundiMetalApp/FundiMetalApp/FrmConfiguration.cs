@@ -335,6 +335,7 @@ namespace Fundimetal.App
             }
         }
 
+     
         private void OpenFormEditarInfoCliente()
         {
 
@@ -404,5 +405,29 @@ namespace Fundimetal.App
                 return;
             }
         }
+
+        /// <summary>
+        /// Evento para el borrado de una fila en la grilla de especificacion de cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridCliente_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+
+
+            DialogResult usersChoice =
+   MessageBox.Show("¿ Confirma que desea borrar la fila seleccionada ?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            // cancel the delete event
+            if (usersChoice == DialogResult.Cancel)
+                e.Cancel = true;
+
+            var Id =  dataGridCliente.SelectedRows[0].Cells[0].Value.ToString();
+            
+            _repository.deleteByIdEspecificacionCliente(Id);
+            this.LoadConfigurationBase();
+           
+        }
+
     }
 }

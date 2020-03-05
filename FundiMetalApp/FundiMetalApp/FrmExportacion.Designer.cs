@@ -94,7 +94,7 @@
             // lbl_producto
             // 
             this.lbl_producto.AutoSize = true;
-            this.lbl_producto.Location = new System.Drawing.Point(33, 86);
+            this.lbl_producto.Location = new System.Drawing.Point(33, 82);
             this.lbl_producto.Name = "lbl_producto";
             this.lbl_producto.Size = new System.Drawing.Size(50, 13);
             this.lbl_producto.TabIndex = 6;
@@ -103,7 +103,7 @@
             // lbl_factura
             // 
             this.lbl_factura.AutoSize = true;
-            this.lbl_factura.Location = new System.Drawing.Point(405, 86);
+            this.lbl_factura.Location = new System.Drawing.Point(397, 82);
             this.lbl_factura.Name = "lbl_factura";
             this.lbl_factura.Size = new System.Drawing.Size(58, 13);
             this.lbl_factura.TabIndex = 8;
@@ -120,11 +120,11 @@
             // lbl_marcas_embalaje
             // 
             this.lbl_marcas_embalaje.AutoSize = true;
-            this.lbl_marcas_embalaje.Location = new System.Drawing.Point(381, 117);
+            this.lbl_marcas_embalaje.Location = new System.Drawing.Point(405, 117);
             this.lbl_marcas_embalaje.Name = "lbl_marcas_embalaje";
-            this.lbl_marcas_embalaje.Size = new System.Drawing.Size(82, 13);
+            this.lbl_marcas_embalaje.Size = new System.Drawing.Size(50, 13);
             this.lbl_marcas_embalaje.TabIndex = 10;
-            this.lbl_marcas_embalaje.Text = "Marca embalaje";
+            this.lbl_marcas_embalaje.Text = "Remisión";
             // 
             // txt_marca_embalaje
             // 
@@ -174,7 +174,7 @@
             // lbl_presentacion
             // 
             this.lbl_presentacion.AutoSize = true;
-            this.lbl_presentacion.Location = new System.Drawing.Point(384, 155);
+            this.lbl_presentacion.Location = new System.Drawing.Point(386, 155);
             this.lbl_presentacion.Name = "lbl_presentacion";
             this.lbl_presentacion.Size = new System.Drawing.Size(69, 13);
             this.lbl_presentacion.TabIndex = 16;

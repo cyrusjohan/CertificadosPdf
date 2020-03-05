@@ -126,7 +126,6 @@
             // dataGridCliente
             // 
             this.dataGridCliente.AllowUserToAddRows = false;
-            this.dataGridCliente.AllowUserToDeleteRows = false;
             this.dataGridCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCliente.Location = new System.Drawing.Point(46, 74);
@@ -134,6 +133,7 @@
             this.dataGridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridCliente.Size = new System.Drawing.Size(526, 152);
             this.dataGridCliente.TabIndex = 0;
+            this.dataGridCliente.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridCliente_UserDeletingRow);
             // 
             // bnt_editar_Cliente
             // 

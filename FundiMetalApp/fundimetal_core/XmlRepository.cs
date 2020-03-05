@@ -887,6 +887,29 @@ namespace fundimetal.Core
 
             return lstCombo;
         }
+
+
+        /// <summary>
+        /// Permite borrado de registros de especificacion cliente
+        /// </summary>
+        /// <param name="id"></param>
+        public void deleteByIdEspecificacionCliente(string IdCliente)
+        {
+
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(this.rutaXmlCLiente);
+
+            XmlElement root = xdoc.DocumentElement;
+            XmlNode xnodeCliente = xdoc.SelectSingleNode("/Clientes/Cliente[Id='" + IdCliente + "']");
+
+
+            root.RemoveChild(xnodeCliente);
+
+            //Modifico Informacion del cliente
+
+            xdoc.Save(this.rutaXmlCLiente);
+
+        }
     }
 
 
