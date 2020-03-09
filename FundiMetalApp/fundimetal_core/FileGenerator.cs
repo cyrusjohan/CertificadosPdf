@@ -348,12 +348,12 @@ namespace fundimetal_core
             Image jpg = Image.GetInstance(imagepath);
             jpg.Alignment = Image.ALIGN_CENTER;
             document.Add(jpg);
-            document.Add(addSpace(12));
+            document.Add(addSpace(6));
             #region encabezado Documento
 
             PdfPTable table = new PdfPTable(1);
             table.WidthPercentage = 100;
-            table.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
+            table.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
 
             PdfPCell cell = new PdfPCell(new Phrase("CERTIFICATE OF QUALITY \n (CERTIFICADO DE CALIDAD)"));
             cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
@@ -365,15 +365,15 @@ namespace fundimetal_core
             float[] widths = new float[] { 4, 4, 4, 4 };
             //actual width of table in points
             table_enc.WidthPercentage = 100;
-            table_enc.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
+            table_enc.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
             //fix the absolute width of the table
 
 
             table_enc.SetWidths(widths);
             //leave a gap before and after the table
 
-            table_enc.SpacingBefore = 20f;
-            table_enc.SpacingAfter = 30f;
+            table_enc.SpacingBefore = 5f;
+            table_enc.SpacingAfter = 5f;
 
 
             PdfPCell cell_customer = new PdfPCell(new Phrase("CUSTOMER "));
@@ -443,7 +443,9 @@ namespace fundimetal_core
             {
                 WidthPercentage = 100
             };
-            table_melts.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal10 };
+            table_melts.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
+           
+            table_melts.SpacingAfter = 5f;
 
 
             PdfPCell cellTitulo = new PdfPCell(new Phrase("MELTS (lote)"));
@@ -483,8 +485,8 @@ namespace fundimetal_core
             PdfPTable table_quimical_father = new PdfPTable(1);
             table_quimical_father.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
 
-            table_quimical_father.SpacingBefore = 20f;
-            table_quimical_father.SpacingAfter = 30f;
+            table_quimical_father.SpacingBefore = 5f;
+            table_quimical_father.SpacingAfter = 18f;
             table_quimical_father.WidthPercentage = 100;
             //fix the absolute width of the table
             //table_quimical_father.LockedWidth = true;
@@ -535,6 +537,7 @@ namespace fundimetal_core
             //actual width of table in points
             table_pie.WidthPercentage = 100;
 
+           
             //fix the absolute width of the table
 
 
