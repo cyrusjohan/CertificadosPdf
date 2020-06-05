@@ -330,8 +330,16 @@ namespace fundimetal_core
             Document document = new Document();
             document.SetPageSize(iTextSharp.text.PageSize.A4);
             PdfWriter writer = PdfWriter.GetInstance(document, fs);
+
+          
             document.Open();
-           
+
+            var img_watermark = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\marca_agua.jpg";
+            Image watermark = Image.GetInstance(img_watermark);
+
+            watermark.SetAbsolutePosition(40, 390);
+
+            document.Add(watermark);
 
             //Fuente Cuerpo del Documento
             // BaseFont baseFontBody = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -342,18 +350,8 @@ namespace fundimetal_core
             Font fntBodyNormal9 = new Font(FontFactory.GetFont("Arial", 9, 0, Color.BLACK));
 
             #endregion
-
-            //  LOGO DE ENCABEZDO SE QUITA 3-JUNIO
-            
-             
-            var imagepath = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\logo.jpg";
-            var image_PIE_PAGINA = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\direccion_pie_pagina.jpg";
-            /**Image jpg = Image.GetInstance(imagepath);
-            jpg.Alignment = Image.ALIGN_CENTER;
-            document.Add(jpg);
-            
-             */
-            document.Add(addSpace(8));
+          
+            document.Add(addSpace(17));
             #region encabezado Documento
 
             PdfPTable table = new PdfPTable(1);
@@ -424,7 +422,7 @@ namespace fundimetal_core
 
             table_enc.AddCell(cell_netweight);
             table_enc.AddCell(cell_netweight_2);
-            table_enc.AddCell(new PdfPCell(new Phrase("SHIPPING MARKS:\n\n(REMISION)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(new PdfPCell(new Phrase("SHIPPING MARKS: ")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.MarcaEmbalaje);
 
 
@@ -582,12 +580,11 @@ namespace fundimetal_core
             document.Add(table_pie);
 
            
-
-            Image jpgPIE_PAGINA = Image.GetInstance(image_PIE_PAGINA);
-            jpgPIE_PAGINA.Alignment = Image.ALIGN_CENTER;
-            jpgPIE_PAGINA.SetAbsolutePosition(100f, 0f);
-            document.Add(jpgPIE_PAGINA);
+         
             #endregion
+
+
+          
 
             document.Close();
             writer.Close();

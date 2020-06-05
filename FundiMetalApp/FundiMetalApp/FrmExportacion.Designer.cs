@@ -120,11 +120,11 @@
             // lbl_marcas_embalaje
             // 
             this.lbl_marcas_embalaje.AutoSize = true;
-            this.lbl_marcas_embalaje.Location = new System.Drawing.Point(405, 117);
+            this.lbl_marcas_embalaje.Location = new System.Drawing.Point(376, 117);
             this.lbl_marcas_embalaje.Name = "lbl_marcas_embalaje";
-            this.lbl_marcas_embalaje.Size = new System.Drawing.Size(50, 13);
+            this.lbl_marcas_embalaje.Size = new System.Drawing.Size(79, 13);
             this.lbl_marcas_embalaje.TabIndex = 10;
-            this.lbl_marcas_embalaje.Text = "Remisión";
+            this.lbl_marcas_embalaje.Text = "Shipping marks";
             // 
             // txt_marca_embalaje
             // 
