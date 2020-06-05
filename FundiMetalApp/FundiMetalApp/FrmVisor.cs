@@ -325,7 +325,7 @@ namespace Fundimetal.App
 
 
         /// <summary>
-        /// Permite la creacion de la tabla a mostrar 
+        /// Permite la creacion de la tabla a mostrar para certificado nacional
         /// </summary>
         /// <param name="currentRow"></param>
         /// <param name="especficacionCliente"></param>

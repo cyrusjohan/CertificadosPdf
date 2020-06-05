@@ -343,12 +343,17 @@ namespace fundimetal_core
 
             #endregion
 
+            //  LOGO DE ENCABEZDO SE QUITA 3-JUNIO
+            
+             
             var imagepath = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\logo.jpg";
             var image_PIE_PAGINA = System.AppDomain.CurrentDomain.BaseDirectory + "Referencia\\direccion_pie_pagina.jpg";
-            Image jpg = Image.GetInstance(imagepath);
+            /**Image jpg = Image.GetInstance(imagepath);
             jpg.Alignment = Image.ALIGN_CENTER;
             document.Add(jpg);
-            document.Add(addSpace(6));
+            
+             */
+            document.Add(addSpace(8));
             #region encabezado Documento
 
             PdfPTable table = new PdfPTable(1);
@@ -419,7 +424,7 @@ namespace fundimetal_core
 
             table_enc.AddCell(cell_netweight);
             table_enc.AddCell(cell_netweight_2);
-            table_enc.AddCell(new PdfPCell(new Phrase("REMISSION: (REMISION)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
+            table_enc.AddCell(new PdfPCell(new Phrase("SHIPPING MARKS:\n\n(REMISION)")) { HorizontalAlignment = PdfCell.ALIGN_LEFT });
             table_enc.AddCell(exportacionModel.MarcaEmbalaje);
 
 
@@ -554,7 +559,7 @@ namespace fundimetal_core
             table_pie.AddCell(cell);
             cell = new PdfPCell(new Phrase(exportacionModel.Container));
             table_pie.AddCell(cell);
-            cell = new PdfPCell(new Phrase("SIGNER BY\n(FIRMADO POR)"));
+            cell = new PdfPCell(new Phrase("SIGNED BY\n(FIRMADO POR)"));
             cell.BorderWidthBottom = 0;
             cell.FixedHeight = 50;
             table_pie.AddCell(cell);

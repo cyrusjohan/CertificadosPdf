@@ -6,5 +6,5 @@
     <File id="3">C:\CodigoFuenteJohan\CertitificadosPDF\Referencia\AyG Pb Te.xml</File>
 	 
   </RutaXmlFuente>
-  <RutaGeneracionCertificados>C:\RutaSalidaPDF</RutaGeneracionCertificados>
+  <RutaGeneracionCertificados>C:\CodigoFuenteJohan\CertitificadosPDF\RutaSalidaPDF</RutaGeneracionCertificados>
 </ConfiguracionRutas>

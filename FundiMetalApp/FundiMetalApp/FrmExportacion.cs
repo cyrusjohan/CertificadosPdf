@@ -361,7 +361,7 @@ namespace Fundimetal.App
             {
 
                 Cursor = Cursors.WaitCursor;
-                DataTable TablaAnalisQuimico = this.GetInfoTablaAnalisis(exportacionModel, null , _dtEspecificacionCLiente);
+                DataTable TablaAnalisQuimico = this.GetInfoTablaAnalisisExportacionV2(exportacionModel, null , _dtEspecificacionCLiente);
                 
                 objGenerator.ToMakeExportacion(TablaAnalisQuimico, exportacionModel);
             }
@@ -400,11 +400,14 @@ namespace Fundimetal.App
 
         }
 
-        private DataTable GetInfoTablaAnalisis(DataGridView datagrid_elementos)
-        {
-            return new DataTable();
-        }
-
+      
+        /// <summary>
+        /// Metodo que retorna la informacion de la table para exportacion
+        /// </summary>
+        /// <param name="exportacionModel"></param>
+        /// <param name="currentRow"></param>
+        /// <param name="especficacionCliente"></param>
+        /// <returns></returns>
         private DataTable GetInfoTablaAnalisis(ExportacionModel exportacionModel, DataGridViewRow currentRow, DataTable especficacionCliente)
         {
             DataTable dtInfoAnalisis = new DataTable();
@@ -463,6 +466,38 @@ namespace Fundimetal.App
             return dtInfoAnalisis;
         }
 
+        /// <summary>
+        /// Metodo que retorna la informacion de la table para exportacion
+        /// </summary>
+        /// <param name="exportacionModel"></param>
+        /// <param name="currentRow"></param>
+        /// <param name="especficacionCliente"></param>
+        /// <returns></returns>
+        private DataTable GetInfoTablaAnalisisExportacionV2(ExportacionModel exportacionModel, DataGridViewRow currentRow, DataTable especficacionCliente)
+        {
+           
+            DataTable dtelementos = exportacionModel.dtElementos;
+
+            DataRow drow = dtelementos.NewRow();
+
+             //   var name_column = datosVisor.SelectedRows[i].Cells[j].OwningColumn.HeaderText;
+            foreach (DataRow rowClienteEspecificacion in especficacionCliente.Rows) 
+            {
+               
+                foreach (DataColumn column in dtelementos.Columns)
+                {
+                    //Por cada column de la tabla busco su valor en la especificacion
+                    if (column.ColumnName.ToUpper() == rowClienteEspecificacion["Simbolo"].ToString().ToUpper() )
+                    {
+                        drow[column.ColumnName] = rowClienteEspecificacion["Max"].ToString();
+                    }
+                }
+            }
+            drow[0] = "Specs";
+            dtelementos.Rows.InsertAt(drow, 0);// se inserta en a primera posicion
+
+            return dtelementos;
+        }
 
         private void addlog(string text)
         {
