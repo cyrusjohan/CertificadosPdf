@@ -347,10 +347,12 @@ namespace fundimetal_core
             Font fntBodyNormal = new Font(FontFactory.GetFont("Arial", 12, 0, Color.BLACK));
             Font fntBodyNormal11 = new Font(FontFactory.GetFont("Arial", 11, 0, Color.BLACK));
             Font fntBodyNormal10 = new Font(FontFactory.GetFont("Arial", 10, 0, Color.BLACK));
+            Font fntBodyNormal8 = new Font(FontFactory.GetFont("Arial", 8, 0, Color.BLACK));
             Font fntBodyNormal9 = new Font(FontFactory.GetFont("Arial", 9, 0, Color.BLACK));
+            Font fntBodyNormal7 = new Font(FontFactory.GetFont("Arial", 7, 0, Color.BLACK));
 
             #endregion
-          
+
             document.Add(addSpace(17));
             #region encabezado Documento
 
@@ -442,11 +444,12 @@ namespace fundimetal_core
             document.Add(table_enc);
 
             #region TABLA MELTS
+            
             PdfPTable table_melts = new PdfPTable(exportacionModel.dtMelts.Columns.Count + 1)  //Se adiciona columna melts
             {
                 WidthPercentage = 100
             };
-            table_melts.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
+           // table_melts.DefaultCell.Phrase = new Phrase() { Font =  new Font(FontFactory.GetFont("Arial", 7, 0, Color.BLACK)) };
            
             table_melts.SpacingAfter = 5f;
 
@@ -458,6 +461,7 @@ namespace fundimetal_core
             // Adicon de valores de los lotes
             for (int j = 0; j < exportacionModel.dtMelts.Columns.Count; j++)
             {
+               
                 table_melts.AddCell(exportacionModel.dtMelts.Columns[j].ToString());
             }
 
@@ -508,7 +512,7 @@ namespace fundimetal_core
             {
                 WidthPercentage = 100
             };
-            tabla_analisis_quimico.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal9 };
+            tabla_analisis_quimico.DefaultCell.Phrase = new Phrase() { Font = fntBodyNormal8 };
 
             foreach (var columna in tablaAnalisQuimico.Columns)
             {
@@ -519,7 +523,8 @@ namespace fundimetal_core
             {
                 for (int j = 0; j < tablaAnalisQuimico.Columns.Count; j++)
                 {
-                    tabla_analisis_quimico.AddCell(tablaAnalisQuimico.Rows[i][j].ToString());
+                     PdfPCell cellElemento = new PdfPCell(new Phrase(tablaAnalisQuimico.Rows[i][j].ToString(), fntBodyNormal8));
+                    tabla_analisis_quimico.AddCell(cellElemento);
                 }
             }
 

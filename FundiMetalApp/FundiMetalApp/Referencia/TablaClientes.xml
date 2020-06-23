@@ -1,164 +1,203 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Clientes>
-  <Cliente>
-    <Id>1</Id>
-    <Nombre>Por defecto</Nombre>
-    <Descripcion>Configuracion usuada para especificaciones por defecto</Descripcion>
-    <Elementos>
-      <Elemento>
-        <Id>1</Id>
-        <Nombre>Estaño</Nombre>
-        <Simbolo>Sn</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.002</Max>
-      </Elemento>
+	<Cliente>
+		<Id>1</Id>
+		<Nombre>Por defecto</Nombre>
+		<Descripcion>Configuracion usuada para especificaciones por defecto</Descripcion>
+		<Elementos>
+			<Elemento>
+				<Id>1</Id>
+				<Nombre>Estaño</Nombre>
+				<Simbolo>Sn</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.002</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>2</Id>
-        <Nombre>Antimonio</Nombre>
-        <Simbolo>Sb</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.003</Max>
-      </Elemento>
+			<Elemento>
+				<Id>2</Id>
+				<Nombre>Antimonio</Nombre>
+				<Simbolo>Sb</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.003</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>3</Id>
-        <Nombre>Arsenico</Nombre>
-        <Simbolo>As</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.004</Max>
-      </Elemento>
+			<Elemento>
+				<Id>3</Id>
+				<Nombre>Arsenico</Nombre>
+				<Simbolo>As</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.004</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>4</Id>
-        <Nombre>Cobre</Nombre>
-        <Simbolo>Cu</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.005</Max>
-      </Elemento>
+			<Elemento>
+				<Id>4</Id>
+				<Nombre>Cobre</Nombre>
+				<Simbolo>Cu</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.005</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>5</Id>
-        <Nombre>Niquel</Nombre>
-        <Simbolo>Ni</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.006</Max>
-      </Elemento>
+			<Elemento>
+				<Id>5</Id>
+				<Nombre>Niquel</Nombre>
+				<Simbolo>Ni</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.006</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>6</Id>
-        <Nombre>Bismuto</Nombre>
-        <Simbolo>Bi</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.007</Max>
-      </Elemento>
-    </Elementos>
+			<Elemento>
+				<Id>6</Id>
+				<Nombre>Bismuto</Nombre>
+				<Simbolo>Bi</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.007</Max>
+			</Elemento>
 
-  </Cliente>
+		
+			<Elemento>
+				<Id>7</Id>
+				<Nombre>Telurio</Nombre>
+				<Simbolo>Te</Simbolo>
+				<Min>0.0011234</Min>
+				<Max>0.00712354</Max>
+			</Elemento>
+			<Elemento>
+				<Id>8</Id>
+				<Nombre>Hierro</Nombre>
+				<Simbolo>Fe</Simbolo>
+				<Min>0.0011234</Min>
+				<Max>0.00712354</Max>
+			</Elemento>
 
-  <Cliente>
-    <Id>2</Id>
-    <Nombre>Puro</Nombre>
-    <Descripcion>Configuracion personalizada</Descripcion>
-    <Elementos>
-      <Elemento>
-        <Id>1</Id>
-        <Nombre>Estaño</Nombre>
-        <Simbolo>Sn</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.001</Max>
-      </Elemento>
+			<Elemento>
+				<Id>9</Id>
+				<Nombre>Plata</Nombre>
+				<Simbolo>Ag</Simbolo>
+				<Min>0.0011234</Min>
+				<Max>0.00712354</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>2</Id>
-        <Nombre>Antimonio</Nombre>
-        <Simbolo>Sb</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.001</Max>
-      </Elemento>
+			<Elemento>
+				<Id>10</Id>
+				<Nombre>Aluminio</Nombre>
+				<Simbolo>Ai</Simbolo>
+				<Min>0.0011234</Min>
+				<Max>0.00712354</Max>
+			</Elemento>
+		<Elemento>
+				<Id>11</Id>
+				<Nombre>Plomo</Nombre>
+				<Simbolo>Pb</Simbolo>
+				<Min>0.0011234</Min>
+				<Max>0.00712354</Max>
+			</Elemento>
+		</Elementos>
 
-      <Elemento>
-        <Id>3</Id>
-        <Nombre>Arsenico</Nombre>
-        <Simbolo>As</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.001</Max>
-      </Elemento>
+	</Cliente>
 
-      <Elemento>
-        <Id>4</Id>
-        <Nombre>Cobre</Nombre>
-        <Simbolo>Cu</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.001</Max>
-      </Elemento>
+	<Cliente>
+		<Id>2</Id>
+		<Nombre>Puro</Nombre>
+		<Descripcion>Configuracion personalizada</Descripcion>
+		<Elementos>
+			<Elemento>
+				<Id>1</Id>
+				<Nombre>Estaño</Nombre>
+				<Simbolo>Sn</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.001</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>5</Id>
-        <Nombre>Niquel</Nombre>
-        <Simbolo>Ni</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.001</Max>
-      </Elemento>
+			<Elemento>
+				<Id>2</Id>
+				<Nombre>Antimonio</Nombre>
+				<Simbolo>Sb</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.001</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>6</Id>
-        <Nombre>Bismuto</Nombre>
-        <Simbolo>Bi</Simbolo>
-        <Min>0.001</Min>
-        <Max>0.001</Max>
-      </Elemento>
-    </Elementos>
+			<Elemento>
+				<Id>3</Id>
+				<Nombre>Arsenico</Nombre>
+				<Simbolo>As</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.001</Max>
+			</Elemento>
 
-  </Cliente>
+			<Elemento>
+				<Id>4</Id>
+				<Nombre>Cobre</Nombre>
+				<Simbolo>Cu</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.001</Max>
+			</Elemento>
 
-  <Cliente>
-    <Id>3</Id>
-    <Nombre>Efe 3.335</Nombre>
-    <Descripcion>Configuracion personalizada</Descripcion>
-    <Elementos>
-      <Elemento>
-        <Id>1</Id>
-        <Nombre>Estaño</Nombre>
-        <Simbolo>Sn</Simbolo>
-        <Min>0.15</Min>
-        <Max>0.25</Max>
-      </Elemento>
+			<Elemento>
+				<Id>5</Id>
+				<Nombre>Niquel</Nombre>
+				<Simbolo>Ni</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.001</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>2</Id>
-        <Nombre>Antimonio</Nombre>
-        <Simbolo>Sb</Simbolo>
-        <Min>3.2</Min>
-        <Max>3.50</Max>
-      </Elemento>
+			<Elemento>
+				<Id>6</Id>
+				<Nombre>Bismuto</Nombre>
+				<Simbolo>Bi</Simbolo>
+				<Min>0.001</Min>
+				<Max>0.001</Max>
+			</Elemento>
+		</Elementos>
 
-      <Elemento>
-        <Id>3</Id>
-        <Nombre>Arsenico</Nombre>
-        <Simbolo>As</Simbolo>
-        <Min>0.10</Min>
-        <Max>0.20</Max>
-      </Elemento>
+	</Cliente>
 
-      <Elemento>
-        <Id>4</Id>
-        <Nombre>Cobre</Nombre>
-        <Simbolo>Cu</Simbolo>
-        <Min>0.02</Min>
-        <Max>0.050</Max>
-      </Elemento>
+	<Cliente>
+		<Id>3</Id>
+		<Nombre>Efe 3.335</Nombre>
+		<Descripcion>Configuracion personalizada</Descripcion>
+		<Elementos>
+			<Elemento>
+				<Id>1</Id>
+				<Nombre>Estaño</Nombre>
+				<Simbolo>Sn</Simbolo>
+				<Min>0.15</Min>
+				<Max>0.25</Max>
+			</Elemento>
 
-      <Elemento>
-        <Id>5</Id>
-        <Nombre>Niquel</Nombre>
-        <Simbolo>Ni</Simbolo>
-        <Min></Min>
-        <Max>0.002</Max>
-      </Elemento>
+			<Elemento>
+				<Id>2</Id>
+				<Nombre>Antimonio</Nombre>
+				<Simbolo>Sb</Simbolo>
+				<Min>3.2</Min>
+				<Max>3.50</Max>
+			</Elemento>
+
+			<Elemento>
+				<Id>3</Id>
+				<Nombre>Arsenico</Nombre>
+				<Simbolo>As</Simbolo>
+				<Min>0.10</Min>
+				<Max>0.20</Max>
+			</Elemento>
+
+			<Elemento>
+				<Id>4</Id>
+				<Nombre>Cobre</Nombre>
+				<Simbolo>Cu</Simbolo>
+				<Min>0.02</Min>
+				<Max>0.050</Max>
+			</Elemento>
+
+			<Elemento>
+				<Id>5</Id>
+				<Nombre>Niquel</Nombre>
+				<Simbolo>Ni</Simbolo>
+				<Min></Min>
+				<Max>0.002</Max>
+			</Elemento>
 
 
-    </Elementos>
+		</Elementos>
 
-  </Cliente>
+	</Cliente>
 </Clientes>
