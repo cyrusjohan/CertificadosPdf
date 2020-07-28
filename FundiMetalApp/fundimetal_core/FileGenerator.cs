@@ -499,7 +499,7 @@ namespace fundimetal_core
             //table_quimical_father.LockedWidth = true;
 
 
-            PdfPCell cell_chemical = new PdfPCell(new Phrase("CHEMICAL COMPOSITION"));
+            PdfPCell cell_chemical = new PdfPCell(new Phrase("CHEMICAL COMPOSITION %"));
             cell_chemical.BorderWidthBottom = 0;
             cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
 
